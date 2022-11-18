@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\imagenes\imagenVioleta.jpg"
+        type="image">
+    <meta name="description"
+        content="somos un espacio que busca unificar diferentes estilos de diseño, arte y expresión cultural, ofrecemos una plataforma de intercambio de trabajos en donde se puede comprar piezas originales de autor.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\cssBoostrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:ital,wght@0,200;0,300;0,500;1,100&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Manrope:wght@200;300;400&family=Noto+Sans:ital,wght@0,200;0,300;0,500;1,100&display=swap"
+        rel="stylesheet">
+    <title>WeFind</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light" class="navbar" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">We Find</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse wf-menu" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Diseños</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Artistas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Marcas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Comunidad
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Quienes somos</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Cómo funciona</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Beneficiados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Yo Diseño
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Nuestros cursos</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Categorías</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Experiencias</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Inspiración
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Explorá trabajos de diseño</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Blogs</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Novedades semanales</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tu marca
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profesionalizate</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Freelancer</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Equipos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    </nav>
+    <header>
+        <section id="wf-sect1" class="wf-sect">
+            <video class="video1"
+                src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-engin-akyurt-7217874 - copia (comprimido).mp4"
+                autoplay="true" muted="true" loop="true" poster=""></video>
+            <div class="wf-containerTexto">
+                <h1 class="textoInicial">Explorá porfolios de diseños premiados</h1>
+                <h2 class="descripcionInicial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                    repellat, reiciendis, nesciunt explicabo illum mollitia numquam .</h2>
+            </div>
+        </section>
+    </header>
+    <section id="wf-sect2" class="sect">
+        <h2 class="presentacion"> a los que les gusta la moda, el Fly, el Diseño y el Perreo
+            Intenso. Animación, Ilustración, Diseño web y cantidad de cosas más..
+            Acá vas a encontrar lo que buscas perro malvado.</h2>
+    </section>
+    <section id="wf-sect3" class="sect">
+        <video class="video2"
+            src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-alena-darmel-7237094 - copia (comprimido).mp4"
+            autoplay="true" muted="true" loop="true"></video>
+        <div class="wf-containerTexto3">
+            <h1 class="wf-tituloSect3">Descubrí proyectos de Inspiración</h1>
+            <div class="wf-flex-descripcionInicial3">
+                <h3 class="busquedaTema">Productos</h3>
+                <h3 class="busquedaTema">Tipografía</h3>
+                <h3 class="busquedaTema">Diseño Web</h3>
+                <h3 class="busquedaTema">Diseño Apps</h3>
+                <h3 class="busquedaTema">Ilustración</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <br>
+
+    <section>
+        <div class="container-fluidTarjetas wf-containerTarjetas">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenVioleta.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Softer</h3>
+                            <p class="card-text">This is a multipurpose branding logo identity.Personalized and unique
+                                brands that will reveal who you are.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenTomato2.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Tomato Soup</h3>
+                            <p class="card-text">My own rendition of the Campbell's Soup Can made famous by Any Warhol.
+                                -Andrew Footit-
+                            </p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenFantasma.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Ghost Pals</h3>
+                            <p class="card-text">Wandering ghosts that will blow your mind with their creativity.Don't
+                                let terror keep you from this play. -Aleisha Samek-
+                            </p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenSalem.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Hocus Pocus</h3>
+                            <p class="card-text">Halloween's favorite sisters! This Hocus Pocus was drawn up to be made
+                                a Halloween t-shirt. -Zach Hannibal-
+                            </p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenTigre.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Sensitive Tiger</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Duck Duck Pal</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenAstrologia.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Astrology</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenClipings.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Best Clippings</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenHype.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Hype!</h3>
+                            <p class="card-text">Pop style street fashion, you're going to want to see what this is all
+                                about.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenNave.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Space Travel</h3>
+                            <p class="card-text">Elon Musk will be envying these prototypes. I'll be waiting for you in
+                                the next galaxy.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenDog.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Doberman Power</h3>
+                            <p class="card-text">Canine energy for all your environments. Remember to take him out for a
+                                walk.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-xl-3">
+                    <div class="card mt-3 mb-2">
+                        <img class="card-img-top" src="imagenes/imagenKB.jpg" class="img-fluid">
+                        <div class="card-body">
+                            <h3 class="card-title">Kill Bill Sessions</h3>
+                            <p class="card-text">This is your last chapter my old friend. This fight will finish you.
+                                See you in the afterlife.</p>
+                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-fluid">
+            <ul class="nav justify-content-evenly p-3 mb-3">
+                <li class="nav-item"><button type="button" class="btn btn-primary p-3"> facebook </button></li>
+                <li class="nav-item"><button type="button"
+                        class="btn btn-success p-3 wf-btn-instagram">instagram</button></li>
+                <li class="nav-item"><button type="button" class="btn btn-primary p-3"> twitter</button></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <!--PRUEBA DE FORMULARIO ----------------------------------------------------------------------------------------------->
+
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 my-4">
+                    <ul class="list-unstyled d-flex flex-column flex-md-row justify-content-between">
+                        <li><a href="./index.html" class="text-white">Inicio</a></li>
+                        <li>
+                            <a href="./NuestroConcepto.html" class="text-white">Mascotas perdidas</a>
+                        </li>
+                        <li>
+                            <a href="./Productos.html" class="text-white">Productos</a>
+                        </li>
+                        <li>
+                            <a href="./Colecciones.html" class="text-white">Razas</a>
+                        </li>
+                        <li>
+                            <a href="./Contacto.html" class="text-white">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+                    viewBox="0 0 24 24">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                    </path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                <strong>Poin</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="divmayor">
+            <h1 class="fraseinicial fw-light py-4">
+                Para mas informacion puede comunicarse al siguiente formulario de
+                contacto
+            </h1>
+        </div>
+    </div>
+    <div class="container row my-0 mx-auto">
+        <div class="col-md-12 col-lg-12">
+            <h4 class="mb-3">Nuestro Formulario</h4>
+            <form class="needs-validation" novalidate="">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" />
+                    </div>
+
+                    <div class="col-6">
+                        <label for="email" class="form-label">Email <span class="text-muted">(Opcional)</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="tu@correo.com" />
+                    </div>
+
+                    <div class="col-6">
+                        <label for="address" class="form-label">Domicilio</label>
+                        <input type="text" class="form-control" id="address" placeholder="San Martin 345" required="" />
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="country" class="form-label">Pais</label>
+                        <select class="form-select" id="country" required="">
+                            <option value="">Elegir...</option>
+                            <option>Argentina</option>
+                            <option>Chile</option>
+                            <option>Brasil</option>
+                            <option>Uruguay</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="state" class="form-label">Provincia</label>
+                        <select class="form-select" id="state" required="">
+                            <option value="">Elegir...</option>
+                            <option>Buenos Aires</option>
+                            <option>Mendoza</option>
+                            <option>Córdoba</option>
+                            <option>Santa Fe</option>
+                            <option>Tucumán</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="zip" class="form-label">Código Postal</label>
+                        <input type="text" class="form-control" id="zip" placeholder="" required="" />
+                    </div>
+                </div>
+                <div class="my-5 text-center">
+                    <button class="w-25 btn btn-primary btn-lg" type="submit">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <ul class="footerindex">
+            <li class="nuestraCom">Nuestra comunidad</li>
+            <li class="mediosDePago">Medios de pago</li>
+            <li class="beneficios">Beneficios</li>
+            <li class="contacto">Contacto</li>
+            <li class="envios">Envios</li>
+            <li class="nuestrosLocales">Nuestros Locales</li>
+        </ul>
+    </footer>
+    <div>
+        <h3>CONTACTO</h3>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./js/segundo.js"></script>
+    <script src="./js/tercero.js"></script>
+
+
+</body>
+
+</html>
