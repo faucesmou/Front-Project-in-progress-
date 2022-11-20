@@ -118,56 +118,92 @@ presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el
 
 
 
-//STORAGE & JASON-------SI FUNCIONA---------------------------------------------------------------------------------------------------->
+//STORAGE & JASON-------SI FUNCIONA-------------------------------------------------------------------------------------------->
 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
 //almacenar producto por producto
-/*
-for (const itemAutor of Producto) {
-    guardarLocal(producto.autor, JSON.stringify(Producto));
-}
-*/
+
+//for (const itemAutor of Producto) {
+// guardarLocal(producto.autor, JSON.stringify(Producto));
+// }
+
 // o almacenar array completo
 
-// guardarLocal("listaProductos", JSON.stringify(producto1));
-// console.log(producto1);
+//guardarLocal("listaProductos", JSON.stringify(producto1));
+//console.log(producto1);
+
+// function guardarLS(arr) {
+//     localStorage.setItem("datosFormulario", JSON.stringify(arr));
+// }
 
 // const guardarDatosFormulario = () => {
 
-//     const firstName = document.getElementById("firstName");
+//     const nombre = document.getElementById("firstName");
+//     guardarLocal(nombre, JSON.stringify(nombre))
+//     const apellido = document.getElementById("lastName");
+//     const mail = document.getElementById("email");
+// }
+// console.log(guardarDatosFormulario);
+
 
 // llamar a cada uno de los inputs}
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
+//STORAGE & JASON PRUEBO ALMACENAR DATOS FORMULARIO------------------------------------------------------------------------->
 
+const CamposFormulario = [];
+console.log(CamposFormulario);
+
+function cargarACamposFormulario(CamposFormulario, valor) {
+    CamposFormulario.push(valor);
+}
+
+function guardarDatosFormulario() {
+    const nombre = document.getElementById("firstName");
+    cargarACamposFormulario(CamposFormulario, nombre);
+    const apellido = document.getElementById("lastName");
+    cargarACamposFormulario(CamposFormulario, apellido);
+    const mail = document.getElementById("email");
+    cargarACamposFormulario(CamposFormulario, mail);
+    console.log(nombre);
+}
+
+
+function guardarLS(CamposFormulario) {
+    localStorage.setItem("datosFormulario", JSON.stringify(CamposFormulario));
+}
+
+BotonFormulario.addEventListener("click", () => {
+    guardarDatosFormulario;
+    guardarLS;
+    console.log(CamposFormulario);
+});
+//console.log(CamposFormulario);
+
+//FIN ---------------------------------------------------------------------------------------------------------------------->
 
 //EVENTOS---------NO FUNCIONA ----------------------------------------------------------------------------------------------->
 
-//const BtnBuscar = document.querySelectorAll("btn btn-outline-success");
 
 const BtnBuscar = document.getElementById("BotonBuscar");
-// BtnBuscar1.addEventListener('click', () => {
-// console.log("hiciste click");})
-// console.log(BtnBuscar1);
+BtnBuscar.addEventListener('click', () => {
+    console.log("hiciste click");
+})
+console.log(BtnBuscar);
 
 
 // const Busqueda = document.getElementsByClassName("busquedaTema");
 // console.log(Busqueda[2].innerText = 'ARGENTINA VIEJAA'); /* ESTE SI FUNCIONA! */
-
-/*BtnBuscar.addEventListener('click', () => {
-    console.log('hiciste click');  NO FUNCIONA EN LA CONSOLA TIRA "NO ES UNA FUNCIÓN" 
-})
-*/
 
 
 // const PrimerNombre = document.getElementById("firstName");
 // PrimerNombre.addEventListener("input", () => {
 // }
 
-// ALMACENES--------------------->
+// ALMACENES---------------------------------------------------------------------------------------------------------------->
 
 //const almacen = [producto1, producto2, producto3];
 
@@ -178,7 +214,7 @@ const almacen2 = [producto1, producto2, producto3, producto4, producto5, product
 const carrito = [];
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE BÚSQUEDA POR NOMBRE DE AUTOR DE PRODUCTO BOTON BUSCAR----FUNCIONA---------------------------------------------------->
+//PRUEBA DE BÚSQUEDA POR NOMBRE DE AUTOR DE PRODUCTO BOTON BUSCAR----FUNCIONA----------------------------------------------->
 
 // function buscarProductoAutor(almacen2, filtro) {
 //     const encontrado = almacen2.find((producto) => {
@@ -192,7 +228,8 @@ const carrito = [];
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE BÚSQUEDA POR PRECIO DE PRODUCTO BOTON BUSCAR-----------FUNCIONA--------------------------------------------->
+
+//PRUEBA DE BÚSQUEDA POR PRECIO DE PRODUCTO BOTON BUSCAR-----------FUNCIONA------------------------------------------------->
 
 // function filtrarPorPrecio(arr, filtro) {
 //     return almacen2.filter((producto) => {
@@ -205,7 +242,8 @@ const carrito = [];
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE FUNCIÓN PARA CARGAR PRODUCTOS FILTRADOS AL CARRITO-----------FUNCIONA--------------------------------------------->
+
+//PRUEBA DE FUNCIÓN PARA CARGAR PRODUCTOS FILTRADOS AL CARRITO-----------FUNCIONA------------------------------------------->
 
 // function cargarAlCarrito(carrito, valor) {
 //     carrito.push(valor);
@@ -222,7 +260,8 @@ const carrito = [];
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE FUNCIÓN PARA SABER EL PRECIO FINAL DEL CARRITO-------------------NO FUNCIONA------------------------------------->
+
+//PRUEBA DE FUNCIÓN PARA SABER EL PRECIO FINAL DEL CARRITO-------------------NO FUNCIONA------------------------------------>
 
 // let PrecioFinal = carrito.reduce((acc, producto1) => {
 //     return acc + producto1.precio;
@@ -232,74 +271,45 @@ const carrito = [];
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
+
 //PRUEBA DE FUNCIÓN PARA APLICAR BUSCAR PRODUCTOS MEDIANTE INPUT DE BUSCAR NAVBAR ---NO FUNCIONA---------------------------->
 
 // const BtnBuscarNavBar = document.getElementById("BotonBuscar");
-// BtnBuscar.addEventListener('input', () => {
+// BtnBuscarNavBar.addEventListener('input', () => {
 //     const encontradoFinal = buscarProductoAutor(almacen2, producto)
 //     console.log(encontradoFinal);
 // })
 
 
-//PRUEBA DE USO DE FORMULARIO PARA LLENAR CAMPOS Y GUARDARLOS EN LOCAL STORAGE---------------------------------------------->
-//const formulario = document.querySelector("needs-validation") Esta forma de llamar no la toma.
+//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE LA PÁGINA AL APRETAR ENVIAR---FUNCIONA PERO NO TOMA LOS HIJOS DEL FORMULARIO------------------------->
 
-const formulario = document.getElementById("formulario")
-console.log(formulario); //la primera vez lo pinta y se ven textos en azul y la segunda vez que recargo se ve distinto. 
+//const formulario = document.querySelector("needs-validation") //Esta forma de llamar no la toma.
 
+// const formulario = document.getElementById("formulario")
+// console.log(formulario); //la primera vez lo pinta y se ven textos en azul y la segunda vez que recargo se ve distinto. 
+// formulario.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     //console.log(e.target);
+//     console.log("formulario enviado");
+//     let formularioCampos = e.target;
+    //console.log(formularioCampos);
+    //console.log(formularioCampos.children[1].value); //no accede a la información ya que contenedor formulario contiene solo 2 hijos: row g-3 y my-5 text center.})
 
-
-
-
-
-
-
-
+// const BotonBuscar = document.getElementById("BotonBuscar")
+// console.log(BotonBuscar);
+// BotonBuscar.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     //console.log(e.target);
+//     console.log("Busqueda realizada");
+//     let CampoBuscado = e.target;
+//     console.log(CampoBuscado.children[0].value); // no accede a la información cargada en el campo. 
+// })
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
-
-//     const encontrado = buscarProducto(almacen2)})
-
-
-
-
-
-//    guardarLocal("firstName", JSON.stringify(firstName)));
-
-// const BotonFormulario = document.getElementById('BotonFormulario');
-// console.log(BotonFormulario);
-
-// BotonFormulario.addEventListener('click', () => {
-//     console.log("hiciste click");
-// })
-// variabte con ONCLICK----------------------->
-// BotonFormulario.onclick = () => {
-//     console.log("hiciste click");
-// }
-
-
-// BotonFormulario.addEventListener("click", guardarDatosFormulario);
 
 
 
 //acá la idea es agregar addEventListener para capturar los datos recopilados en el formulario y guardarlos en el local storage. 
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-// al tener  ésto :btn btn-outline-success
-// el código no sabe que clase tomar.
-// No se puede pasar como parámetro muchas clases para tomar un elemento a través del DOM. Solo una clase.
-
-// Lo que te mencionaba sobre los id es que al ser un identificador único, puede generar menos errores que tomarlo por clases.
-
-// Para definir un lugar para visualizar algo a través del DOM, tendrías que definir un div en el html en algún lugar y colocarle un id, el cual lo tomarías con js para renderizar elementos
+// consejo: Para definir un lugar para visualizar algo a través del DOM, tendrías que definir un div en el html en algún lugar y colocarle un id, el cual lo tomarías con js para renderizar elementos
