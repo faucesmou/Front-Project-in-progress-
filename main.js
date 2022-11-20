@@ -55,7 +55,7 @@ const presenta = document.getElementsByClassName("presentacion");
 presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el Fly, el Diseño y el Perreo Intenso. Animación, Ilustración, Diseño web y cantidad de cosas más.. Acá vas a encontrar lo que buscas perro malvado."
 
 */
-//MODIFICACIÓN DEL HTML DESDE DOM----------------------------------FUNCIONA MASOMENO-------------------------------------->
+//MODIFICACIÓN DEL HTML DESDE DOM----------------------------------FUNCIONA MASOMENOS-------------------------------------->
 // const h2 = document.getElementsByTagName('h2');
 // console.log(h2[0]);
 
@@ -64,16 +64,16 @@ presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el
 
 
 
-//CREO ELEMENTOS DESDE JS------------------------------------------SI FUNCIONA--------------------------------------------->
-// const parrafo = document.createElement('p')
-// parrafo.innerHTML = "<h4>Recorré la experiencia, conocé artistas y revolucioná tu estilo</h4>";
-// //agrego al DOM:
-// document.body.append(parrafo);
-// h2[1].appendChild(parrafo);
+//CREO ELEMENTOS DESDE JS------------------------------------------SI FUNCIONA----------------------------------***----------->
+const parrafo = document.createElement('p')
+parrafo.innerHTML = "<h4>Recorré la experiencia, conocé artistas y revolucioná tu estilo</h4>";
+//agrego al DOM:
+document.body.append(parrafo); //cómo colocarlo donde yo quiero (buscar)
+//h2[1].appendChild(parrafo);
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
-//AGREGAR DINÁMICAMENTE ITEMS A UNA LISTA DESDE JS----------------SI FUNCIONA------>
+//AGREGAR DINÁMICAMENTE ITEMS A UNA LISTA DESDE JS----------------SI FUNCIONA-------------------------------------------***-->
 
 // const paises = ["Jamaica", "Japon", "Nueva zelanda"];
 
@@ -86,9 +86,9 @@ presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
-// AGREGAR DINÁMICAMENTE SECTORES DE HTML A UNA LISTA DESDE JS------------------------------------------------>
+// AGREGAR DINÁMICAMENTE SECTORES DE HTML A UNA LISTA DESDE JS------------------------***------------------------>
 
-// Consulta: a continuación si hago el for con producto1, la consola dice que no se puede iterar, no comprendo porqué.
+// Consulta 1: a continuación si hago el for con producto1, la consola dice que no se puede iterar, no comprendo porqué.
 // Consulta 2 : cómo se hace para colocar los divs en otro lugar, donde yo quiera posicionarlo en la página.  
 // Consulta 3 : donde dice li.innerHTML, 
 
@@ -110,6 +110,7 @@ presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el
 
 
 // USO DE INTERPOLACIÓN Y BACKTIS O ACCENT INVERTIDOS PARA IMPLEMENTAR UNA PLANTILLA---------SI FUNCIONA------------->
+
 // let plantilla = `Categoría ${producto1.tipo} Título ${producto2.titulo} Autor ${producto3.autor} Color ${producto4.color} Precio ${producto5.precio}`;
 // console.log(plantilla);
 
@@ -185,11 +186,27 @@ BotonFormulario.addEventListener("click", () => {
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//EVENTOS---------NO FUNCIONA ----------------------------------------------------------------------------------------------->
 
+// ALMACENES---------------------------------------------------------------------------------------------------------------->
+
+//const almacen = [producto1, producto2, producto3];
+
+const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
+
+//EVENTOS---------SI FUNCIONA  INTENTO ACTIVAR BÚSQUEDA: ----------------------------------------------------------------------------------------------->
+
+
+function EncontrarArtista(arr, filtro) {
+    const encontrado = arr.find((producto) => {
+        //return producto.autor == filtro;
+        return producto.autor.includes(filtro);
+    })
+    return encontrado;
+}
 
 const BtnBuscar = document.getElementById("BotonBuscar");
 BtnBuscar.addEventListener('click', () => {
+    EncontrarArtista(almacen2,)
     console.log("hiciste click");
 })
 console.log(BtnBuscar);
@@ -203,11 +220,7 @@ console.log(BtnBuscar);
 // PrimerNombre.addEventListener("input", () => {
 // }
 
-// ALMACENES---------------------------------------------------------------------------------------------------------------->
 
-//const almacen = [producto1, producto2, producto3];
-
-const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
 
 
 //CARRITO------------------------------------------------------------------------------------------------------------------->
