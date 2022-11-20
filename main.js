@@ -155,33 +155,41 @@ const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
 //STORAGE & JASON PRUEBO ALMACENAR DATOS FORMULARIO------------------------------------------------------------------------->
 
-const CamposFormulario = [];
-console.log(CamposFormulario);
+const camposFormulario = [];
+console.log(camposFormulario);
 
-function cargarACamposFormulario(CamposFormulario, valor) {
-    CamposFormulario.push(valor);
+//function cargarACamposFormulario(camposFormulario, valor) { 
+//    camposFormulario.push(valor);
+//} Esto no porque: "CamposFormulario no deberías pasarlo como parámetro porque ya es una variable global, podemos acceder igual" entonces se hace de la siguiente manera: 
+
+function cargarACamposFormulario(valor) {
+    camposFormulario.push(valor);
 }
 
 function guardarDatosFormulario() {
-    const nombre = document.getElementById("firstName");
-    cargarACamposFormulario(CamposFormulario, nombre);
-    const apellido = document.getElementById("lastName");
-    cargarACamposFormulario(CamposFormulario, apellido);
-    const mail = document.getElementById("email");
-    cargarACamposFormulario(CamposFormulario, mail);
+    const nombre = document.getElementById("firstName").value;
+    cargarACamposFormulario(camposFormulario, nombre);
+    const apellido = document.getElementById("lastName").value;
+    cargarACamposFormulario(camposFormulario, apellido);
+    const mail = document.getElementById("email").value;
+    cargarACamposFormulario(camposFormulario, mail);
     console.log(nombre);
 }
 
 
-function guardarLS(CamposFormulario) {
-    localStorage.setItem("datosFormulario", JSON.stringify(CamposFormulario));
+function guardarLS(camposFormulario) {
+    localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
 
-BotonFormulario.addEventListener("click", () => {
-    guardarDatosFormulario;
-    guardarLS;
-    console.log(CamposFormulario);
+const botonFormulario = document.getElementById("BotonFormulario");
+console.log(botonFormulario);
+
+botonFormulario.addEventListener("click", () => {
+    guardarDatosFormulario();
+    guardarLS();
+    console.log(camposFormulario);
 });
+console.log(camposFormulario);
 //console.log(CamposFormulario);
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
