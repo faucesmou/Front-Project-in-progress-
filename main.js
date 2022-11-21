@@ -208,7 +208,7 @@ const primerBusqueda = document.getElementById("barraBusqueda").value;
 botonBuscar.addEventListener("submit", (e) => {
     e.preventDefault();
     guardarDatosBusquedas();
-    EncontrarArtista(almacen2, primerBusqueda); // CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
+    EncontrarArtista(almacen2, campoBusquedas); // CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
 })
 
 //     //console.log(e.target);
@@ -222,8 +222,33 @@ botonBuscar.addEventListener("submit", (e) => {
 
 
 //STORAGE & JASON ALMACENAMIENTO DE DATOS FORMULARIO------------------------------------------------------------------------->
-
+const suscripcionMail = [];
 const camposFormulario = [];
+
+//Boton de suscribirse
+
+
+var mS = "mail de suscripción"
+const botonSuscribirse = document.getElementById("botonSuscribirse");
+const mailSuscripcion = document.getElementById("recipient-name").value;
+
+function guardarSuscripcionMail(valor) {
+    suscripcionMail.push(valor);
+}
+
+function guardarSuscripcionLSyArr() {
+    const mailSuscripcion = document.getElementById("recipient-name").value;
+    guardarLocal(mS, JSON.stringify(mailSuscripcion));
+    guardarSuscripcionMail(mailSuscripcion);
+}
+
+
+botonSuscribirse.addEventListener("click", () => {
+    guardarSuscripcionLSyArr();
+    console.log(suscripcionMail);
+});
+
+
 
 
 var nF = "nombre del formulario"
@@ -271,6 +296,13 @@ function notificaEnvioFormulario() {
     contenedorBtnFormulario.appendChild(notifica);
 }
 
+
+// let plantilla = `Categoría ${producto1.tipo} Título ${producto2.titulo} Autor ${producto3.autor} Color ${producto4.color} Precio ${producto5.precio}`;
+// console.log(plantilla);
+
+
+
+
 function guardarLS(camposFormulario) {
     localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
@@ -282,6 +314,11 @@ botonFormulario.addEventListener("click", () => {
     console.log(camposFormulario);
 });
 console.log(camposFormulario);
+
+// RECUPERAR STORAGE
+function recuperarNombreLS(storage) {
+    return JSON.parse(storage.getItem("nombre"));
+}
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 

@@ -55,12 +55,7 @@ section .container-fluid {
   font-family: "Manrope";
 }
 
-.navbar-expand-lg
-  .container-fluid
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  .dropdown-item {
+.navbar-expand-lg .container-fluid .navbar-nav .nav-item .dropdown-menu .dropdown-item {
   font-family: "Manrope";
   font-weight: 200;
   font-size: small;
@@ -129,7 +124,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #fbf3f3;
-  height: 150px;
+  height: 400px;
   margin: 0.5em;
 }
 
@@ -252,7 +247,7 @@ body {
       display: flex;
       justify-content: center;
       background-color: rgb(238, 232, 232);
-      height: 150px;
+      height: 300px;
     }
     .presentacion {
       color: black;
