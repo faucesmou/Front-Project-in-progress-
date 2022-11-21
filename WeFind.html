@@ -49,7 +49,7 @@
                             Categorías
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Diseños</a></li>
+                            <li><a class="dropdown-item" href="#ancla-1">Diseños</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -72,7 +72,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Beneficiados</a></li>
+                            <li><a class="dropdown-item" href="#lancha">Contacto</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -122,8 +122,9 @@
                     </li>
                 </ul>
 
-                <form class="d-flex" role="search" id="BotonBuscar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" id="botonBuscar">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        id="barraBusqueda">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
@@ -143,9 +144,8 @@
         </section>
     </header>
     <section id="wf-sect2" class="sect">
-        <h2 class="presentacion"> a los que les gusta la moda, el Fly, el Diseño y el Perreo
-            Intenso. Animación, Ilustración, Diseño web y cantidad de cosas más..
-            Acá vas a encontrar lo que buscas perro malvado.</h2>
+        <h2 class="presentacion"> Somos una empresa de locos a los que les gusta la moda, el Fly, el Diseño y el Perreo
+            Intenso. Animación, Ilustración, Diseño web y cantidad de cosas más..</h2>
     </section>
     <div class="my-5 text-center">
         <button class="w-25 btn btn-primary btn-lg" id="BtnComenzar" type="submit">
@@ -157,7 +157,7 @@
             src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-alena-darmel-7237094 - copia (comprimido).mp4"
             autoplay="true" muted="true" loop="true"></video>
         <div class="wf-containerTexto3">
-            <h1 class="wf-tituloSect3">Descubrí proyectos de Inspiración</h1>
+            <h1 class="wf-tituloSect3" name="refInspiracion" id="refInspiracion">Descubrí proyectos de Inspiración</h1>
             <div class="wf-flex-descripcionInicial3">
                 <h3 class="busquedaTema">Productos</h3>
                 <h3 class="busquedaTema">Tipografía</h3>
@@ -172,7 +172,7 @@
     <br>
 
     <section>
-        <div class="container-fluidTarjetas wf-containerTarjetas">
+        <div class="container-fluidTarjetas wf-containerTarjetas" name="RefProductos" id="RefProductos">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-xl-3">
                     <div class="card mt-3 mb-2">
@@ -316,7 +316,8 @@
     <footer>
         <div class="container-fluid">
             <ul class="nav justify-content-evenly p-3 mb-3">
-                <li class="nav-item"><button type="button" class="btn btn-primary p-3"> facebook </button></li>
+                <li class="nav-item"><button type="button" class="btn btn-primary p-3"
+                        href="https://www.facebook.com/wefindresources"> facebook </button></li>
                 <li class="nav-item"><button type="button"
                         class="btn btn-success p-3 wf-btn-instagram">instagram</button></li>
                 <li class="nav-item"><button type="button" class="btn btn-primary p-3"> twitter</button></li>
@@ -326,6 +327,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+
     <!--PRUEBA DE FORMULARIO ----------------------------------------------------------------------------------------------->
 
     <div class="collapse bg-dark" id="navbarHeader">
@@ -333,18 +335,15 @@
             <div class="row">
                 <div class="col-lg-12 my-4">
                     <ul class="list-unstyled d-flex flex-column flex-md-row justify-content-between">
-                        <li><a href="./index.html" class="text-white">Inicio</a></li>
+                        <li><a href="#" class="text-white">Inicio</a></li>
                         <li>
-                            <a href="./NuestroConcepto.html" class="text-white">Mascotas perdidas</a>
+                            <a class="text-white" href="#lancha">Contacto</a>
                         </li>
                         <li>
-                            <a href="./Productos.html" class="text-white">Productos</a>
+                            <a href="#RefProductos" class="text-white">Productos</a>
                         </li>
                         <li>
-                            <a href="./Colecciones.html" class="text-white">Razas</a>
-                        </li>
-                        <li>
-                            <a href="./Contacto.html" class="text-white">Contacto</a>
+                            <a href="#refInspiracion" class="text-white">Inspiración</a>
                         </li>
                     </ul>
                 </div>
@@ -361,7 +360,7 @@
                     </path>
                     <circle cx="12" cy="13" r="4"></circle>
                 </svg>
-                <strong>Poin</strong>
+                <strongp class="navbar-brand">WeFind</strongp>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                 aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -372,7 +371,7 @@
 
     <div class="container">
         <div id="divmayor">
-            <h1 class="fraseinicial fw-light py-4">
+            <h1 class="fraseinicial fw-light py-4" name="lancha" id="lancha">
                 Para mas informacion puede comunicarse al siguiente formulario de
                 contacto
             </h1>
@@ -430,8 +429,8 @@
                         <input type="text" class="form-control" id="zip" placeholder="" required="" />
                     </div>
                 </div>
-                <div class="my-5 text-center">
-                    <button class="w-25 btn btn-primary btn-lg" id="BotonFormulario" type="submit">
+                <div class="my-5 text-center" id="contenedorBtnFormulario">
+                    <button class="w-25 btn btn-primary btn-lg" id="BotonFormulario" type="">
                         Enviar
                     </button>
                 </div>

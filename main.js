@@ -44,32 +44,32 @@ const producto9 = new Producto("Marca", "Hype!", "manu contreras", "Flúor-Verde
 const producto10 = new Producto("Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400);
 const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500);
 const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400);
-const moco = new Producto("moco", "peludo", "gonzalo morresi", 8400);
 
-// CLASE DOM ------------------------------------------------------------------------------------------------------------------->
 
-//DOM REVISAR DE NUEVO -----------------------------------------NO FUNCIONA------------------------->
-/*
-const presenta = document.getElementsByClassName("presentacion");
 
-presenta.innerText = "Somos una empresa de locos a los que les gusta la moda, el Fly, el Diseño y el Perreo Intenso. Animación, Ilustración, Diseño web y cantidad de cosas más.. Acá vas a encontrar lo que buscas perro malvado."
-
-*/
 //MODIFICACIÓN DEL HTML DESDE DOM----------------------------------FUNCIONA MASOMENOS-------------------------------------->
-// const h2 = document.getElementsByTagName('h2');
+
 // console.log(h2[0]);
 
 // h2[0].className = "textoInicial"
 //textoInicial está en SASS
 
 
-
 //CREO ELEMENTOS DESDE JS------------------------------------------SI FUNCIONA----------------------------------***----------->
+
+const h2 = document.getElementsByTagName('h2');
+//const presenta = document.querySelector("presentacion"); esta manera no me salió 
+//console.log(presenta);
+const parrafoPresenta = document.createElement('p')
+parrafoPresenta.innerHTML = "<h2> Acá vas a encontrar lo que buscas perro malvado.</h2>";
+h2[1].appendChild(parrafoPresenta);
+
+
 const parrafo = document.createElement('p')
-parrafo.innerHTML = "<h4>Recorré la experiencia, conocé artistas y revolucioná tu estilo</h4>";
-//agrego al DOM:
-document.body.append(parrafo); //cómo colocarlo donde yo quiero (buscar)
-//h2[1].appendChild(parrafo);
+parrafo.innerHTML = "<br> <h2>Recorré la experiencia, conocé artistas y revolucioná tu estilo.</h2>";
+h2[1].appendChild(parrafo);
+
+
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
@@ -82,7 +82,8 @@ document.body.append(parrafo); //cómo colocarlo donde yo quiero (buscar)
 // for (const pais of paises) {
 //     const div = document.createElement('div');
 //     div.innerText = pais;
-//     h2[1].appendChild(div)}
+//     h2[1].appendChild(div)
+// }
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
@@ -153,14 +154,85 @@ const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
-//STORAGE & JASON PRUEBO ALMACENAR DATOS FORMULARIO------------------------------------------------------------------------->
+//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE LA PÁGINA AL APRETAR ENVIAR---FUNCIONA PERO NO TOMA LOS HIJOS DEL FORMULARIO------------------------->
+
+//const formulario = document.querySelector("needs-validation") //Esta forma de llamar no la toma.
+
+const formulario = document.getElementById("formulario")
+console.log(formulario); //la primera vez lo pinta y se ven textos en azul y la segunda vez que recargo se ve distinto. 
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
+//console.log(e.target);
+//console.log("formulario enviado");
+//let formularioCampos = e.target;
+//console.log(formularioCampos);
+//console.log(formularioCampos.children[1].value); //no accede a la información ya que contenedor formulario contiene solo 2 hijos: row g-3 y my-5 text center.})
+
+
+
+//---------------------------------------------BotonBuscar---------------------------------------------------------------->
+
+function EncontrarArtista(arr, filtro) {
+    const encontrado = arr.find((producto) => {
+        //return producto.autor == filtro;
+        return producto.autor.includes(filtro);
+    })
+    return encontrado;
+}
+
+// const BtnBuscar = document.getElementById("BotonBuscar");
+// BtnBuscar.addEventListener('click', () => {
+//     EncontrarArtista(almacen2,)
+//     console.log("hiciste click");
+// })
+//console.log(BtnBuscar);
+
+const campoBusquedas = [];
+
+function cargarAcampoBusquedas(valor) {
+    campoBusquedas.push(valor);
+}
+
+function guardarDatosBusquedas() {
+    const primerBusqueda = document.getElementById("barraBusqueda").value;
+    cargarAcampoBusquedas(primerBusqueda);
+    console.log(campoBusquedas);
+}
+
+const BotonBuscar = document.getElementById("botonBuscar")
+console.log(botonBuscar);
+
+const primerBusqueda = document.getElementById("barraBusqueda").value;
+
+botonBuscar.addEventListener("submit", (e) => {
+    e.preventDefault();
+    guardarDatosBusquedas();
+    EncontrarArtista(almacen2, primerBusqueda); // CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
+})
+
+//     //console.log(e.target);
+//     console.log("Busqueda realizada");
+//     let CampoBuscado = e.target;
+//     console.log(CampoBuscado.children[0].value); // no accede a la información cargada en el campo. 
+// })
+
+//FIN ---------------------------------------------------------------------------------------------------------------------->
+
+
+
+//STORAGE & JASON ALMACENAMIENTO DE DATOS FORMULARIO------------------------------------------------------------------------->
 
 const camposFormulario = [];
-console.log(camposFormulario);
 
-//function cargarACamposFormulario(camposFormulario, valor) { 
-//    camposFormulario.push(valor);
-//} Esto no porque: "CamposFormulario no deberías pasarlo como parámetro porque ya es una variable global, podemos acceder igual" entonces se hace de la siguiente manera: 
+
+var nF = "nombre del formulario"
+var aF = "apellido del formulario"
+var mF = "mail del formulario"
+var dF = "domicilio del formulario"
+var pF = "pais del formulario"
+var provF = "provincia del formulario"
+var zF = "zipCode del formulario"
 
 function cargarACamposFormulario(valor) {
     camposFormulario.push(valor);
@@ -168,29 +240,48 @@ function cargarACamposFormulario(valor) {
 
 function guardarDatosFormulario() {
     const nombre = document.getElementById("firstName").value;
-    cargarACamposFormulario(camposFormulario, nombre);
+    cargarACamposFormulario(nombre);
+    guardarLocal(nF, JSON.stringify(nombre));
     const apellido = document.getElementById("lastName").value;
-    cargarACamposFormulario(camposFormulario, apellido);
+    cargarACamposFormulario(apellido);
+    guardarLocal(aF, JSON.stringify(apellido));
     const mail = document.getElementById("email").value;
-    cargarACamposFormulario(camposFormulario, mail);
-    console.log(nombre);
+    cargarACamposFormulario(mail);
+    guardarLocal(mF, JSON.stringify(mail));
+    const domicilio = document.getElementById("address").value;
+    cargarACamposFormulario(domicilio);
+    guardarLocal(dF, JSON.stringify(domicilio));
+    const pais = document.getElementById("country").value;
+    cargarACamposFormulario(pais);
+    guardarLocal(pF, JSON.stringify(pais));
+    const provincia = document.getElementById("state").value;
+    cargarACamposFormulario(provincia);
+    guardarLocal(provF, JSON.stringify(provincia));
+    const zipCode = document.getElementById("zip").value;
+    cargarACamposFormulario(zipCode);
+    guardarLocal(zF, JSON.stringify(zipCode));
 }
 
+const botonFormulario = document.getElementById("BotonFormulario");
+const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
+
+function notificaEnvioFormulario() {
+    const notifica = document.createElement('div');
+    notifica.innerHTML = "<h4>Tu información fue enviada con éxito!</h4>";
+    contenedorBtnFormulario.appendChild(notifica);
+}
 
 function guardarLS(camposFormulario) {
     localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
 
-const botonFormulario = document.getElementById("BotonFormulario");
-console.log(botonFormulario);
-
 botonFormulario.addEventListener("click", () => {
     guardarDatosFormulario();
-    guardarLS();
+    notificaEnvioFormulario();
+    //   guardarLS();
     console.log(camposFormulario);
 });
 console.log(camposFormulario);
-//console.log(CamposFormulario);
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
@@ -204,20 +295,20 @@ const almacen2 = [producto1, producto2, producto3, producto4, producto5, product
 //EVENTOS---------SI FUNCIONA  INTENTO ACTIVAR BÚSQUEDA: ----------------------------------------------------------------------------------------------->
 
 
-function EncontrarArtista(arr, filtro) {
-    const encontrado = arr.find((producto) => {
-        //return producto.autor == filtro;
-        return producto.autor.includes(filtro);
-    })
-    return encontrado;
-}
+// function EncontrarArtista(arr, filtro) {
+//     const encontrado = arr.find((producto) => {
+//         //return producto.autor == filtro;
+//         return producto.autor.includes(filtro);
+//     })
+//     return encontrado;
+// }
 
-const BtnBuscar = document.getElementById("BotonBuscar");
-BtnBuscar.addEventListener('click', () => {
-    EncontrarArtista(almacen2,)
-    console.log("hiciste click");
-})
-console.log(BtnBuscar);
+// const BtnBuscar = document.getElementById("BotonBuscar");
+// BtnBuscar.addEventListener('click', () => {
+//     EncontrarArtista(almacen2,)
+//     console.log("hiciste click");
+// })
+//console.log(BtnBuscar);
 
 
 // const Busqueda = document.getElementsByClassName("busquedaTema");
@@ -301,36 +392,20 @@ const carrito = [];
 //     console.log(encontradoFinal);
 // })
 
-
-//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE LA PÁGINA AL APRETAR ENVIAR---FUNCIONA PERO NO TOMA LOS HIJOS DEL FORMULARIO------------------------->
-
-//const formulario = document.querySelector("needs-validation") //Esta forma de llamar no la toma.
-
-// const formulario = document.getElementById("formulario")
-// console.log(formulario); //la primera vez lo pinta y se ven textos en azul y la segunda vez que recargo se ve distinto. 
-// formulario.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     //console.log(e.target);
-//     console.log("formulario enviado");
-//     let formularioCampos = e.target;
-    //console.log(formularioCampos);
-    //console.log(formularioCampos.children[1].value); //no accede a la información ya que contenedor formulario contiene solo 2 hijos: row g-3 y my-5 text center.})
-
-// const BotonBuscar = document.getElementById("BotonBuscar")
-// console.log(BotonBuscar);
-// BotonBuscar.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     //console.log(e.target);
-//     console.log("Busqueda realizada");
-//     let CampoBuscado = e.target;
-//     console.log(CampoBuscado.children[0].value); // no accede a la información cargada en el campo. 
-// })
-
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
 
-//acá la idea es agregar addEventListener para capturar los datos recopilados en el formulario y guardarlos en el local storage. 
+//OBSERVACIONES---------------------------------------------------------------------------------------------------------------------->
 
-//FIN ---------------------------------------------------------------------------------------------------------------------->
+//function cargarACamposFormulario(camposFormulario, valor) { 
+//    camposFormulario.push(valor);
+//} Esto no porque: "CamposFormulario no deberías pasarlo como parámetro porque ya es una variable global, podemos acceder igual" entonces se hace de la siguiente manera: 
+// function cargarACamposFormulario(valor) {
+//     camposFormulario.push(valor);
+// }
 // consejo: Para definir un lugar para visualizar algo a través del DOM, tendrías que definir un div en el html en algún lugar y colocarle un id, el cual lo tomarías con js para renderizar elementos
+
+
+
+//FIN ---------------------------------------------------------------------------------------------------------------------->
