@@ -46,6 +46,7 @@ const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros",
 const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400);
 
 
+const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
 
 //MODIFICACIÓN DEL HTML DESDE DOM----------------------------------FUNCIONA MASOMENOS-------------------------------------->
 
@@ -170,16 +171,14 @@ formulario.addEventListener("submit", (e) => {
 //console.log(formularioCampos.children[1].value); //no accede a la información ya que contenedor formulario contiene solo 2 hijos: row g-3 y my-5 text center.})
 
 
+//---------------------------------------------PAPELERA---------------------------------------------------------------->
 
-//---------------------------------------------BotonBuscar---------------------------------------------------------------->
-
-function EncontrarArtista(arr, filtro) {
-    const encontrado = arr.find((producto) => {
-        //return producto.autor == filtro;
-        return producto.autor.includes(filtro);
-    })
-    return encontrado;
-}
+// function buscarProductoAutor(almacen2, filtro) {
+//     const encontrado = almacen2.find((producto) => {
+//         return producto.autor.includes(filtro);
+//     });
+//     return encontrado;
+//ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
 
 // const BtnBuscar = document.getElementById("BotonBuscar");
 // BtnBuscar.addEventListener('click', () => {
@@ -187,30 +186,49 @@ function EncontrarArtista(arr, filtro) {
 //     console.log("hiciste click");
 // })
 //console.log(BtnBuscar);
+// function guardarDatosBusquedas() {
+// const primerBusqueda = document.getElementById("barraBusqueda").value;
+// cargarAcampoBusquedas(primerBusqueda);
+// console.log(campoBusquedas);
+// }
 
-const campoBusquedas = [];
+//const primerBusqueda = document.getElementById("barraBusqueda").value;
+// guardarDatosBusquedas();
 
-function cargarAcampoBusquedas(valor) {
-    campoBusquedas.push(valor);
-}
+// function cargarAcampoBusquedas(valor) {
+//     campoBusquedas.push(valor);
+//const campoBusquedas = [];
 
-function guardarDatosBusquedas() {
-    const primerBusqueda = document.getElementById("barraBusqueda").value;
-    cargarAcampoBusquedas(primerBusqueda);
-    console.log(campoBusquedas);
+//comprobación de que anda EncontrarArtista:
+// EncontrarArtista(almacen2, "gonza");
+// ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
+// console.log(ProductoEncontradoArtista);
+//---------------------------------------------BotonBuscar---------------------------------------------------------------->
+
+
+function EncontrarArtista(arr, filtro) {
+    const encontrado = arr.find((producto) => {
+        return producto.autor.includes(filtro);
+    })
+    return encontrado;
 }
 
 const BotonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
-const primerBusqueda = document.getElementById("barraBusqueda").value;
+const usuarioBusqueda = document.querySelector('barraBusqueda').value;
+console.log(usuarioBusqueda);
 
 botonBuscar.addEventListener("submit", (e) => {
+    EncontrarArtista(almacen2, usuarioBusqueda);
+    console.log(usuarioBusqueda);
+    ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
+    console.log(ProductoEncontradoArtista);
     e.preventDefault();
-    guardarDatosBusquedas();
-    EncontrarArtista(almacen2, campoBusquedas); // CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
 })
+//FIN ---------------------------------------------------------------------------------------------------------------------->
 
+// CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
 //     //console.log(e.target);
 //     console.log("Busqueda realizada");
 //     let CampoBuscado = e.target;
@@ -327,7 +345,7 @@ function recuperarNombreLS(storage) {
 
 //const almacen = [producto1, producto2, producto3];
 
-const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
+
 
 //EVENTOS---------SI FUNCIONA  INTENTO ACTIVAR BÚSQUEDA: ----------------------------------------------------------------------------------------------->
 
