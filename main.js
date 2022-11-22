@@ -48,19 +48,11 @@ const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo m
 
 const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
 
-//MODIFICACIÓN DEL HTML DESDE DOM----------------------------------FUNCIONA MASOMENOS-------------------------------------->
 
-// console.log(h2[0]);
-
-// h2[0].className = "textoInicial"
-//textoInicial está en SASS
-
-
-//CREO ELEMENTOS DESDE JS------------------------------------------SI FUNCIONA----------------------------------***----------->
+//CREO ELEMENTOS DESDE JS--------------------------------------------------------------------------------------------------->
 
 const h2 = document.getElementsByTagName('h2');
-//const presenta = document.querySelector("presentacion"); esta manera no me salió 
-//console.log(presenta);
+
 const parrafoPresenta = document.createElement('p')
 parrafoPresenta.innerHTML = "<h2> Acá vas a encontrar lo que buscas perro malvado.</h2>";
 h2[1].appendChild(parrafoPresenta);
@@ -72,6 +64,114 @@ h2[1].appendChild(parrafo);
 
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
+
+//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE --------------------------->
+
+const formulario = document.getElementById("formulario")
+console.log(formulario);
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
+
+//STORAGE & JASON ALMACENAMIENTO DE DATOS BOTÓN DE SUSCRIPCIÓN A NEWSLETTER Y FORMULARIO-------------------------------------->
+const suscripcionMail = [];
+const camposFormulario = [];
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+//Boton de suscribirse--------->
+
+
+var mS = "mail de suscripción"
+const botonSuscribirse = document.getElementById("botonSuscribirse");
+const mailSuscripcion = document.getElementById("recipient-name").value;
+
+function guardarSuscripcionMail(valor) {
+    suscripcionMail.push(valor);
+}
+
+function guardarSuscripcionLSyArr() {
+    const mailSuscripcion = document.getElementById("recipient-name").value;
+    guardarLocal(mS, JSON.stringify(mailSuscripcion));
+    guardarSuscripcionMail(mailSuscripcion);
+}
+
+botonSuscribirse.addEventListener("click", () => {
+    guardarSuscripcionLSyArr();
+    console.log(suscripcionMail);
+});
+//fin Boton de suscribirse--------->
+
+//comienza Formulario--------->
+
+var nF = "nombre del formulario"
+var aF = "apellido del formulario"
+var mF = "mail del formulario"
+var dF = "domicilio del formulario"
+var pF = "pais del formulario"
+var provF = "provincia del formulario"
+var zF = "zipCode del formulario"
+
+function cargarACamposFormulario(valor) {
+    camposFormulario.push(valor);
+}
+
+function guardarDatosFormulario() {
+    const nombre = document.getElementById("firstName").value;
+    cargarACamposFormulario(nombre);
+    guardarLocal(nF, JSON.stringify(nombre));
+    const apellido = document.getElementById("lastName").value;
+    cargarACamposFormulario(apellido);
+    guardarLocal(aF, JSON.stringify(apellido));
+    const mail = document.getElementById("email").value;
+    cargarACamposFormulario(mail);
+    guardarLocal(mF, JSON.stringify(mail));
+    const domicilio = document.getElementById("address").value;
+    cargarACamposFormulario(domicilio);
+    guardarLocal(dF, JSON.stringify(domicilio));
+    const pais = document.getElementById("country").value;
+    cargarACamposFormulario(pais);
+    guardarLocal(pF, JSON.stringify(pais));
+    const provincia = document.getElementById("state").value;
+    cargarACamposFormulario(provincia);
+    guardarLocal(provF, JSON.stringify(provincia));
+    const zipCode = document.getElementById("zip").value;
+    cargarACamposFormulario(zipCode);
+    guardarLocal(zF, JSON.stringify(zipCode));
+}
+
+const botonFormulario = document.getElementById("BotonFormulario");
+const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
+
+function notificaEnvioFormulario() {
+    const notifica = document.createElement('div');
+    notifica.innerHTML = "<h4>Tu información fue enviada con éxito!</h4>";
+    contenedorBtnFormulario.appendChild(notifica);
+}
+
+
+function guardarLS(camposFormulario) {
+    localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
+}
+
+botonFormulario.addEventListener("click", () => {
+    guardarDatosFormulario();
+    notificaEnvioFormulario();
+    //   guardarLS();
+    console.log(camposFormulario);
+});
+console.log(camposFormulario);
+
+// RECUPERAR STORAGE
+function recuperarNombreLS(storage) {
+    return JSON.parse(storage.getItem("datosFormulario"));
+}
+
+//onst recuperadoLS = recuperarNombreLS;
+// console.log(recuperarNombreLS);
+// value = localStorage.getItem(document.getElementById('ingles').value);
+
+//FIN ---------------------------------------------------------------------------------------------------------------------->
+
 
 
 //AGREGAR DINÁMICAMENTE ITEMS A UNA LISTA DESDE JS----------------SI FUNCIONA-------------------------------------------***-->
@@ -123,7 +223,7 @@ h2[1].appendChild(parrafo);
 
 //STORAGE & JASON-------SI FUNCIONA-------------------------------------------------------------------------------------------->
 
-const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+// const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
 //almacenar producto por producto
 
@@ -155,20 +255,7 @@ const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
-//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE LA PÁGINA AL APRETAR ENVIAR---FUNCIONA PERO NO TOMA LOS HIJOS DEL FORMULARIO------------------------->
 
-//const formulario = document.querySelector("needs-validation") //Esta forma de llamar no la toma.
-
-const formulario = document.getElementById("formulario")
-console.log(formulario); //la primera vez lo pinta y se ven textos en azul y la segunda vez que recargo se ve distinto. 
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-})
-//console.log(e.target);
-//console.log("formulario enviado");
-//let formularioCampos = e.target;
-//console.log(formularioCampos);
-//console.log(formularioCampos.children[1].value); //no accede a la información ya que contenedor formulario contiene solo 2 hijos: row g-3 y my-5 text center.})
 
 
 //---------------------------------------------PAPELERA---------------------------------------------------------------->
@@ -213,7 +300,7 @@ function EncontrarArtista(arr, filtro) {
     return encontrado;
 }
 
-const BotonBuscar = document.getElementById("botonBuscar")
+const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
 const usuarioBusqueda = document.querySelector('barraBusqueda').value;
@@ -239,106 +326,7 @@ botonBuscar.addEventListener("submit", (e) => {
 
 
 
-//STORAGE & JASON ALMACENAMIENTO DE DATOS FORMULARIO------------------------------------------------------------------------->
-const suscripcionMail = [];
-const camposFormulario = [];
 
-//Boton de suscribirse
-
-
-var mS = "mail de suscripción"
-const botonSuscribirse = document.getElementById("botonSuscribirse");
-const mailSuscripcion = document.getElementById("recipient-name").value;
-
-function guardarSuscripcionMail(valor) {
-    suscripcionMail.push(valor);
-}
-
-function guardarSuscripcionLSyArr() {
-    const mailSuscripcion = document.getElementById("recipient-name").value;
-    guardarLocal(mS, JSON.stringify(mailSuscripcion));
-    guardarSuscripcionMail(mailSuscripcion);
-}
-
-
-botonSuscribirse.addEventListener("click", () => {
-    guardarSuscripcionLSyArr();
-    console.log(suscripcionMail);
-});
-
-
-
-
-var nF = "nombre del formulario"
-var aF = "apellido del formulario"
-var mF = "mail del formulario"
-var dF = "domicilio del formulario"
-var pF = "pais del formulario"
-var provF = "provincia del formulario"
-var zF = "zipCode del formulario"
-
-function cargarACamposFormulario(valor) {
-    camposFormulario.push(valor);
-}
-
-function guardarDatosFormulario() {
-    const nombre = document.getElementById("firstName").value;
-    cargarACamposFormulario(nombre);
-    guardarLocal(nF, JSON.stringify(nombre));
-    const apellido = document.getElementById("lastName").value;
-    cargarACamposFormulario(apellido);
-    guardarLocal(aF, JSON.stringify(apellido));
-    const mail = document.getElementById("email").value;
-    cargarACamposFormulario(mail);
-    guardarLocal(mF, JSON.stringify(mail));
-    const domicilio = document.getElementById("address").value;
-    cargarACamposFormulario(domicilio);
-    guardarLocal(dF, JSON.stringify(domicilio));
-    const pais = document.getElementById("country").value;
-    cargarACamposFormulario(pais);
-    guardarLocal(pF, JSON.stringify(pais));
-    const provincia = document.getElementById("state").value;
-    cargarACamposFormulario(provincia);
-    guardarLocal(provF, JSON.stringify(provincia));
-    const zipCode = document.getElementById("zip").value;
-    cargarACamposFormulario(zipCode);
-    guardarLocal(zF, JSON.stringify(zipCode));
-}
-
-const botonFormulario = document.getElementById("BotonFormulario");
-const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
-
-function notificaEnvioFormulario() {
-    const notifica = document.createElement('div');
-    notifica.innerHTML = "<h4>Tu información fue enviada con éxito!</h4>";
-    contenedorBtnFormulario.appendChild(notifica);
-}
-
-
-// let plantilla = `Categoría ${producto1.tipo} Título ${producto2.titulo} Autor ${producto3.autor} Color ${producto4.color} Precio ${producto5.precio}`;
-// console.log(plantilla);
-
-
-
-
-function guardarLS(camposFormulario) {
-    localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
-}
-
-botonFormulario.addEventListener("click", () => {
-    guardarDatosFormulario();
-    notificaEnvioFormulario();
-    //   guardarLS();
-    console.log(camposFormulario);
-});
-console.log(camposFormulario);
-
-// RECUPERAR STORAGE
-function recuperarNombreLS(storage) {
-    return JSON.parse(storage.getItem("nombre"));
-}
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
 
 
 // ALMACENES---------------------------------------------------------------------------------------------------------------->
