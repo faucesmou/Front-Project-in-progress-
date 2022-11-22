@@ -65,13 +65,6 @@ h2[1].appendChild(parrafo);
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE USO DE HERRAMIENTA PARA EVITAR QUE SE RECARGUE --------------------------->
-
-const formulario = document.getElementById("formulario")
-console.log(formulario);
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-})
 
 //STORAGE & JASON ALMACENAMIENTO DE DATOS BOTÓN DE SUSCRIPCIÓN A NEWSLETTER Y FORMULARIO-------------------------------------->
 const suscripcionMail = [];
@@ -99,9 +92,9 @@ botonSuscribirse.addEventListener("click", () => {
     guardarSuscripcionLSyArr();
     console.log(suscripcionMail);
 });
-//fin Boton de suscribirse--------->
+//fin Boton de suscribirse---------------->
 
-//comienza Formulario--------->
+//comienza Formulario--------------------->
 
 var nF = "nombre del formulario"
 var aF = "apellido del formulario"
@@ -142,156 +135,47 @@ function guardarDatosFormulario() {
 const botonFormulario = document.getElementById("BotonFormulario");
 const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
 
+
 function notificaEnvioFormulario() {
+    var avisoMail = localStorage.getItem('mail del formulario');
+    console.log(avisoMail);
     const notifica = document.createElement('div');
     notifica.innerHTML = "<h4>Tu información fue enviada con éxito!</h4>";
+    const notifica2 = document.createElement('p');
+    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
     contenedorBtnFormulario.appendChild(notifica);
+    contenedorBtnFormulario.appendChild(notifica2);
+    ;
 }
-
 
 function guardarLS(camposFormulario) {
     localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
 
-botonFormulario.addEventListener("click", () => {
+//localStorage.setItem('miGato', 'Juan');
+//var cat = localStorage.getItem('miGato');
+
+botonFormulario.addEventListener("click", (e) => {
     guardarDatosFormulario();
     notificaEnvioFormulario();
+    e.preventDefault();
     //   guardarLS();
     console.log(camposFormulario);
 });
 console.log(camposFormulario);
 
-// RECUPERAR STORAGE
-function recuperarNombreLS(storage) {
-    return JSON.parse(storage.getItem("datosFormulario"));
+//FIN de Formulario--------->
+
+//CARRITO------------------------------------------------------------------------------------------------------------------->
+const carrito = [];
+//FIN ---------------------------------------------------------------------------------------------------------------------->
+
+//---------------------------------------------BotonBuscar por Artista o Precio---------------------------------------------------------------->
+function filtrarPorPrecio(arr, filtro) {
+    return arr.filter((producto) => {
+        return producto.precio <= filtro;
+    })
 }
-
-//onst recuperadoLS = recuperarNombreLS;
-// console.log(recuperarNombreLS);
-// value = localStorage.getItem(document.getElementById('ingles').value);
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-//AGREGAR DINÁMICAMENTE ITEMS A UNA LISTA DESDE JS----------------SI FUNCIONA-------------------------------------------***-->
-
-// const paises = ["Jamaica", "Japon", "Nueva zelanda"];
-
-// h2[1];
-
-// for (const pais of paises) {
-//     const div = document.createElement('div');
-//     div.innerText = pais;
-//     h2[1].appendChild(div)
-// }
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-// AGREGAR DINÁMICAMENTE SECTORES DE HTML A UNA LISTA DESDE JS------------------------***------------------------>
-
-// Consulta 1: a continuación si hago el for con producto1, la consola dice que no se puede iterar, no comprendo porqué.
-// Consulta 2 : cómo se hace para colocar los divs en otro lugar, donde yo quiera posicionarlo en la página.  
-// Consulta 3 : donde dice li.innerHTML, 
-
-// for (const pais of paises) {
-//     console.log(pais);
-//     const li = document.createElement('div');
-//     li.innerHTML = `
-//     <div class="wf-flex-descripcionInicial3">
-//     <div>
-//         <h3 class= "busquedaTema2">${producto1.tipo}</h3>
-//         <h3 class= "busquedaTema2">${producto1.autor}</h3>
-//     </div>
-//     </div>
-
-//     `
-//     h2[1].appendChild(li)
-// }
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-// USO DE INTERPOLACIÓN Y BACKTIS O ACCENT INVERTIDOS PARA IMPLEMENTAR UNA PLANTILLA---------SI FUNCIONA------------->
-
-// let plantilla = `Categoría ${producto1.tipo} Título ${producto2.titulo} Autor ${producto3.autor} Color ${producto4.color} Precio ${producto5.precio}`;
-// console.log(plantilla);
-
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-//STORAGE & JASON-------SI FUNCIONA-------------------------------------------------------------------------------------------->
-
-// const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-
-//almacenar producto por producto
-
-//for (const itemAutor of Producto) {
-// guardarLocal(producto.autor, JSON.stringify(Producto));
-// }
-
-// o almacenar array completo
-
-//guardarLocal("listaProductos", JSON.stringify(producto1));
-//console.log(producto1);
-
-// function guardarLS(arr) {
-//     localStorage.setItem("datosFormulario", JSON.stringify(arr));
-// }
-
-// const guardarDatosFormulario = () => {
-
-//     const nombre = document.getElementById("firstName");
-//     guardarLocal(nombre, JSON.stringify(nombre))
-//     const apellido = document.getElementById("lastName");
-//     const mail = document.getElementById("email");
-// }
-// console.log(guardarDatosFormulario);
-
-
-// llamar a cada uno de los inputs}
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
-//---------------------------------------------PAPELERA---------------------------------------------------------------->
-
-// function buscarProductoAutor(almacen2, filtro) {
-//     const encontrado = almacen2.find((producto) => {
-//         return producto.autor.includes(filtro);
-//     });
-//     return encontrado;
-//ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
-
-// const BtnBuscar = document.getElementById("BotonBuscar");
-// BtnBuscar.addEventListener('click', () => {
-//     EncontrarArtista(almacen2,)
-//     console.log("hiciste click");
-// })
-//console.log(BtnBuscar);
-// function guardarDatosBusquedas() {
-// const primerBusqueda = document.getElementById("barraBusqueda").value;
-// cargarAcampoBusquedas(primerBusqueda);
-// console.log(campoBusquedas);
-// }
-
-//const primerBusqueda = document.getElementById("barraBusqueda").value;
-// guardarDatosBusquedas();
-
-// function cargarAcampoBusquedas(valor) {
-//     campoBusquedas.push(valor);
-//const campoBusquedas = [];
-
-//comprobación de que anda EncontrarArtista:
-// EncontrarArtista(almacen2, "gonza");
-// ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
-// console.log(ProductoEncontradoArtista);
-//---------------------------------------------BotonBuscar---------------------------------------------------------------->
-
 
 function EncontrarArtista(arr, filtro) {
     const encontrado = arr.find((producto) => {
@@ -299,156 +183,34 @@ function EncontrarArtista(arr, filtro) {
     })
     return encontrado;
 }
+function cargarAlCarrito(carrito, valor) {
+    carrito.push(valor);
+    console.log(carrito);
+}
 
 const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
-const usuarioBusqueda = document.querySelector('barraBusqueda').value;
-console.log(usuarioBusqueda);
 
 botonBuscar.addEventListener("submit", (e) => {
-    EncontrarArtista(almacen2, usuarioBusqueda);
-    console.log(usuarioBusqueda);
-    ProductoEncontradoArtista = EncontrarArtista(almacen2, "gonza");
+    const usuarioBusqueda = document.querySelector("#barraBusqueda").value;
+    ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
     console.log(ProductoEncontradoArtista);
+    ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
+    console.log(ProductoEncontradoPrecio);
+    cargarAlCarrito(carrito, ProductoEncontradoArtista);
+    cargarAlCarrito(carrito, ProductoEncontradoPrecio);
     e.preventDefault();
 })
-//FIN ---------------------------------------------------------------------------------------------------------------------->
 
-// CÓMO COLOCAR PARA QUE HAGA LA BÚSQUEDA POR AUTOR EN EL ARRAY ALMACEN2 Y LA DEVUELVA DE ALGUNA MANERA?
-//     //console.log(e.target);
-//     console.log("Busqueda realizada");
-//     let CampoBuscado = e.target;
-//     console.log(CampoBuscado.children[0].value); // no accede a la información cargada en el campo. 
-// })
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
 
 // ALMACENES---------------------------------------------------------------------------------------------------------------->
 
-//const almacen = [producto1, producto2, producto3];
-
-
-
-//EVENTOS---------SI FUNCIONA  INTENTO ACTIVAR BÚSQUEDA: ----------------------------------------------------------------------------------------------->
-
-
-// function EncontrarArtista(arr, filtro) {
-//     const encontrado = arr.find((producto) => {
-//         //return producto.autor == filtro;
-//         return producto.autor.includes(filtro);
-//     })
-//     return encontrado;
-// }
-
-// const BtnBuscar = document.getElementById("BotonBuscar");
-// BtnBuscar.addEventListener('click', () => {
-//     EncontrarArtista(almacen2,)
-//     console.log("hiciste click");
-// })
-//console.log(BtnBuscar);
-
-
-// const Busqueda = document.getElementsByClassName("busquedaTema");
-// console.log(Busqueda[2].innerText = 'ARGENTINA VIEJAA'); /* ESTE SI FUNCIONA! */
-
-
-// const PrimerNombre = document.getElementById("firstName");
-// PrimerNombre.addEventListener("input", () => {
-// }
+const almacen = [producto1, producto2, producto3];
 
 
 
 
-//CARRITO------------------------------------------------------------------------------------------------------------------->
-const carrito = [];
-//FIN ---------------------------------------------------------------------------------------------------------------------->
 
-//PRUEBA DE BÚSQUEDA POR NOMBRE DE AUTOR DE PRODUCTO BOTON BUSCAR----FUNCIONA----------------------------------------------->
-
-// function buscarProductoAutor(almacen2, filtro) {
-//     const encontrado = almacen2.find((producto) => {
-//         return producto.autor.includes(filtro);
-//     });
-//     return encontrado;
-// }
-
-// ProductoEncontradoAutor = buscarProductoAutor(almacen2, "gonza");
-// console.log(ProductoEncontradoAutor);
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-//PRUEBA DE BÚSQUEDA POR PRECIO DE PRODUCTO BOTON BUSCAR-----------FUNCIONA------------------------------------------------->
-
-// function filtrarPorPrecio(arr, filtro) {
-//     return almacen2.filter((producto) => {
-//         return producto.precio <= filtro;
-//     })
-// }
-
-// const filtroPorPrecioEncontrado = filtrarPorPrecio(almacen2, 2500);
-// console.log(filtroPorPrecioEncontrado);
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-//PRUEBA DE FUNCIÓN PARA CARGAR PRODUCTOS FILTRADOS AL CARRITO-----------FUNCIONA------------------------------------------->
-
-// function cargarAlCarrito(carrito, valor) {
-//     carrito.push(valor);
-// }
-
-// cargarAlCarrito(carrito, producto1);
-// console.log(carrito);
-
-// cargarAlCarrito(carrito, filtroPorPrecioEncontrado);
-// console.log(carrito);
-
-// cargarAlCarrito(carrito, ProductoEncontradoAutor);
-// console.log(carrito);
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-//PRUEBA DE FUNCIÓN PARA SABER EL PRECIO FINAL DEL CARRITO-------------------NO FUNCIONA------------------------------------>
-
-// let PrecioFinal = carrito.reduce((acc, producto1) => {
-//     return acc + producto1.precio;
-// }, 0)
-
-// console.log(PrecioFinal);
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-//PRUEBA DE FUNCIÓN PARA APLICAR BUSCAR PRODUCTOS MEDIANTE INPUT DE BUSCAR NAVBAR ---NO FUNCIONA---------------------------->
-
-// const BtnBuscarNavBar = document.getElementById("BotonBuscar");
-// BtnBuscarNavBar.addEventListener('input', () => {
-//     const encontradoFinal = buscarProductoAutor(almacen2, producto)
-//     console.log(encontradoFinal);
-// })
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->
-
-
-
-//OBSERVACIONES---------------------------------------------------------------------------------------------------------------------->
-
-//function cargarACamposFormulario(camposFormulario, valor) { 
-//    camposFormulario.push(valor);
-//} Esto no porque: "CamposFormulario no deberías pasarlo como parámetro porque ya es una variable global, podemos acceder igual" entonces se hace de la siguiente manera: 
-// function cargarACamposFormulario(valor) {
-//     camposFormulario.push(valor);
-// }
-// consejo: Para definir un lugar para visualizar algo a través del DOM, tendrías que definir un div en el html en algún lugar y colocarle un id, el cual lo tomarías con js para renderizar elementos
-
-
-
-//FIN ---------------------------------------------------------------------------------------------------------------------->

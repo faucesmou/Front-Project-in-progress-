@@ -3,34 +3,15 @@
 
 
 //-- MAP ---------->
-/*
+
 const almacenInflacion = almacen.map((producto) => {
     return {
         precio: producto.precio + 200
     }
 });
 
-*/
 
-// ESTRUCTURA INICIAL DE BIENVENIDA---------->
-
-const BtnComenzar = document.getElementById("BtnComenzar");
-
-BtnComenzar.addEventListener('click', () => {
-    console.log("hiciste click");
-    let NombreUsuario = prompt("Bienvenido a WeFind! Por favor ingresa tu nombre de usuario");
-    while (NombreUsuario == " " || NombreUsuario == "") {
-        alert("no entendimos tu mensaje");
-        NombreUsuario = prompt("Por favor ingresa tu nombre de usuario");
-    }
-
-    let busqueda = prompt("Ingrese su artista favorito");
-})
-
-
-
-
-// MÉTODO FILTER------------->
+// // MÉTODO FILTER------------->
 
 // const filtroxAutor = almacen2.filter((almacen2) => {
 //     return almacen2.autor.includes(busqueda.toLowerCase())
@@ -47,7 +28,7 @@ BtnComenzar.addEventListener('click', () => {
 // }
 
 
-// // MÉTODO REDUCE ------------->
+// MÉTODO REDUCE ------------->
 
 // const almacen3 = [0, 1, 2, 3, 4, 5]
 
@@ -58,4 +39,3 @@ BtnComenzar.addEventListener('click', () => {
 
 // console.log(Sumaalmacen2);
 
-// */
