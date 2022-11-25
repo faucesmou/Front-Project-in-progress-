@@ -109,6 +109,7 @@ const persona = {
 guardarLocal('usuario', JSON.stringify(persona));
 
 
+
 // var nF = "nombre del formulario"
 // var aF = "apellido del formulario"
 // var mF = "mail del formulario"
