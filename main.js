@@ -152,8 +152,6 @@ function guardarLS(camposFormulario) {
     localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
 
-//localStorage.setItem('miGato', 'Juan');
-//var cat = localStorage.getItem('miGato');
 
 botonFormulario.addEventListener("click", (e) => {
     guardarDatosFormulario();

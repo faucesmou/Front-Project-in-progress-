@@ -2,7 +2,7 @@
 // -------------------------------MÉTODO MAP, ESTRUCTURA INICIAL DE BIENVENIDA, MÉTODO FILTER, FUNCIÓN FIND Y MÉTODO REDUCE--------------------------------------->
 
 
-//-- MAP ---------->
+//-- MAP --------------->
 
 const almacenInflacion = almacen.map((producto) => {
     return {
