@@ -96,41 +96,54 @@ botonSuscribirse.addEventListener("click", () => {
 
 //comienza Formulario--------------------->
 
-var nF = "nombre del formulario"
-var aF = "apellido del formulario"
-var mF = "mail del formulario"
-var dF = "domicilio del formulario"
-var pF = "pais del formulario"
-var provF = "provincia del formulario"
-var zF = "zipCode del formulario"
-
-function cargarACamposFormulario(valor) {
-    camposFormulario.push(valor);
+const persona = {
+    nombre: document.getElementById("firstName").value,
+    apellido: document.getElementById("lastName").value,
+    mail: document.getElementById("email").value,
+    domicilio: document.getElementById("address").value,
+    pais: document.getElementById("country").value,
+    provincia: document.getElementById("state").value,
+    zipCode: document.getElementById("zip").value,
 }
 
-function guardarDatosFormulario() {
-    const nombre = document.getElementById("firstName").value;
-    cargarACamposFormulario(nombre);
-    guardarLocal(nF, JSON.stringify(nombre));
-    const apellido = document.getElementById("lastName").value;
-    cargarACamposFormulario(apellido);
-    guardarLocal(aF, JSON.stringify(apellido));
-    const mail = document.getElementById("email").value;
-    cargarACamposFormulario(mail);
-    guardarLocal(mF, JSON.stringify(mail));
-    const domicilio = document.getElementById("address").value;
-    cargarACamposFormulario(domicilio);
-    guardarLocal(dF, JSON.stringify(domicilio));
-    const pais = document.getElementById("country").value;
-    cargarACamposFormulario(pais);
-    guardarLocal(pF, JSON.stringify(pais));
-    const provincia = document.getElementById("state").value;
-    cargarACamposFormulario(provincia);
-    guardarLocal(provF, JSON.stringify(provincia));
-    const zipCode = document.getElementById("zip").value;
-    cargarACamposFormulario(zipCode);
-    guardarLocal(zF, JSON.stringify(zipCode));
-}
+guardarLocal('usuario', JSON.stringify(persona));
+
+
+// var nF = "nombre del formulario"
+// var aF = "apellido del formulario"
+// var mF = "mail del formulario"
+// var dF = "domicilio del formulario"
+// var pF = "pais del formulario"
+// var provF = "provincia del formulario"
+// var zF = "zipCode del formulario"
+
+// function cargarACamposFormulario(valor) {
+//     camposFormulario.push(valor);
+// }
+
+// function guardarDatosFormulario() {
+//     const nombre = document.getElementById("firstName").value;
+//     cargarACamposFormulario(nombre);
+//     guardarLocal(nF, JSON.stringify(nombre));
+//     const apellido = document.getElementById("lastName").value;
+//     cargarACamposFormulario(apellido);
+//     guardarLocal(aF, JSON.stringify(apellido));
+//     const mail = document.getElementById("email").value;
+//     cargarACamposFormulario(mail);
+//     guardarLocal(mF, JSON.stringify(mail));
+//     const domicilio = document.getElementById("address").value;
+//     cargarACamposFormulario(domicilio);
+//     guardarLocal(dF, JSON.stringify(domicilio));
+//     const pais = document.getElementById("country").value;
+//     cargarACamposFormulario(pais);
+//     guardarLocal(pF, JSON.stringify(pais));
+//     const provincia = document.getElementById("state").value;
+//     cargarACamposFormulario(provincia);
+//     guardarLocal(provF, JSON.stringify(provincia));
+//     const zipCode = document.getElementById("zip").value;
+//     cargarACamposFormulario(zipCode);
+//     guardarLocal(zF, JSON.stringify(zipCode));
+// }
 
 const botonFormulario = document.getElementById("BotonFormulario");
 const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
@@ -154,11 +167,12 @@ function guardarLS(camposFormulario) {
 
 
 botonFormulario.addEventListener("click", (e) => {
-    guardarDatosFormulario();
+    guardarLocal('usuario', JSON.stringify(persona));
+    // guardarDatosFormulario();
     notificaEnvioFormulario();
     e.preventDefault();
     //   guardarLS();
-    console.log(camposFormulario);
+    // console.log(camposFormulario);
 });
 console.log(camposFormulario);
 
