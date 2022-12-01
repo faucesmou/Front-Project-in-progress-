@@ -4,12 +4,13 @@
 
 // FUNCIÓN CONSTRUCTORA
 
-function Producto(tipo, titulo, autor, color, precio) {
+function Producto(tipo, titulo, autor, color, precio, imagen) {
     this.tipo = tipo;
     this.titulo = titulo;
     this.autor = autor;
     this.color = color;
     this.precio = precio;
+    this.imagen = imagen; // esto Cómo lo podría usar para hacer la tarjeta. 
     this.sumarIva = function () {
         return (this.precio = this.precio * 1.21);
     }
@@ -92,21 +93,26 @@ botonSuscribirse.addEventListener("click", () => {
     guardarSuscripcionLSyArr();
     console.log(suscripcionMail);
 });
+
 //fin Boton de suscribirse---------------->
 
 //comienza Formulario--------------------->
 
-const persona = {
-    nombre: document.getElementById("firstName").value,
-    apellido: document.getElementById("lastName").value,
-    mail: document.getElementById("email").value,
-    domicilio: document.getElementById("address").value,
-    pais: document.getElementById("country").value,
-    provincia: document.getElementById("state").value,
-    zipCode: document.getElementById("zip").value,
-}
 
-guardarLocal('usuario', JSON.stringify(persona));
+
+
+
+// const persona = {
+//     nombre: document.getElementById("firstName").value,
+//     apellido: document.getElementById("lastName").value,
+//     mail: document.getElementById("email").value,
+//     domicilio: document.getElementById("address").value,
+//     pais: document.getElementById("country").value,
+//     provincia: document.getElementById("state").value,
+//     zipCode: document.getElementById("zip").value,
+// }
+
+// guardarLocal('usuario', JSON.stringify(persona));
 
 
 
@@ -150,16 +156,22 @@ const botonFormulario = document.getElementById("BotonFormulario");
 const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
 
 
+
+
+
+
+
 function notificaEnvioFormulario() {
-    var avisoMail = localStorage.getItem('mail del formulario');
+    //    var avisoMail = localStorage.getItem('mail del formulario');
+    var avisoMail = JSON.parse(localStorage.getItem('usuario'));
     console.log(avisoMail);
     const notifica = document.createElement('div');
     notifica.innerHTML = "<h4>Tu información fue enviada con éxito!</h4>";
     const notifica2 = document.createElement('p');
-    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
+    //    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
+    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail.mail}`;
     contenedorBtnFormulario.appendChild(notifica);
     contenedorBtnFormulario.appendChild(notifica2);
-    ;
 }
 
 function guardarLS(camposFormulario) {
@@ -168,6 +180,23 @@ function guardarLS(camposFormulario) {
 
 
 botonFormulario.addEventListener("click", (e) => {
+    const nombre = document.getElementById("firstName").value;
+    const apellido = document.getElementById("lastName").value;
+    const mail = document.getElementById("email").value;
+    const domicilio = document.getElementById("address").value;
+    const pais = document.getElementById("country").value;
+    const provincia = document.getElementById("state").value;
+    const zipCode = document.getElementById("zip").value;
+
+    const persona = {
+        nombre: nombre,
+        apellido: apellido,
+        mail: mail,
+        domicilio: domicilio,
+        pais: pais,
+        provincia: provincia,
+        zipCode: zipCode,
+    }
     guardarLocal('usuario', JSON.stringify(persona));
     // guardarDatosFormulario();
     notificaEnvioFormulario();
@@ -213,10 +242,27 @@ botonBuscar.addEventListener("submit", (e) => {
     console.log(ProductoEncontradoPrecio);
     cargarAlCarrito(carrito, ProductoEncontradoArtista);
     cargarAlCarrito(carrito, ProductoEncontradoPrecio);
+    notificaBusqueda();
     e.preventDefault();
 })
 
-
+function notificaBusqueda() {
+    //    var avisoMail = localStorage.getItem('mail del formulario');
+    const usuarioBusqueda = document.querySelector("#barraBusqueda").value;
+    ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
+    ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
+    var ProductoEncontradoArtista = JSON.parse(localStorage.getItem('usuario'));
+    // console.log(avisoMail);
+    const notificaBusqueda = document.createElement('div');
+    notificaBusqueda.innerHTML = "<h4>Tu búsqueda fue realizada con éxito!</h4>";
+    const notificaBusqueda2 = document.createElement('p');
+    //    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
+    notificaBusqueda2.innerHTML = ` El resultado de tu búsqueda es: ${ProductoEncontradoArtista}`;
+    // contenedorBtnFormulario.appendChild(notifica);
+    // contenedorBtnFormulario.appendChild(notifica2);
+    RefProductos.appendChild(notificaBusqueda);
+    RefProductos.appendChild(notificaBusqueda2);
+}
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
 // ALMACENES---------------------------------------------------------------------------------------------------------------->
