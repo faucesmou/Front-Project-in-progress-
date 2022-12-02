@@ -53,16 +53,22 @@ const almacen2 = [producto1, producto2, producto3, producto4, producto5, product
 //CREO ELEMENTOS DESDE JS--------------------------------------------------------------------------------------------------->
 
 const h2 = document.getElementsByTagName('h2');
-
 const parrafoPresenta = document.createElement('p')
 parrafoPresenta.innerHTML = "<h2> Acá vas a encontrar lo que buscas perro malvado.</h2>";
 h2[1].appendChild(parrafoPresenta);
 
 
-const parrafo = document.createElement('p')
-parrafo.innerHTML = "<br> <h2>Recorré la experiencia, conocé artistas y revolucioná tu estilo.</h2>";
-h2[1].appendChild(parrafo);
+// USO SET INTERVAL---------------------------------------------------------------------------------------------------------->
 
+let intervalo1 = setInterval(() => {
+    const parrafo = document.createElement('p')
+    parrafo.innerHTML = "<br> <h2>Recorré la experiencia, conocé artistas y revolucioná tu estilo.</h2>";
+    h2[1].appendChild(parrafo);
+}, 3000);
+
+setTimeout(() => {
+    clearInterval(intervalo1);
+}, 3500);
 
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 
@@ -495,6 +501,53 @@ botonFormulario.addEventListener("click", (e) => {
 console.log(camposFormulario);
 
 //FIN de Formulario--------->
+
+
+
+//-------------------------------SET INTERVAL Y PROMESAS (CLASE ASINCRONÍA Y PROMESAS)------------------------------------------------------------------------------->
+
+// EJEMPLO EN CLASE DE SET INTERVAL---->
+// let intervalo = setInterval(() => {
+//     console.log("hola");
+// }, 2000);
+
+// setTimeout(() => {
+//     clearInterval(intervalo);
+// }, 10000);
+
+//Promesas
+
+// EJEMPLO EN CLASE DE PROMESAS---->
+
+console.log(new Promise((resolve, reject) => {
+    //cuerpo de la promesa
+}));
+
+let hamburguesa = true;
+let sinPapas = false;
+
+const pedirHamburguesa = (respuesta) => {
+    return new Promise((resolve, reject) => {
+        if (respuesta) {
+            resolve("Veni a retirar");
+        } else {
+            reject("No hay papas");
+        }
+
+    })
+}
+
+pedirHamburguesa(sinPapas)
+    .then((response) => {
+        console.log(response);
+    }).catch((err) => {
+        console.log(err);
+    }).finally(() => {
+        console.log('Gracias vuelva prontos');
+    });
+
+//------------------------------- FIN SET INTERVAL Y PROMESAS (CLASE ASINCRONÍA Y PROMESAS)--------------------------------------------------------------------->
+
 
 //CARRITO------------------------------------------------------------------------------------------------------------------->
 const carrito = [];
