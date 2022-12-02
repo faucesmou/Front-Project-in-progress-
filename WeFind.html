@@ -12,6 +12,7 @@
         content="somos un espacio que busca unificar diferentes estilos de diseño, arte y expresión cultural, ofrecemos una plataforma de intercambio de trabajos en donde se puede comprar piezas originales de autor.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet"
         href="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\cssBoostrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,6 +187,11 @@
             Comenzar
         </button>
     </div>
+    <div class="my-5 text-center">
+        <button class="w-25 btn btn-primary btn-lg" id="botonSweet" type="submit">
+            Sweetalert
+        </button>
+    </div>
     <section id="wf-sect3" class="sect">
         <video class="video2"
             src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-alena-darmel-7237094 - copia (comprimido).mp4"
@@ -215,7 +221,7 @@
                             <h3 class="card-title">Softer</h3>
                             <p class="card-text">This is a multipurpose branding logo identity.Personalized and unique
                                 brands that will reveal who you are.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnSofter" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -227,7 +233,7 @@
                             <p class="card-text">My own rendition of the Campbell's Soup Can made famous by Any Warhol.
                                 -Andrew Footit-
                             </p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnTomato" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -239,7 +245,7 @@
                             <p class="card-text">Wandering ghosts that will blow your mind with their creativity.Don't
                                 let terror keep you from this play. -Aleisha Samek-
                             </p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnGhost" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -251,7 +257,7 @@
                             <p class="card-text">Halloween's favorite sisters! This Hocus Pocus was drawn up to be made
                                 a Halloween t-shirt. -Zach Hannibal-
                             </p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnHocus" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -262,7 +268,7 @@
                             <h3 class="card-title">Sensitive Tiger</h3>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnTigre" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -273,7 +279,7 @@
                             <h3 class="card-title">Duck Duck Pal</h3>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -284,7 +290,7 @@
                             <h3 class="card-title">Astrology</h3>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnAstrology" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -295,7 +301,7 @@
                             <h3 class="card-title">Best Clippings</h3>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnClippings" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -306,7 +312,7 @@
                             <h3 class="card-title">Hype!</h3>
                             <p class="card-text">Pop style street fashion, you're going to want to see what this is all
                                 about.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnHype" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -317,7 +323,7 @@
                             <h3 class="card-title">Space Travel</h3>
                             <p class="card-text">Elon Musk will be envying these prototypes. I'll be waiting for you in
                                 the next galaxy.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnSpace" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -328,7 +334,7 @@
                             <h3 class="card-title">Doberman Power</h3>
                             <p class="card-text">Canine energy for all your environments. Remember to take him out for a
                                 walk.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnDog" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -339,7 +345,7 @@
                             <h3 class="card-title">Kill Bill Sessions</h3>
                             <p class="card-text">This is your last chapter my old friend. This fight will finish you.
                                 See you in the afterlife.</p>
-                            <a href="#" class="btn btn-primary wf-btn-black">comprar</a>
+                            <a id="btnKill" class="btn btn-primary wf-btn-black">comprar</a>
                         </div>
                     </div>
                 </div>
@@ -463,7 +469,7 @@
                         <input type="text" class="form-control" id="zip" placeholder="" required="" />
                     </div>
                 </div>
-                <div class="my-5 text-center" id="contenedorBtnFormulario">
+                <div class="my-3 text-center" id="contenedorBtnFormulario">
                     <button class="w-25 btn btn-primary btn-lg" id="BotonFormulario" type="">
                         Enviar
                     </button>
@@ -471,24 +477,37 @@
             </form>
         </div>
     </div>
-    <footer>
-        <ul class="footerindex">
-            <li class="nuestraCom">Nuestra comunidad</li>
-            <li class="mediosDePago">Medios de pago</li>
-            <li class="beneficios">Beneficios</li>
-            <li class="contacto">Contacto</li>
-            <li class="envios">Envios</li>
-            <li class="nuestrosLocales">Nuestros Locales</li>
-        </ul>
-    </footer>
-    <div>
-        <h3>CONTACTO</h3>
-    </div>
+    <div class="my-3 text-center">
+        <form action="">
+            <div class="formControl">
+                <label for="card-Number">Número de tarjeta</label>
+                <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" id="cardNumber" />
+            </div>
+            <br>
+            <div class="formNumber">
+                <label for="card-Number">Fecha Vencimiento</label>
+                <input type="text" id="fechaNumber" />
+            </div>
+            <div class="my-3 text-center" id="">
+                <button class="w-10 btn btn-primary btn-lg" id="BotonFormulario" type="">
+                    Continuar
+                </button>
+            </div>
 
+        </form>
+    </div>
+    <br>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src=https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js></script>
+    <!-- <script src="cleave.min.js"></script>
+    <script src="cleave-phone.{country}.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"
+        integrity="sha256-EyD7akNMqhJB13TabqvIVtego8LX1P5+qkBXgqtPAIE=" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
     <script src="./main.js"></script>
     <script src="./js/segundo.js"></script>
     <script src="./js/tercero.js"></script>
-
 
 </body>
 

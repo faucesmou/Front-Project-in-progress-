@@ -4,11 +4,11 @@
 
 //-- MAP --------------->
 
-const almacenInflacion = almacen.map((producto) => {
-    return {
-        precio: producto.precio + 200
-    }
-});
+// const almacenInflacion = almacen.map((producto) => {
+//     return {
+//         precio: producto.precio + 200
+//     }
+// });
 
 
 // // MÉTODO FILTER------------->

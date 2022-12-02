@@ -96,7 +96,291 @@ botonSuscribirse.addEventListener("click", () => {
 
 //fin Boton de suscribirse---------------->
 
+//Botón SWEETALERT------------------------>
+const botonSweet = document.getElementById("botonSweet");
+console.log(botonSweet);
+
+botonSweet.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Gatitos voladores para todos.',
+        width: 600,
+        padding: '6em',
+        color: 'rgb(25, 6, 61)',
+        background: '#fff url(imagenes/salchichaPalta.jpg)',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("imagenes/nyanCat2.gif")
+          center left
+          no-repeat
+        `
+    })
+})
+
+//fin Botón SWEETALERT------------------->
+
+//Botones de compra productos. Librería TOASTIFY para notificación------------------------------------------------>
+
+const btnSofter = document.getElementById("btnSofter");
+btnSofter.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // ACÁ PUEDO EJECUTAR CUALQUIER FUNCIÓN Callback after click
+    }).showToast();
+})
+
+const btnTomato = document.getElementById("btnTomato");
+btnTomato.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnGhost = document.getElementById("btnGhost");
+btnGhost.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnHocus = document.getElementById("btnHocus");
+btnHocus.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnTigre = document.getElementById("btnTigre");
+btnTigre.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnDuck = document.getElementById("btnDuck");
+btnDuck.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnAstrology = document.getElementById("btnAstrology");
+btnAstrology.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnClippings = document.getElementById("btnClippings");
+btnClippings.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnHype = document.getElementById("btnHype");
+btnHype.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnSpace = document.getElementById("btnSpace");
+btnSpace.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnDog = document.getElementById("btnDog");
+btnDog.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+const btnKill = document.getElementById("btnKill");
+btnKill.addEventListener('click', () => {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        //destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, red, yellow)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+})
+
+//Fin de Botones de compra productos------------------------------------------------>
+
+
+// LIBRERÍA LUXON-----NO ANDA EL CDN----------------------------------------------------------------->
+
+// var DateTime = luxon.DateTime;//NO ANDA EL CDN
+// console.log(DateTime);
+// //Clase librerías 1:40' explica y da un ejemplo del uso de luxon y fechas. 
+// let ahora = date.DateTime.now();
+// console.log(ahora);
+
+//Fin de LIBRERÍA LUXON------------------------------------------------------------------------------>
+
+
+
+// LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
+// var cleave = new Cleave('.telefonoNumber', {
+//     phone: true,
+//     phoneRegionCode: '{country}'
+// });
+
+var cleave = new Cleave('#fechaNumber', {
+    date: true,
+    datePattern: ['m', 'y']
+});
+
+var cleave = new Cleave("#cardNumber", {
+    numeral: true,
+    numeralThousandsGroupStyle: 'thousand'
+});
+
+//Credit card number formatting type
+var cleave = new Cleave('#cardNumber', {
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+        // update UI ...
+        console.log(type);
+    }
+});
+
+//FIN LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
+
+
 //comienza Formulario--------------------->
+
 
 
 
@@ -159,7 +443,7 @@ const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario
 
 
 
-
+//--------------USO DEL SET TIME OUT--------------------------------------------->
 
 function notificaEnvioFormulario() {
     //    var avisoMail = localStorage.getItem('mail del formulario');
@@ -172,6 +456,10 @@ function notificaEnvioFormulario() {
     notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail.mail}`;
     contenedorBtnFormulario.appendChild(notifica);
     contenedorBtnFormulario.appendChild(notifica2);
+    setTimeout(() => {
+        notifica.remove();
+        notifica2.remove();
+    }, 2500)
 }
 
 function guardarLS(camposFormulario) {
