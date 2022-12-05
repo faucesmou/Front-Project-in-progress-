@@ -33,7 +33,7 @@ function Producto(tipo, titulo, autor, color, precio, imagen) {
 
 }
 
-const producto1 = new Producto("Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000);
+const producto1 = new Producto("Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000, src = "imagenes/imagenVioleta.jpg");
 const producto2 = new Producto("Ilustración 3D", "Tomato Soup", "andrew footit", "Naranja-Verde", 3200);
 const producto3 = new Producto("Ilustración", "Ghost Pals", "aleisha samek", "Marrón-Blanco", 2700);
 const producto4 = new Producto("Diseño", "Hocus Pocus", "zach hannibal", "Rosado-Gris", 3800);
@@ -48,6 +48,7 @@ const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo m
 
 
 const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
+const almacenCompra = [producto1, producto2, producto3]
 
 
 //CREO ELEMENTOS DESDE JS--------------------------------------------------------------------------------------------------->
@@ -385,7 +386,7 @@ var cleave = new Cleave('#cardNumber', {
 //FIN LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
 
 
-//INICIA FORMULARIO------------------------------------------------------------------------------->
+//---------------------INICIA FORMULARIO------------------------------------------------------------------------------->
 
 
 
@@ -395,7 +396,7 @@ const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario
 
 
 
-//--------------USO DEL SET TIME OUT--------------------------------------------->
+//--------------uso del set time out--------------------------------------------->
 
 function notificaEnvioFormulario() {
     //    var avisoMail = localStorage.getItem('mail del formulario');
@@ -449,146 +450,38 @@ console.log(camposFormulario);
 // FIN FORMULARIO------------------------------------------------------------------------------->
 
 
-
-//-------------------------------CLASE ASINCRONÍA Y PROMESAS: SET INTERVAL Y PROMESAS------------------------------------------------------------------------------->
-
-// EJEMPLO EN CLASE DE SET INTERVAL---->
-// let intervalo = setInterval(() => {
-//     console.log("hola");
-// }, 2000);
-
-// setTimeout(() => {
-//     clearInterval(intervalo);
-// }, 10000);
-
-//Promesas
-
-// EJEMPLO EN CLASE DE PROMESAS---->
-
-// console.log(new Promise((resolve, reject) => {
-//     //cuerpo de la promesa
-// }));
-
-// let hamburguesa = true;
-// let sinPapas = false;
-
-// const pedirHamburguesa = (respuesta) => {
-//     return new Promise((resolve, reject) => {
-//         if (respuesta) {
-//             resolve("Veni a retirar");
-//         } else {
-//             reject("No hay papas");
-//         }
-
-//     })
-// }
-
-// pedirHamburguesa(sinPapas)
-//     .then((response) => {
-//         console.log(response);
-//     }).catch((err) => {
-//         console.log(err);
-//     }).finally(() => {
-//         console.log('Gracias vuelva prontos');
-//     });
-
-//------------------------------- FIN CLASE ASINCRONÍA Y PROMESAS: SET INTERVAL Y PROMESAS--------------------------------------------------------------------->
+// FIN FORMULARIO------------------------------------------------------------------------------->
 
 
-//-------------------------------CLASE APIS Y FETCH  ------------------------------------------------------------------------------------------------------------>
+//-----------------------------APIS Y FETCH ---------------------------------------------------------------------------------------->
 
-// console.log(fetch());
-
-// fetch('https://jsonplaceholder.typicode.com/todos/')
-//     .then((response) => response.json())
-//     .then((data => {
-//         console.log(data[10]);
-//         console.log(data[10].title);
-//         console.log(data[15].id);
-//     }));
-
-//acá dice que la fórmula de arriba sirve pero si quiero traer 100 elementos no tiene sentido ir uno por uno copiando y escribiendo lo que quiero traer ocn el data [10].title etc. entonces
-//propone esto: meterlo dentro de un for each o de algún iterador 
-
-//El siguiente ejemplo no funcionó, la consola dice "uncaught typeerror: data.forEach is not a function"
-
-// fetch('https://jsonplaceholder.typicode.com/todos/')
-//     .then((response) => response.json())
-//     .then((data => {
-//         console.log(data);
-//         data.forEeach(post => {
-//             console.log(post);
-//         });
-//     }));
-//El siguiente ejemplo no funcionó, la consola dice "uncaught typeerror: data.forEach is not a function"
-// fetch('https://pokeapi.co/api/v2/pokemon/ditto') 
-//     .then((response) => response.json())
-//     .then((data => {
-//         console.log(data);
-//         data.forEeach(post => {
-//             const li = document.createElement('li');
-//             li.innerHTML = `
-//             <h2>${post.title}</h2>
-//             <p>${post.body}</p>`;
-//             wf - sect2.appendChild(li)
-//             console.log(post);
-//         });
-//     }));
-//A continuación lo copié de github y pegué y SI anda---------------------------------------->:
-
-// const presentacion = document.querySelector(".presentacion");
-
-// fetch('https://jsonplaceholder.typicode.com/posts/')
-//     .then((response) => response.json())
-//     .then((data => {
-//         console.log(data);
-//         data.forEach(post => {
-//             const li = document.createElement('li');
-//             li.innerHTML = `
-//   <h2>${post.title}</h2>
-//   <p>${post.body}</p>`;
-//             presentacion.appendChild(li);
-//         });
-//     }));
-
-//Acceso bloqueado consultar----------------------------------------------->:
-
-// fetch('./notas.jsonc')
-//     .then(res => res.json())
-//     .then(data => {
-//         console.log(data);
-//         //renderServicios(data)
-//     })
-
-
-//    Acceso bloqueado consultar------------------------------------------->:
-
-const servicios = [
-    { id: 1, nombre: "limpieza de cutis", precio: 1200, img: "imagenes/salchichaPalta.jpg" },
-    { id: 2, nombre: "tatuaje espalda", precio: 2000, img: "imagenes/salchichaPalta.jpg" },
+const productosCompra = [
+    { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
+    { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
+    { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
+    { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
+    { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
+    { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
 ]
+
+console.log(productosCompra);
+
+const contenedorCarrito = document.getElementById("contenedorCarrito")
 
 fetch('./notas2.json')
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        renderServicios(data)
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <h4>${data.nombre}</h4>`;
+        contenedorCarrito.appendChild(div);
+
     })
+    .catch(err => console.log(err))
 
 
-
-//ASYNC AWAIT
-// async function fetchAPI() {
-//     const response = await fetch('./data/datos.json');
-//     const datos = await response.json();
-
-//     console.log(datos);
-//     renderServicios(datos);
-// }
-
-// fetchAPI()
-
-//-------------------------------FIN CLASE APIS Y FETCH--------------------------------------------------------------------------------------------------------->
+//----------------------------- FIN APIS Y FETCH ---------------------------------------------------------------------------------------->
 
 
 
@@ -615,6 +508,27 @@ function cargarAlCarrito(carrito, valor) {
     console.log(carrito);
 }
 
+
+
+function mostrarResultado() {
+    const resultadoBusqueda = document.createElement('div');
+    resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+        <div class="card mt-3 mb-2">
+            <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
+            <div class="card-body">
+                <h3 class="card-title">Duck Duck Pal</h3>
+                <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+            </div>
+        </div>
+    </div>`
+    contenedorResultado.appendChild(resultadoBusqueda);
+}
+
+
+
 const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
@@ -628,6 +542,7 @@ botonBuscar.addEventListener("submit", (e) => {
     cargarAlCarrito(carrito, ProductoEncontradoArtista);
     cargarAlCarrito(carrito, ProductoEncontradoPrecio);
     notificaBusqueda();
+    mostrarResultado()
     e.preventDefault();
 })
 
@@ -645,8 +560,8 @@ function notificaBusqueda() {
     notificaBusqueda2.innerHTML = ` El resultado de tu búsqueda es: ${ProductoEncontradoArtista}`;
     // contenedorBtnFormulario.appendChild(notifica);
     // contenedorBtnFormulario.appendChild(notifica2);
-    RefProductos.appendChild(notificaBusqueda);
-    RefProductos.appendChild(notificaBusqueda2);
+    contenedorResultado.appendChild(notificaBusqueda);
+    contenedorResultado.appendChild(notificaBusqueda2);
 }
 //FIN ---------------------------------------------------------------------------------------------------------------------->
 

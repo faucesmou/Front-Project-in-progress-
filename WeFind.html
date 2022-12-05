@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon"
-        href="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\imagenes\imagenVioleta.jpg"
-        type="image">
+    <link rel="shortcut icon" href="./imagenes/imagenVioleta.jpg" type="image">
     <meta name="description"
         content="somos un espacio que busca unificar diferentes estilos de diseño, arte y expresión cultural, ofrecemos una plataforma de intercambio de trabajos en donde se puede comprar piezas originales de autor.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet"
-        href="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\cssBoostrap.css">
+    <link rel="stylesheet" href="./cssBoostrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -134,9 +131,11 @@
     </nav>
     <header>
         <section id="wf-sect1" class="wf-sect">
-            <video class="video1"
+            <!-- <video class="video1"
                 src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-engin-akyurt-7217874 - copia (comprimido).mp4"
-                autoplay="true" muted="true" loop="true" poster=""></video>
+                autoplay="true" muted="true" loop="true" poster=""></video> -->
+            <video class="video1" src="./pexels-engin-akyurt-7217874 - copia (comprimido).mp4" autoplay="true"
+                muted="true" loop="true" poster=""></video>
             <div class="wf-containerTexto">
                 <h1 class="textoInicial">Explorá porfolios de diseños premiados</h1>
                 <h2 class="descripcionInicial">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
@@ -193,9 +192,8 @@
         </button>
     </div>
     <section id="wf-sect3" class="sect">
-        <video class="video2"
-            src="C:\Users\ASUS ROG\Desktop\CURSO_CODERHOUSE\PROYECTO_FINAL_GITHUB\Practica\pexels-alena-darmel-7237094 - copia (comprimido).mp4"
-            autoplay="true" muted="true" loop="true"></video>
+        <video class="video2" src="./pexels-alena-darmel-7237094 - copia (comprimido).mp4" autoplay="true" muted="true"
+            loop="true"></video>
         <div class="wf-containerTexto3">
             <h1 class="wf-tituloSect3" name="refInspiracion" id="refInspiracion">Descubrí proyectos de Inspiración</h1>
             <div class="wf-flex-descripcionInicial3">
@@ -272,7 +270,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
+                <div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaPato">
                     <div class="card mt-3 mb-2">
                         <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
                         <div class="card-body">
@@ -473,11 +471,18 @@
                     <button class="w-25 btn btn-primary btn-lg" id="BotonFormulario" type="">
                         Enviar
                     </button>
-                </div>
             </form>
         </div>
     </div>
-    <div class="my-3 text-center">
+    <div class="my-3 text-center" id="contenedorResultado">
+        <h3>Productos encontrados:</h3>
+    </div>
+
+    <div class="my-3 text-center" id="contenedorCarrito">
+        <h3>carrito de compras:</h3>
+    </div>
+
+    <div class="my-3 text-center" id="contenedorTarjeta">
         <form action="">
             <div class="formControl">
                 <label for="card-Number">Número de tarjeta</label>
@@ -499,8 +504,6 @@
     <br>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src=https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js></script>
-    <!-- <script src="cleave.min.js"></script>
-    <script src="cleave-phone.{country}.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"
         integrity="sha256-EyD7akNMqhJB13TabqvIVtego8LX1P5+qkBXgqtPAIE=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
