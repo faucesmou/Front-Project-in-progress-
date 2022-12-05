@@ -108,7 +108,7 @@ console.log(botonSweet);
 
 botonSweet.addEventListener('click', () => {
     Swal.fire({
-        title: 'Gatitos voladores para todos.',
+        title: 'Gato volador!',
         width: 600,
         padding: '6em',
         color: 'rgb(25, 6, 61)',
@@ -385,67 +385,13 @@ var cleave = new Cleave('#cardNumber', {
 //FIN LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
 
 
-//comienza Formulario--------------------->
+//INICIA FORMULARIO------------------------------------------------------------------------------->
 
 
 
-
-
-
-// const persona = {
-//     nombre: document.getElementById("firstName").value,
-//     apellido: document.getElementById("lastName").value,
-//     mail: document.getElementById("email").value,
-//     domicilio: document.getElementById("address").value,
-//     pais: document.getElementById("country").value,
-//     provincia: document.getElementById("state").value,
-//     zipCode: document.getElementById("zip").value,
-// }
-
-// guardarLocal('usuario', JSON.stringify(persona));
-
-
-
-// var nF = "nombre del formulario"
-// var aF = "apellido del formulario"
-// var mF = "mail del formulario"
-// var dF = "domicilio del formulario"
-// var pF = "pais del formulario"
-// var provF = "provincia del formulario"
-// var zF = "zipCode del formulario"
-
-// function cargarACamposFormulario(valor) {
-//     camposFormulario.push(valor);
-// }
-
-// function guardarDatosFormulario() {
-//     const nombre = document.getElementById("firstName").value;
-//     cargarACamposFormulario(nombre);
-//     guardarLocal(nF, JSON.stringify(nombre));
-//     const apellido = document.getElementById("lastName").value;
-//     cargarACamposFormulario(apellido);
-//     guardarLocal(aF, JSON.stringify(apellido));
-//     const mail = document.getElementById("email").value;
-//     cargarACamposFormulario(mail);
-//     guardarLocal(mF, JSON.stringify(mail));
-//     const domicilio = document.getElementById("address").value;
-//     cargarACamposFormulario(domicilio);
-//     guardarLocal(dF, JSON.stringify(domicilio));
-//     const pais = document.getElementById("country").value;
-//     cargarACamposFormulario(pais);
-//     guardarLocal(pF, JSON.stringify(pais));
-//     const provincia = document.getElementById("state").value;
-//     cargarACamposFormulario(provincia);
-//     guardarLocal(provF, JSON.stringify(provincia));
-//     const zipCode = document.getElementById("zip").value;
-//     cargarACamposFormulario(zipCode);
-//     guardarLocal(zF, JSON.stringify(zipCode));
-// }
 
 const botonFormulario = document.getElementById("BotonFormulario");
 const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
-
-
 
 
 
@@ -500,11 +446,11 @@ botonFormulario.addEventListener("click", (e) => {
 });
 console.log(camposFormulario);
 
-//FIN de Formulario--------->
+// FIN FORMULARIO------------------------------------------------------------------------------->
 
 
 
-//-------------------------------SET INTERVAL Y PROMESAS (CLASE ASINCRONÍA Y PROMESAS)------------------------------------------------------------------------------->
+//-------------------------------CLASE ASINCRONÍA Y PROMESAS: SET INTERVAL Y PROMESAS------------------------------------------------------------------------------->
 
 // EJEMPLO EN CLASE DE SET INTERVAL---->
 // let intervalo = setInterval(() => {
@@ -519,34 +465,132 @@ console.log(camposFormulario);
 
 // EJEMPLO EN CLASE DE PROMESAS---->
 
-console.log(new Promise((resolve, reject) => {
-    //cuerpo de la promesa
-}));
+// console.log(new Promise((resolve, reject) => {
+//     //cuerpo de la promesa
+// }));
 
-let hamburguesa = true;
-let sinPapas = false;
+// let hamburguesa = true;
+// let sinPapas = false;
 
-const pedirHamburguesa = (respuesta) => {
-    return new Promise((resolve, reject) => {
-        if (respuesta) {
-            resolve("Veni a retirar");
-        } else {
-            reject("No hay papas");
-        }
+// const pedirHamburguesa = (respuesta) => {
+//     return new Promise((resolve, reject) => {
+//         if (respuesta) {
+//             resolve("Veni a retirar");
+//         } else {
+//             reject("No hay papas");
+//         }
 
+//     })
+// }
+
+// pedirHamburguesa(sinPapas)
+//     .then((response) => {
+//         console.log(response);
+//     }).catch((err) => {
+//         console.log(err);
+//     }).finally(() => {
+//         console.log('Gracias vuelva prontos');
+//     });
+
+//------------------------------- FIN CLASE ASINCRONÍA Y PROMESAS: SET INTERVAL Y PROMESAS--------------------------------------------------------------------->
+
+
+//-------------------------------CLASE APIS Y FETCH  ------------------------------------------------------------------------------------------------------------>
+
+// console.log(fetch());
+
+// fetch('https://jsonplaceholder.typicode.com/todos/')
+//     .then((response) => response.json())
+//     .then((data => {
+//         console.log(data[10]);
+//         console.log(data[10].title);
+//         console.log(data[15].id);
+//     }));
+
+//acá dice que la fórmula de arriba sirve pero si quiero traer 100 elementos no tiene sentido ir uno por uno copiando y escribiendo lo que quiero traer ocn el data [10].title etc. entonces
+//propone esto: meterlo dentro de un for each o de algún iterador 
+
+//El siguiente ejemplo no funcionó, la consola dice "uncaught typeerror: data.forEach is not a function"
+
+// fetch('https://jsonplaceholder.typicode.com/todos/')
+//     .then((response) => response.json())
+//     .then((data => {
+//         console.log(data);
+//         data.forEeach(post => {
+//             console.log(post);
+//         });
+//     }));
+//El siguiente ejemplo no funcionó, la consola dice "uncaught typeerror: data.forEach is not a function"
+// fetch('https://pokeapi.co/api/v2/pokemon/ditto') 
+//     .then((response) => response.json())
+//     .then((data => {
+//         console.log(data);
+//         data.forEeach(post => {
+//             const li = document.createElement('li');
+//             li.innerHTML = `
+//             <h2>${post.title}</h2>
+//             <p>${post.body}</p>`;
+//             wf - sect2.appendChild(li)
+//             console.log(post);
+//         });
+//     }));
+//A continuación lo copié de github y pegué y SI anda---------------------------------------->:
+
+// const presentacion = document.querySelector(".presentacion");
+
+// fetch('https://jsonplaceholder.typicode.com/posts/')
+//     .then((response) => response.json())
+//     .then((data => {
+//         console.log(data);
+//         data.forEach(post => {
+//             const li = document.createElement('li');
+//             li.innerHTML = `
+//   <h2>${post.title}</h2>
+//   <p>${post.body}</p>`;
+//             presentacion.appendChild(li);
+//         });
+//     }));
+
+//Acceso bloqueado consultar----------------------------------------------->:
+
+// fetch('./notas.jsonc')
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data);
+//         //renderServicios(data)
+//     })
+
+
+//    Acceso bloqueado consultar------------------------------------------->:
+
+const servicios = [
+    { id: 1, nombre: "limpieza de cutis", precio: 1200, img: "imagenes/salchichaPalta.jpg" },
+    { id: 2, nombre: "tatuaje espalda", precio: 2000, img: "imagenes/salchichaPalta.jpg" },
+]
+
+fetch('./notas2.json')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        renderServicios(data)
     })
-}
 
-pedirHamburguesa(sinPapas)
-    .then((response) => {
-        console.log(response);
-    }).catch((err) => {
-        console.log(err);
-    }).finally(() => {
-        console.log('Gracias vuelva prontos');
-    });
 
-//------------------------------- FIN SET INTERVAL Y PROMESAS (CLASE ASINCRONÍA Y PROMESAS)--------------------------------------------------------------------->
+
+//ASYNC AWAIT
+// async function fetchAPI() {
+//     const response = await fetch('./data/datos.json');
+//     const datos = await response.json();
+
+//     console.log(datos);
+//     renderServicios(datos);
+// }
+
+// fetchAPI()
+
+//-------------------------------FIN CLASE APIS Y FETCH--------------------------------------------------------------------------------------------------------->
+
+
 
 
 //CARRITO------------------------------------------------------------------------------------------------------------------->
@@ -576,7 +620,7 @@ console.log(botonBuscar);
 
 
 botonBuscar.addEventListener("submit", (e) => {
-    const usuarioBusqueda = document.querySelector("#barraBusqueda").value;
+    const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
     ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
     console.log(ProductoEncontradoArtista);
     ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
