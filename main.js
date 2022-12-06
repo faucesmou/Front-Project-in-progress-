@@ -33,18 +33,18 @@ function Producto(tipo, titulo, autor, color, precio, imagen) {
 
 }
 
-const producto1 = new Producto("Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000, src = "imagenes/imagenVioleta.jpg");
-const producto2 = new Producto("Ilustración 3D", "Tomato Soup", "andrew footit", "Naranja-Verde", 3200);
-const producto3 = new Producto("Ilustración", "Ghost Pals", "aleisha samek", "Marrón-Blanco", 2700);
-const producto4 = new Producto("Diseño", "Hocus Pocus", "zach hannibal", "Rosado-Gris", 3800);
-const producto5 = new Producto("Marca", "Sensitive Tiger", "sofia herrera", "Naranja-Celeste", 4800);
-const producto6 = new Producto("Bordado digital", "Duck Duck Pal", "emanuel pécora", "Verde-Amarillo", 2900);
-const producto7 = new Producto("Collage", "Astrology", "camila fernández", "Rosado-Verde", 6500);
-const producto8 = new Producto("Clipping", "Best Clippings", "cami ferreira", "Rojo-Negro", 2500);
-const producto9 = new Producto("Marca", "Hype!", "manu contreras", "Flúor-Verde", 7100);
-const producto10 = new Producto("Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400);
-const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500);
-const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400);
+const producto1 = new Producto("Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000, "imagenes/imagenVioleta.jpg");
+const producto2 = new Producto("Ilustración 3D", "Tomato Soup", "pablo footit", "Naranja-Verde", 3200, "imagenes/imagenTomato2.jpg");
+const producto3 = new Producto("Ilustración", "Ghost Pals", "aleisha samek", "Marrón-Blanco", 2700, "imagenes/imagenFantasma.jpg");
+const producto4 = new Producto("Diseño", "Hocus Pocus", "zach hannibal", "Rosado-Gris", 3800, "imagenes/imagenSalem.jpg");
+const producto5 = new Producto("Marca", "Sensitive Tiger", "sofia herrera", "Naranja-Celeste", 4800, "imagenes/imagenTigre.jpg");
+const producto6 = new Producto("Bordado digital", "Duck Duck Pal", "emanuel pécora", "Verde-Amarillo", 2900, "imagenes/imagenPato.jpg");
+const producto7 = new Producto("Collage", "Astrology", "camila fernández", "Rosado-Verde", 6500, "imagenes/imagenAstrologia.jpg");
+const producto8 = new Producto("Clipping", "Best Clippings", "cami ferreira", "Rojo-Negro", 2500, "imagenes/imagenClipings.jpg");
+const producto9 = new Producto("Marca", "Hype!", "manu contreras", "Flúor-Verde", 7100, "imagenes/imagenHype.jpg");
+const producto10 = new Producto("Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400, "imagenes/imagenNave.jpg");
+const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500, "imagenes/imagenDog.jpg");
+const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400, "imagenes/imagenKB.jpg");
 
 
 const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
@@ -509,29 +509,29 @@ function cargarAlCarrito(carrito, valor) {
 }
 
 
-
-function mostrarResultado() {
-    const resultadoBusqueda = document.createElement('div');
-    resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
-        <div class="card mt-3 mb-2">
-            <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
-            <div class="card-body">
-                <h3 class="card-title">Duck Duck Pal</h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-            </div>
-        </div>
-    </div>`
-    contenedorResultado.appendChild(resultadoBusqueda);
-}
+// function mostrarResultado() {
+//     const resultadoBusqueda = document.createElement('div');
+//     resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+//         <div class="card mt-3 mb-2">
+//             <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
+//             <div class="card-body">
+//                 <h3 class="card-title">${titulo}Duck Duck Pal</h3>
+//                 <p class="card-text">Some quick example text to build on the card title and make up the
+//                     bulk
+//                     of the card's content.</p>
+//                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+//             </div>
+//         </div>
+//     </div>`
+//     contenedorResultado.appendChild(resultadoBusqueda);
+// }
 
 
 
 const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
+// if usuarioBusqueda = string > todo lo que hace productoArtista if not > todo lo que hace ProductoEncontradoPrecio.
 
 botonBuscar.addEventListener("submit", (e) => {
     const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
@@ -539,10 +539,47 @@ botonBuscar.addEventListener("submit", (e) => {
     console.log(ProductoEncontradoArtista);
     ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
     console.log(ProductoEncontradoPrecio);
+    const titulo = ProductoEncontradoArtista.titulo;
+    const imagen = ProductoEncontradoArtista.imagen;
+    function mostrarResultadoArtista() {
+        const resultadoBusqueda = document.createElement('div');
+        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+            <div class="card mt-3 mb-2">
+                <img class="card-img-top" src=${imagen} class="img-fluid">
+                <div class="card-body">
+                    <h3 class="card-title">${titulo}</h3>
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk
+                        of the card's content.</p>
+                    <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+                </div>
+            </div>
+        </div>`
+        contenedorResultado.appendChild(resultadoBusqueda);
+    }
+    const titulo2 = ProductoEncontradoPrecio.titulo;
+    const imagen2 = ProductoEncontradoPrecio.imagen;
+    function mostrarResultadoPrecio() {
+        const resultadoBusqueda = document.createElement('div');
+        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+            <div class="card mt-3 mb-2">
+                <img class="card-img-top" src=${imagen2} class="img-fluid">
+                <div class="card-body">
+                    <h3 class="card-title">${titulo2}</h3>
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk
+                        of the card's content.</p>
+                    <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+                </div>
+            </div>
+        </div>`
+        contenedorResultado.appendChild(resultadoBusqueda);
+    }
     cargarAlCarrito(carrito, ProductoEncontradoArtista);
     cargarAlCarrito(carrito, ProductoEncontradoPrecio);
     notificaBusqueda();
-    mostrarResultado()
+    mostrarResultadoArtista();
+    //mostrarResultadoPrecio();
     e.preventDefault();
 })
 
