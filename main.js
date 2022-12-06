@@ -125,7 +125,8 @@ botonSweet.addEventListener('click', () => {
 
 //fin Botón SWEETALERT------------------->
 
-//Botones de compra productos. Librería TOASTIFY para notificación------------------------------------------------>
+//Botones de compra productos: NOTIFICACIÓN Librería TOASTIFY ----------------------------------------------->
+//AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
 
 const btnSofter = document.getElementById("btnSofter");
 btnSofter.addEventListener('click', () => {
@@ -143,6 +144,21 @@ btnSofter.addEventListener('click', () => {
         },
         onClick: function () { } // ACÁ PUEDO EJECUTAR CUALQUIER FUNCIÓN Callback after click
     }).showToast();
+    const tituloS = document.querySelector(".tituloS");
+    const tituloTarjeta = tituloS.innerHTML;
+    const descripcionS = document.querySelector(".descripcionS");
+    const descripcionTarjeta = descripcionS.innerHTML;
+    const precioS = document.querySelector(".precioS");
+    const precioTarjeta = precioS.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    carritoHTML();
 })
 
 const btnTomato = document.getElementById("btnTomato");
@@ -161,6 +177,21 @@ btnTomato.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloTo = document.querySelector(".tituloTo");
+    const tituloTarjeta = tituloTo.innerHTML;
+    const descripcionTo = document.querySelector(".descripcionTo");
+    const descripcionTarjeta = descripcionTo.innerHTML;
+    const precioTo = document.querySelector(".precioTo");
+    const precioTarjeta = precioTo.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnGhost = document.getElementById("btnGhost");
@@ -179,6 +210,21 @@ btnGhost.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloGhost = document.querySelector(".tituloGhost");
+    const tituloTarjeta = tituloGhost.innerHTML;
+    const descripcionGhost = document.querySelector(".descripcionGhost");
+    const descripcionTarjeta = descripcionGhost.innerHTML;
+    const precioGhost = document.querySelector(".precioGhost");
+    const precioTarjeta = precioGhost.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnHocus = document.getElementById("btnHocus");
@@ -197,6 +243,21 @@ btnHocus.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloHocus = document.querySelector(".tituloHocus");
+    const tituloTarjeta = tituloHocus.innerHTML;
+    const descripcionHocus = document.querySelector(".descripcionHocus");
+    const descripcionTarjeta = descripcionHocus.innerHTML;
+    const precioHocus = document.querySelector(".precioHocus");
+    const precioTarjeta = precioHocus.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnTigre = document.getElementById("btnTigre");
@@ -215,6 +276,21 @@ btnTigre.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloT = document.querySelector(".tituloT");
+    const tituloTarjeta = tituloT.innerHTML;
+    const descripcionT = document.querySelector(".descripcionT");
+    const descripcionTarjeta = descripcionT.innerHTML;
+    const precioT = document.querySelector(".precioT");
+    const precioTarjeta = precioT.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnDuck = document.getElementById("btnDuck");
@@ -233,6 +309,21 @@ btnDuck.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloD = document.querySelector(".tituloD");
+    const tituloTarjeta = tituloD.innerHTML;
+    const descripcionD = document.querySelector(".descripcionD");
+    const descripcionTarjeta = descripcionD.innerHTML;
+    const precioD = document.querySelector(".precioD");
+    const precioTarjeta = precioD.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnAstrology = document.getElementById("btnAstrology");
@@ -251,6 +342,21 @@ btnAstrology.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloA = document.querySelector(".tituloA");
+    const tituloTarjeta = tituloA.innerHTML;
+    const descripcionA = document.querySelector(".descripcionA");
+    const descripcionTarjeta = descripcionA.innerHTML;
+    const precioA = document.querySelector(".precioA");
+    const precioTarjeta = precioA.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnClippings = document.getElementById("btnClippings");
@@ -269,6 +375,21 @@ btnClippings.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloBC = document.querySelector(".tituloBC");
+    const tituloTarjeta = tituloBC.innerHTML;
+    const descripcionBC = document.querySelector(".descripcionBC");
+    const descripcionTarjeta = descripcionBC.innerHTML;
+    const precioBC = document.querySelector(".precioBC");
+    const precioTarjeta = precioBC.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    // carritoHTML();
 })
 
 const btnHype = document.getElementById("btnHype");
@@ -287,6 +408,21 @@ btnHype.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloHP = document.querySelector(".tituloHP");
+    const tituloTarjeta = tituloHP.innerHTML;
+    const descripcionHP = document.querySelector(".descripcionHP");
+    const descripcionTarjeta = descripcionHP.innerHTML;
+    const precioHP = document.querySelector(".precioHP");
+    const precioTarjeta = precioHP.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnSpace = document.getElementById("btnSpace");
@@ -305,6 +441,21 @@ btnSpace.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloST = document.querySelector(".tituloST");
+    const tituloTarjeta = tituloST.innerHTML;
+    const descripcionST = document.querySelector(".descripcionST");
+    const descripcionTarjeta = descripcionST.innerHTML;
+    const precioST = document.querySelector(".precioST");
+    const precioTarjeta = precioST.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
 
 const btnDog = document.getElementById("btnDog");
@@ -323,7 +474,24 @@ btnDog.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloDP = document.querySelector(".tituloDP");
+    const tituloTarjeta = tituloDP.innerHTML;
+    const descripcionDP = document.querySelector(".descripcionDP");
+    const descripcionTarjeta = descripcionDP.innerHTML;
+    const precioDog = document.querySelector(".precioDog");
+    const precioTarjeta = precioDog.innerHTML;
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+    }
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
+    //carritoHTML();
 })
+
+//VER TEMA DE CARGA Y RECUPERACIÓN DE IMÁGENES (INTENTOS EN LA SIGUIENTE TARJETA)-------------------->
 
 const btnKill = document.getElementById("btnKill");
 btnKill.addEventListener('click', () => {
@@ -341,28 +509,60 @@ btnKill.addEventListener('click', () => {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    const tituloKB = document.querySelector(".tituloKB");
+    const tituloTarjeta = tituloKB.innerHTML;
+    const descripcionKB = document.querySelector(".descripcionKB");
+    const descripcionTarjeta = descripcionKB.innerHTML;
+    const precioKB = document.querySelector(".precioKB");
+    const precioTarjeta = precioKB.innerHTML;
+    //const imagenKB = "imagenes/imagenKB.jpg";
+    //const imagenKB = document.querySelector(".imagenKB");
+    //const imagenTarjeta = imagenKB.src;
+
+    const productoSeleccionado = {
+        titulo: tituloTarjeta,
+        descripcion: descripcionTarjeta,
+        precio: precioTarjeta,
+        //imagen = imagenTarjeta,
+        //imagen = document.querySelector(".imagenKB").src,
+    }
+
+    //Variables para el guardado y recuperado del local Storage
+
+    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+    agregarCarrito()
+    console.log(carrito);
 })
 
-//Fin de Botones de compra productos------------------------------------------------>
+function agregarCarrito() {
+    var productoAgregado = JSON.parse(localStorage.getItem('ProductoAgregado'));
+    cargarAlCarrito(carrito, productoAgregado);
+    console.log(productoAgregado);
+}
 
+const tbody = document.querySelector(".tbody");
 
-// LIBRERÍA LUXON-----NO ANDA EL CDN----------------------------------------------------------------->
+function carritoHTML() {
+    carrito.forEach(productoAgregado => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+            ${productoAgregado.titulo}
+            ${productoAgregado.precio}
+        </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
 
-// var DateTime = luxon.DateTime;//NO ANDA EL CDN
-// console.log(DateTime);
-// //Clase librerías 1:40' explica y da un ejemplo del uso de luxon y fechas. 
-// let ahora = date.DateTime.now();
-// console.log(ahora);
+const botonCarrito = document.getElementById("botonCarrito");
+botonCarrito.addEventListener('click', () => {
+    carritoHTML()
+});
 
-//Fin de LIBRERÍA LUXON------------------------------------------------------------------------------>
+// FIN AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
 
-
-
-// LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
-// var cleave = new Cleave('.telefonoNumber', {
-//     phone: true,
-//     phoneRegionCode: '{country}'
-// });
+// INICIO LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
 
 var cleave = new Cleave('#fechaNumber', {
     date: true,
@@ -375,6 +575,9 @@ var cleave = new Cleave("#cardNumber", {
 });
 
 //Credit card number formatting type
+
+const formNumber = document.getElementsByClassName(".formNumber");
+
 var cleave = new Cleave('#cardNumber', {
     creditCard: true,
     onCreditCardTypeChanged: function (type) {
@@ -383,20 +586,32 @@ var cleave = new Cleave('#cardNumber', {
     }
 });
 
+// INVESTIGAR CÓMO MOSTRAR EL TYPE POR PANTALLA---->
+
+// function mostrarTarjeta() {
+//     var cleave = new Cleave('#cardNumber', {
+//         creditCard: true,
+//         onCreditCardTypeChanged: function (type) {
+//             console.log(type);
+//         }
+//     });
+//     const div = document.createElement('div');
+//     div.innerHTML = `
+// <h4>${type}</h4>`;
+//     formNumber.appendChild(div);
+// }
+
 //FIN LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
 
 
+
 //---------------------INICIA FORMULARIO------------------------------------------------------------------------------->
-
-
-
 
 const botonFormulario = document.getElementById("BotonFormulario");
 const contenedorBtnFormulario = document.getElementById("contenedorBtnFormulario");
 
 
-
-//--------------uso del set time out--------------------------------------------->
+//--------------uso del set time out-------------------->
 
 function notificaEnvioFormulario() {
     //    var avisoMail = localStorage.getItem('mail del formulario');
@@ -413,10 +628,6 @@ function notificaEnvioFormulario() {
         notifica.remove();
         notifica2.remove();
     }, 2500)
-}
-
-function guardarLS(camposFormulario) {
-    localStorage.setItem("datosFormulario", JSON.stringify(camposFormulario));
 }
 
 
@@ -439,16 +650,10 @@ botonFormulario.addEventListener("click", (e) => {
         zipCode: zipCode,
     }
     guardarLocal('usuario', JSON.stringify(persona));
-    // guardarDatosFormulario();
     notificaEnvioFormulario();
     e.preventDefault();
-    //   guardarLS();
-    // console.log(camposFormulario);
 });
 console.log(camposFormulario);
-
-// FIN FORMULARIO------------------------------------------------------------------------------->
-
 
 // FIN FORMULARIO------------------------------------------------------------------------------->
 
@@ -471,7 +676,7 @@ const contenedorCarrito = document.getElementById("contenedorCarrito")
 fetch('./notas2.json')
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        console.log(data.nombre);
         const div = document.createElement('div');
         div.innerHTML = `
         <h4>${data.nombre}</h4>`;
@@ -487,10 +692,12 @@ fetch('./notas2.json')
 
 
 //CARRITO------------------------------------------------------------------------------------------------------------------->
-const carrito = [];
-//FIN ---------------------------------------------------------------------------------------------------------------------->
+
+let carrito = [];
+
 
 //---------------------------------------------BotonBuscar por Artista o Precio---------------------------------------------------------------->
+
 function filtrarPorPrecio(arr, filtro) {
     return arr.filter((producto) => {
         return producto.precio <= filtro;
@@ -543,7 +750,7 @@ botonBuscar.addEventListener("submit", (e) => {
     const imagen = ProductoEncontradoArtista.imagen;
     function mostrarResultadoArtista() {
         const resultadoBusqueda = document.createElement('div');
-        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
             <div class="card mt-3 mb-2">
                 <img class="card-img-top" src=${imagen} class="img-fluid">
                 <div class="card-body">
@@ -555,13 +762,14 @@ botonBuscar.addEventListener("submit", (e) => {
                 </div>
             </div>
         </div>`
+
         contenedorResultado.appendChild(resultadoBusqueda);
     }
     const titulo2 = ProductoEncontradoPrecio.titulo;
     const imagen2 = ProductoEncontradoPrecio.imagen;
     function mostrarResultadoPrecio() {
         const resultadoBusqueda = document.createElement('div');
-        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
+        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-8 col-xl-3" class="tarjetaGenerica">
             <div class="card mt-3 mb-2">
                 <img class="card-img-top" src=${imagen2} class="img-fluid">
                 <div class="card-body">
@@ -583,24 +791,25 @@ botonBuscar.addEventListener("submit", (e) => {
     e.preventDefault();
 })
 
-function notificaBusqueda() {
-    //    var avisoMail = localStorage.getItem('mail del formulario');
-    const usuarioBusqueda = document.querySelector("#barraBusqueda").value;
-    ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
-    ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
-    var ProductoEncontradoArtista = JSON.parse(localStorage.getItem('usuario'));
-    // console.log(avisoMail);
-    const notificaBusqueda = document.createElement('div');
-    notificaBusqueda.innerHTML = "<h4>Tu búsqueda fue realizada con éxito!</h4>";
-    const notificaBusqueda2 = document.createElement('p');
-    //    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
-    notificaBusqueda2.innerHTML = ` El resultado de tu búsqueda es: ${ProductoEncontradoArtista}`;
-    // contenedorBtnFormulario.appendChild(notifica);
-    // contenedorBtnFormulario.appendChild(notifica2);
-    contenedorResultado.appendChild(notificaBusqueda);
-    contenedorResultado.appendChild(notificaBusqueda2);
-}
-//FIN ---------------------------------------------------------------------------------------------------------------------->
+// function notificaBusqueda() {
+//     //    var avisoMail = localStorage.getItem('mail del formulario');
+//     const usuarioBusqueda = document.querySelector("#barraBusqueda").value;
+//     ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
+//     ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
+//     var ProductoEncontradoArtista = JSON.parse(localStorage.getItem('usuario'));
+//     // console.log(avisoMail);
+//     const notificaBusqueda = document.createElement('div');
+//     notificaBusqueda.innerHTML = "<h4>Tu búsqueda fue realizada con éxito!</h4>";
+//     const notificaBusqueda2 = document.createElement('p');
+//     //    notifica2.innerHTML = ` Recibirás novedades en el correo: ${avisoMail}`;
+//     notificaBusqueda2.innerHTML = ` El resultado de tu búsqueda es: ${ProductoEncontradoArtista}`;
+//     // contenedorBtnFormulario.appendChild(notifica);
+//     // contenedorBtnFormulario.appendChild(notifica2);
+//     contenedorResultado.appendChild(notificaBusqueda);
+//     contenedorResultado.appendChild(notificaBusqueda2);
+// }
+
+//---------------------------------------------FIN de BotonBuscar por Artista o Precio---------------------------------------------------------------->
 
 // ALMACENES---------------------------------------------------------------------------------------------------------------->
 

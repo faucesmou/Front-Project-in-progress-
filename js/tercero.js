@@ -13,7 +13,7 @@ BtnComenzar.addEventListener('click', () => {
         alert("no entendimos tu mensaje");
         NombreUsuario = prompt("Por favor ingresa tu nombre de usuario");
     }
-    let busqueda = prompt("Ingrese su artista favorito");
+    let busqueda = prompt("Recordá que podés encontrar tus artistas preferidos usando nuestro buscador");
 
     // MÉTODO FILTER------------->
 
@@ -111,7 +111,7 @@ BtnComenzar.addEventListener('click', () => {
                 carrito.push(producto2);
                 console.log(carrito);
                 console.log(producto2.avisoEdicion());
-                almacen.splice(1, 1);
+                //almacen.splice(1, 1);
                 console.log(almacen);
                 let Provincia2 = prompt("¿Desde qué provincia realiza la compra?");
                 if (Provincia2 === "Mendoza" || Provincia2 === "Córdoba") {
