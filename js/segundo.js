@@ -4,6 +4,8 @@
 
 //--MAP --------------->
 
+const almacen = [producto1, producto2, producto3];
+
 const almacenInflacion = almacen.map((producto) => {
     return {
         precio: producto.precio + 200
@@ -13,9 +15,9 @@ const almacenInflacion = almacen.map((producto) => {
 
 // MÉTODO FILTER------------->
 
-const filtroxAutor = almacen2.filter((almacen2) => {
-    return almacen2.autor.includes(busqueda.toLowerCase())
-});
+// const filtroxAutor = almacen2.filter((almacen2) => {
+//     return almacen2.autor.includes(busqueda.toLowerCase())
+// });
 
 // FUNCIÓN FIND------------->
 

@@ -31,6 +31,7 @@ BtnComenzar.addEventListener('click', () => {
         return encontrado;
     }
 
+    
     let PRODUCTO = prompt(
         NombreUsuario +
         " " +

@@ -545,12 +545,17 @@ const tbody = document.querySelector(".tbody");
 function carritoHTML() {
     carrito.forEach(productoAgregado => {
         const row = document.createElement('tr');
-        row.innerHTML = `
-        <td>
-            ${productoAgregado.titulo}
-            ${productoAgregado.precio}
-        </td>
-        `;
+        row.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
+        <div class="card mt-3 mb-2">
+            <img class="card-img-top" src=${productoAgregado.imagen} class="img-fluid">
+            <div class="card-body">
+                <h3 class="card-title">${productoAgregado.titulo}</h3>
+                <p class="card-text">${productoAgregado.descripcion}</p>
+                    <p>${productoAgregado.precio}</p>
+                <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+            </div>
+        </div>
+    </div>`
         tbody.appendChild(row);
     });
 }
@@ -671,19 +676,70 @@ const productosCompra = [
 
 console.log(productosCompra);
 
+const wharehouse = [];
 const contenedorCarrito = document.getElementById("contenedorCarrito")
+
+function cargarAlCarrito(carrito, valor) {
+    carrito.push(valor);
+    console.log(carrito);
+}
+
+
+function agregarWarehouse() {
+
+    cargarAlCarrito(wharehouse, stock);
+    console.log(productoAgregado);
+}
+
+
 
 fetch('./notas2.json')
     .then(res => res.json())
     .then(data => {
-        console.log(data.nombre);
-        const div = document.createElement('div');
-        div.innerHTML = `
-        <h4>${data.nombre}</h4>`;
-        contenedorCarrito.appendChild(div);
+        stock = data
+        cargarAlCarrito(wharehouse, stock);
+        wharehouse.forEach((producto) => {
+            console.log(producto);
+            console.log(producto);
+            //     const div = document.createElement('div')
+            //     div.innerHTML = `
+            // <h4>${producto.nombre}</h4>`
+            //     contenedorCarrito.appendChild(div)
+        })
+    });
 
-    })
-    .catch(err => console.log(err))
+// .catch(err => console.log(err))
+
+
+
+// fetch('./stock.json')
+// .then((resp) => resp.json())
+// .then((data) => {
+//     stock = data
+
+//     stock.forEach((producto) => {
+//         const div = document.createElement('div')
+//         div.classList.add('producto')
+
+//         div.innerHTML = `
+//                         <img src=${producto.img} alt="">
+//                         <h3>${producto.nombre}</h3>
+//                         <p>${producto.desc}</p>
+//                         <p>Talle: ${producto.talle}</p>
+//                         ${producto.freeshipping === true ? '<p><strong>Envío gratis</strong></p>' : ''}
+//                         <p class="precioProducto">Precio: $${producto.precio}</p>
+//                         <button onclick="agregarAlCarrito(${producto.id})" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+//                     `
+
+//         productosContainer.append(div)
+//     })
+// })
+
+
+
+
+
+
 
 
 //----------------------------- FIN APIS Y FETCH ---------------------------------------------------------------------------------------->
@@ -783,9 +839,8 @@ botonBuscar.addEventListener("submit", (e) => {
         </div>`
         contenedorResultado.appendChild(resultadoBusqueda);
     }
-    cargarAlCarrito(carrito, ProductoEncontradoArtista);
-    cargarAlCarrito(carrito, ProductoEncontradoPrecio);
-    notificaBusqueda();
+    //cargarAlCarrito(carrito, ProductoEncontradoArtista);
+    //cargarAlCarrito(carrito, ProductoEncontradoPrecio);
     mostrarResultadoArtista();
     //mostrarResultadoPrecio();
     e.preventDefault();
@@ -813,9 +868,4 @@ botonBuscar.addEventListener("submit", (e) => {
 
 // ALMACENES---------------------------------------------------------------------------------------------------------------->
 
-const almacen = [producto1, producto2, producto3];
-
-
-
-
-
+// const almacen = [producto1, producto2, producto3];
