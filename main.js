@@ -150,10 +150,12 @@ btnSofter.addEventListener('click', () => {
     const descripcionTarjeta = descripcionS.innerHTML;
     const precioS = document.querySelector(".precioS");
     const precioTarjeta = precioS.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenVioleta.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -183,10 +185,12 @@ btnTomato.addEventListener('click', () => {
     const descripcionTarjeta = descripcionTo.innerHTML;
     const precioTo = document.querySelector(".precioTo");
     const precioTarjeta = precioTo.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenTomato2.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -216,10 +220,12 @@ btnGhost.addEventListener('click', () => {
     const descripcionTarjeta = descripcionGhost.innerHTML;
     const precioGhost = document.querySelector(".precioGhost");
     const precioTarjeta = precioGhost.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenFantasma.jp";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -249,10 +255,12 @@ btnHocus.addEventListener('click', () => {
     const descripcionTarjeta = descripcionHocus.innerHTML;
     const precioHocus = document.querySelector(".precioHocus");
     const precioTarjeta = precioHocus.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenSalem.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -282,10 +290,12 @@ btnTigre.addEventListener('click', () => {
     const descripcionTarjeta = descripcionT.innerHTML;
     const precioT = document.querySelector(".precioT");
     const precioTarjeta = precioT.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenTigre.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -315,10 +325,12 @@ btnDuck.addEventListener('click', () => {
     const descripcionTarjeta = descripcionD.innerHTML;
     const precioD = document.querySelector(".precioD");
     const precioTarjeta = precioD.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenPato.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -348,10 +360,12 @@ btnAstrology.addEventListener('click', () => {
     const descripcionTarjeta = descripcionA.innerHTML;
     const precioA = document.querySelector(".precioA");
     const precioTarjeta = precioA.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenAstrologia.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -381,10 +395,12 @@ btnClippings.addEventListener('click', () => {
     const descripcionTarjeta = descripcionBC.innerHTML;
     const precioBC = document.querySelector(".precioBC");
     const precioTarjeta = precioBC.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenClipings.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -414,10 +430,12 @@ btnHype.addEventListener('click', () => {
     const descripcionTarjeta = descripcionHP.innerHTML;
     const precioHP = document.querySelector(".precioHP");
     const precioTarjeta = precioHP.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenHype.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -447,10 +465,12 @@ btnSpace.addEventListener('click', () => {
     const descripcionTarjeta = descripcionST.innerHTML;
     const precioST = document.querySelector(".precioST");
     const precioTarjeta = precioST.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenNave.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -480,10 +500,12 @@ btnDog.addEventListener('click', () => {
     const descripcionTarjeta = descripcionDP.innerHTML;
     const precioDog = document.querySelector(".precioDog");
     const precioTarjeta = precioDog.innerHTML;
+    const imagenTarjeta = "./imagenes/imagenDog.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
+        imagen: imagenTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -515,16 +537,13 @@ btnKill.addEventListener('click', () => {
     const descripcionTarjeta = descripcionKB.innerHTML;
     const precioKB = document.querySelector(".precioKB");
     const precioTarjeta = precioKB.innerHTML;
-    //const imagenKB = "imagenes/imagenKB.jpg";
-    //const imagenKB = document.querySelector(".imagenKB");
-    //const imagenTarjeta = imagenKB.src;
+    const imagenTarjeta = "./imagenes/imagenKB.jpg";
 
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
-        //imagen = imagenTarjeta,
-        //imagen = document.querySelector(".imagenKB").src,
+        imagen: imagenTarjeta,
     }
 
     //Variables para el guardado y recuperado del local Storage
@@ -534,6 +553,8 @@ btnKill.addEventListener('click', () => {
     console.log(carrito);
 })
 
+
+
 function agregarCarrito() {
     var productoAgregado = JSON.parse(localStorage.getItem('ProductoAgregado'));
     cargarAlCarrito(carrito, productoAgregado);
@@ -541,6 +562,8 @@ function agregarCarrito() {
 }
 
 const tbody = document.querySelector(".tbody");
+
+// FUNCIÓN QUE HASTA AHORA ANDA CON FOR EACH Y EL ERROR DE ITERAR---------------(LA DEJO MOMENTÁNEAMENTE)
 
 function carritoHTML() {
     carrito.forEach(productoAgregado => {
@@ -564,6 +587,7 @@ const botonCarrito = document.getElementById("botonCarrito");
 botonCarrito.addEventListener('click', () => {
     carritoHTML()
 });
+
 
 // FIN AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
 
@@ -665,48 +689,48 @@ console.log(camposFormulario);
 
 //-----------------------------APIS Y FETCH ---------------------------------------------------------------------------------------->
 
-const productosCompra = [
-    { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
-    { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
-    { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
-    { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
-    { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
-    { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
-]
+// const productosCompra = [
+//     { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
+//     { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
+//     { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
+//     { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
+//     { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
+//     { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
+// ]
 
-console.log(productosCompra);
+// console.log(productosCompra);
 
-const wharehouse = [];
-const contenedorCarrito = document.getElementById("contenedorCarrito")
+// const wharehouse = [];
+// const contenedorCarrito = document.getElementById("contenedorCarrito")
 
-function cargarAlCarrito(carrito, valor) {
-    carrito.push(valor);
-    console.log(carrito);
-}
-
-
-function agregarWarehouse() {
-
-    cargarAlCarrito(wharehouse, stock);
-    console.log(productoAgregado);
-}
+// function cargarAlCarrito(carrito, valor) {
+//     carrito.push(valor);
+//     console.log(carrito);
+// }
 
 
+// function agregarWarehouse() {
 
-fetch('./notas2.json')
-    .then(res => res.json())
-    .then(data => {
-        stock = data
-        cargarAlCarrito(wharehouse, stock);
-        wharehouse.forEach((producto) => {
-            console.log(producto);
-            console.log(producto);
-            //     const div = document.createElement('div')
-            //     div.innerHTML = `
-            // <h4>${producto.nombre}</h4>`
-            //     contenedorCarrito.appendChild(div)
-        })
-    });
+//     cargarAlCarrito(wharehouse, stock);
+//     console.log(productoAgregado);
+// }
+
+
+
+// fetch('./notas2.json')
+//     .then(res => res.json())
+//     .then(data => {
+//         stock = data
+//         cargarAlCarrito(wharehouse, stock);
+//         wharehouse.forEach((producto) => {
+//             console.log(producto);
+//             console.log(producto);
+//             //     const div = document.createElement('div')
+//             //     div.innerHTML = `
+//             // <h4>${producto.nombre}</h4>`
+//             //     contenedorCarrito.appendChild(div)
+//         })
+//     });
 
 // .catch(err => console.log(err))
 
