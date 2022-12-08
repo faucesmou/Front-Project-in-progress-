@@ -1,50 +1,98 @@
 [
     {
-        "id": 1,
-        "tipo": "Marca Digital",
-        "nombre": "Softer",
-        "autor": "pablo fernández",
-        "precio": 9000,
-        "img": "imagenes/imagenVioleta.jpg"
+       "id":1,
+       "tipo":"Marca Digital",
+       "titulo":"Softer",
+       "autor":"pablo fernández",
+       "precio":9000,
+       "imagen":"./imagenes/imagenVioleta.jpg"
     },
     {
-        "id": 2,
-        "tipo": "Ilustración 3D",
-        "nombre": "Tomato Soup",
-        "autor": "andrew footit",
-        "precio": 3200,
-        "img": "imagenes/imagenTomato2.jpg"
+       "id":2,
+       "tipo":"Ilustración 3D",
+       "titulo":"Tomato Soup",
+       "autor":"andrew footit",
+       "precio":3200,
+       "imagen":"./imagenes/imagenTomato2.jpg"
     },
     {
-        "id": 3,
-        "tipo": "Ilustración",
-        "nombre": "Ghost Pals",
-        "autor": "aleisha samek",
-        "precio": 2700,
-        "img": "imagenes/imagenFantasma.jpg"
+       "id":3,
+       "tipo":"Ilustración",
+       "titulo":"Ghost Pals",
+       "autor":"aleisha samek",
+       "precio":2700,
+       "imagen":"./imagenes/imagenFantasma.jpg"
     },
     {
-        "id": 4,
-        "tipo": "Diseño",
-        "nombre": "Hocus Pocus",
-        "autor": "zach hannibal",
-        "precio": 3800,
-        "img": "imagenes/imagenSalem.jpg"
+       "id":4,
+       "tipo":"Diseño",
+       "titulo":"Hocus Pocus",
+       "autor":"zach hannibal",
+       "precio":3800,
+       "imagen":"./imagenes/imagenSalem.jpg"
     },
     {
-        "id": 5,
-        "tipo": "Marca",
-        "nombre": "Sensitive Tiger",
-        "autor": "sofia herrera",
-        "precio": 3200,
-        "img": "imagenes/imagenTigre.jpg"
+       "id":5,
+       "tipo":"Marca",
+       "titulo":"Sensitive Tiger",
+       "autor":"sofia herrera",
+       "precio":3200,
+       "imagen":"./imagenes/imagenTigre.jpg"
     },
     {
-        "id": 6,
-        "tipo": "Bordado digital",
-        "nombre": "Duck Duck Pal",
-        "autor": "emanuel pécora",
-        "precio": 3200,
-        "img": "imagenes/imagenPato.jpg"
+       "id":6,
+       "tipo":"Bordado digital",
+       "titulo":"Duck Duck Pal",
+       "autor":"emanuel pécora",
+       "precio":3200,
+       "imagen":"./imagenes/imagenPato.jpg"
+    },
+    {
+       "id":7,
+       "tipo":"Collage",
+       "titulo":"Astrology",
+       "autor":"camila fernández",
+       "precio":6500,
+       "imagen":"./imagenes/imagenAstrologia"
+    },
+    {
+       "id":8,
+       "tipo":"Clipping",
+       "titulo":"Best Clippings",
+       "autor":"cami ferreira",
+       "precio":2500,
+       "imagen":"./imagenes/imagenClipings.jpg"
+    },
+    {
+       "id":9,
+       "tipo":"Marca",
+       "titulo":"Hype!",
+       "autor":"manu contreras",
+       "precio":7100,
+       "imagen":"./imagenes/imagenHype.jpg"
+    },
+    {
+       "id":10,
+       "tipo":"Ilustración",
+       "titulo":"Space Travel",
+       "autor":"josé hidalgo",
+       "precio":9400,
+       "imagen":"./imagenes/imagenNave.jpg"
+    },
+    {
+       "id":11,
+       "tipo":"Marca",
+       "titulo":"Doberman Power",
+       "autor":"ezequiel quinteros",
+       "precio":6500,
+       "imagen":"./imagenes/imagenDog.jpg"
+    },
+    {
+       "id":12,
+       "tipo":"Ilustración",
+       "titulo":"Kill Bill Sessions",
+       "autor":"gonzalo morresi",
+       "precio":8400,
+       "imagen":"./imagenes/imagenKB.jpg"
     }
-]
+ ]

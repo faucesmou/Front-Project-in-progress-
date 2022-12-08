@@ -151,16 +151,19 @@ btnSofter.addEventListener('click', () => {
     const precioS = document.querySelector(".precioS");
     const precioTarjeta = precioS.innerHTML;
     const imagenTarjeta = "./imagenes/imagenVioleta.jpg";
+    const autorS = document.querySelector(".autorS");
+    const autorTarjeta = autorS.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
     console.log(carrito);
-    carritoHTML();
+    //carritoHTML();
 })
 
 const btnTomato = document.getElementById("btnTomato");
@@ -186,11 +189,14 @@ btnTomato.addEventListener('click', () => {
     const precioTo = document.querySelector(".precioTo");
     const precioTarjeta = precioTo.innerHTML;
     const imagenTarjeta = "./imagenes/imagenTomato2.jpg";
+    const autorTo = document.querySelector(".autorTo");
+    const autorTarjeta = autorTo.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -221,11 +227,14 @@ btnGhost.addEventListener('click', () => {
     const precioGhost = document.querySelector(".precioGhost");
     const precioTarjeta = precioGhost.innerHTML;
     const imagenTarjeta = "./imagenes/imagenFantasma.jpg";
+    const autorGhost = document.querySelector(".autorGhost");
+    const autorTarjeta = autorGhost.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -256,11 +265,14 @@ btnHocus.addEventListener('click', () => {
     const precioHocus = document.querySelector(".precioHocus");
     const precioTarjeta = precioHocus.innerHTML;
     const imagenTarjeta = "./imagenes/imagenSalem.jpg";
+    const autorHocus = document.querySelector(".autorHocus");
+    const autorTarjeta = autorHocus.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -291,11 +303,14 @@ btnTigre.addEventListener('click', () => {
     const precioT = document.querySelector(".precioT");
     const precioTarjeta = precioT.innerHTML;
     const imagenTarjeta = "./imagenes/imagenTigre.jpg";
+    const autorT = document.querySelector(".autorT");
+    const autorTarjeta = autorT.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -326,11 +341,14 @@ btnDuck.addEventListener('click', () => {
     const precioD = document.querySelector(".precioD");
     const precioTarjeta = precioD.innerHTML;
     const imagenTarjeta = "./imagenes/imagenPato.jpg";
+    const autorD = document.querySelector(".autorD");
+    const autorTarjeta = autorD.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -361,11 +379,14 @@ btnAstrology.addEventListener('click', () => {
     const precioA = document.querySelector(".precioA");
     const precioTarjeta = precioA.innerHTML;
     const imagenTarjeta = "./imagenes/imagenAstrologia.jpg";
+    const autorA = document.querySelector(".autorA");
+    const autorTarjeta = autorA.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -396,11 +417,14 @@ btnClippings.addEventListener('click', () => {
     const precioBC = document.querySelector(".precioBC");
     const precioTarjeta = precioBC.innerHTML;
     const imagenTarjeta = "./imagenes/imagenClipings.jpg";
+    const autorBC = document.querySelector(".autorBC");
+    const autorTarjeta = autorBC.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -431,11 +455,14 @@ btnHype.addEventListener('click', () => {
     const precioHP = document.querySelector(".precioHP");
     const precioTarjeta = precioHP.innerHTML;
     const imagenTarjeta = "./imagenes/imagenHype.jpg";
+    const autorHP = document.querySelector(".autorHP");
+    const autorTarjeta = autorHP.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -466,11 +493,14 @@ btnSpace.addEventListener('click', () => {
     const precioST = document.querySelector(".precioST");
     const precioTarjeta = precioST.innerHTML;
     const imagenTarjeta = "./imagenes/imagenNave.jpg";
+    const autorST = document.querySelector(".autorST");
+    const autorTarjeta = autorST.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -501,11 +531,14 @@ btnDog.addEventListener('click', () => {
     const precioDog = document.querySelector(".precioDog");
     const precioTarjeta = precioDog.innerHTML;
     const imagenTarjeta = "./imagenes/imagenDog.jpg";
+    const autorDog = document.querySelector(".autorDog");
+    const autorTarjeta = autorDog.innerHTML;
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
     agregarCarrito()
@@ -538,12 +571,15 @@ btnKill.addEventListener('click', () => {
     const precioKB = document.querySelector(".precioKB");
     const precioTarjeta = precioKB.innerHTML;
     const imagenTarjeta = "./imagenes/imagenKB.jpg";
+    const autorKB = document.querySelector(".autorKB");
+    const autorTarjeta = autorKB.innerHTML;
 
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
         precio: precioTarjeta,
         imagen: imagenTarjeta,
+        autor: autorTarjeta,
     }
 
     //Variables para el guardado y recuperado del local Storage
@@ -574,6 +610,7 @@ function carritoHTML() {
             <div class="card-body">
                 <h3 class="card-title">${productoAgregado.titulo}</h3>
                 <p class="card-text">${productoAgregado.descripcion}</p>
+                <p class="autorHocus">${productoAgregado.autor}</p>
                     <p>${productoAgregado.precio}</p>
                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
             </div>
@@ -588,13 +625,62 @@ botonCarrito.addEventListener('click', () => {
     carritoHTML()
 });
 
+function actualizarCarrito() {
+    let aux = ''
+    tbody.innerHTML = aux;
+    //calcularTotalCompra();
+}
 
+function vaciarBusquedas() {
+    let aux = ''
+    contenedorResultado.innerHTML = aux;
+    //calcularTotalCompra();
+}
 // FIN AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
+
+
+// BOTÓN VACIAR BÚSQUEDA------------------------------->
+
+const vaciarResultado1 = document.getElementById("vaciar-resultado");
+vaciarResultado1.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Está seguro?',
+        text: "Está a punto de vaciar los resultados",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, quiero volver a buscar',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log(carrito);
+            vaciarBusquedas()
+            carrito.splice(0, carrito.length);
+            //botonCerrar.click()
+            Toastify({
+                text: 'Se vaciaron los productos encontrados',
+                position: 'left',
+                gravity: 'bottom',
+                duration: 5000,
+                style: {
+                    background: "linear-gradient(to right, #f17b5d, #f02f2f)",
+                }
+            }).showToast()
+        }
+    })
+})
+
+
 
 // BOTÓN VACIAR CARRITO------------------------------->
 
-const vaciarCarrito = document.getElementById("vaciar-carrito");
-vaciarCarrito.addEventListener('click', () => {
+function vaciarCarrito() {
+    carrito.length = 0
+}
+
+const vaciarCarrito1 = document.getElementById("vaciar-carrito");
+vaciarCarrito1.addEventListener('click', () => {
     Swal.fire({
         title: 'Está seguro?',
         text: "Está a punto de vaciar el carrito",
@@ -606,8 +692,11 @@ vaciarCarrito.addEventListener('click', () => {
         cancelButtonText: 'No, cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
-            vaciarCarrito()
-            botonCerrar.click()
+            //vaciarCarrito()
+            console.log(carrito);
+            actualizarCarrito()
+            carrito.splice(0, carrito.length);
+            //botonCerrar.click()
             Toastify({
                 text: 'Se vació el carrito',
                 position: 'left',
@@ -730,13 +819,31 @@ console.log(camposFormulario);
 //-----------------------------APIS Y FETCH ---------------------------------------------------------------------------------------->
 
 const productosCompra = [
-    { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
-    { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
-    { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
-    { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
-    { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
-    { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
+    { id: 1, tipo: "Marca Digital", titulo: "Softer", autor: "pablo fernández", precio: 9000, imagen: "./imagenes/imagenVioleta.jpg" },
+    { id: 2, tipo: "Ilustración 3D", titulo: "Tomato Soup", autor: "andrew footit", precio: 3200, imagen: "./imagenes/imagenTomato2.jpg" },
+    { id: 3, tipo: "Ilustración", titulo: "Ghost Pals", autor: "aleisha samek", precio: 2700, imagen: "./imagenes/imagenFantasma.jpg" },
+    { id: 4, tipo: "Diseño", titulo: "Hocus Pocus", autor: "zach hannibal", precio: 3800, imagen: "./imagenes/imagenSalem.jpg" },
+    { id: 5, tipo: "Marca", titulo: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, imagen: "./imagenes/imagenTigre.jpg" },
+    { id: 6, tipo: "Bordado digital", titulo: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, imagen: "./imagenes/imagenPato.jpg" },
+    { id: 7, tipo: "Collage", titulo: "Astrology", autor: "camila fernández", precio: 6500, imagen: "./imagenes/imagenAstrologia" },
+    { id: 8, tipo: "Clipping", titulo: "Best Clippings", autor: "cami ferreira", precio: 2500, imagen: "./imagenes/imagenClipings.jpg" },
+    { id: 9, tipo: "Marca", titulo: "Hype!", autor: "manu contreras", precio: 7100, imagen: "./imagenes/imagenHype.jpg" },
+    { id: 10, tipo: "Ilustración", titulo: "Space Travel", autor: "josé hidalgo", precio: 9400, imagen: "./imagenes/imagenNave.jpg" },
+    { id: 11, tipo: "Marca", titulo: "Doberman Power", autor: "ezequiel quinteros", precio: 6500, imagen: "./imagenes/imagenDog.jpg" },
+    { id: 12, tipo: "Ilustración", titulo: "Kill Bill Sessions", autor: "gonzalo morresi", precio: 8400, imagen: "./imagenes/imagenKB.jpg" },
+    
 ]
+
+// const producto7 = new Producto("Collage", "Astrology", "camila fernández", "Rosado-Verde", 6500, "imagenes/imagenAstrologia.jpg");
+// const producto8 = new Producto("Clipping", "Best Clippings", "cami ferreira", "Rojo-Negro", 2500, "imagenes/imagenClipings.jpg");
+// const producto9 = new Producto("Marca", "Hype!", "manu contreras", "Flúor-Verde", 7100, "imagenes/imagenHype.jpg");
+// const producto10 = new Producto("Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400, "imagenes/imagenNave.jpg");
+// const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500, "imagenes/imagenDog.jpg");
+// const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400, "imagenes/imagenKB.jpg")
+
+
+
+
 
 console.log(productosCompra);
 
@@ -744,10 +851,22 @@ const wharehouse = [];
 let arrayPrecio = [];
 // const contenedorCarrito = document.getElementById("contenedorCarrito")
 
+// function cargarAlArray(array, valor) {
+//     array.push(valor);
+//     console.log(array);
+// }
+
 function cargarAlArray(array, valor) {
     array.push(valor);
+    console.log(array[0]);
+    array = array[0]
     console.log(array);
+    //array[0].forEach(el => console.log(el))
 }
+
+// function cargarAlArrayLosProductos(productos) {
+//     productos.forEach(productos => wharehouse.push(productos))
+// }
 
 function agregarWarehouse() {
     cargarAlCarrito(wharehouse, stock);
@@ -755,17 +874,25 @@ function agregarWarehouse() {
 }
 
 
-fetch('./notas2.json')
-    .then(res => res.json())
-    .then(data => {
-        stock = data
-        cargarAlArray(wharehouse, stock);
-        console.log(wharehouse);
-        
-        })
-    .catch(error=> console.log(error))    
-    
- 
+// fetch('./notas2.json')
+//     .then(res => res.json())
+//     .then(data => {
+//         cargarAlArray(wharehouse, data)
+//         console.log(wharehouse);
+//         const funcionaMaldito = wharehouse[0];
+//         console.log(funcionaMaldito);
+//         // cargarAlArray(wharehouse, stock);
+//         //console.log(wharehouse);
+//         // console.log(wharehouse[0]);
+
+//     })
+//     .catch(error => console.log(error))
+// console.log("Este es whar por fuera de fetch");
+// console.log(wharehouse);
+// const funcionaMaldito = wharehouse[0];
+// console.log(funcionaMaldito);
+// console.log(wharehouse[0]);
+
 //----------------------------- FIN APIS Y FETCH ---------------------------------------------------------------------------------------->
 
 
@@ -796,7 +923,6 @@ function cargarAlCarrito(carrito, valor) {
 }
 
 
-
 const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
 
@@ -805,28 +931,45 @@ console.log(botonBuscar);
 // PRUEBA:
 
 botonBuscar.addEventListener("submit", (e) => {
-	e.preventDefault();
-	const usuarioBusqueda = document
-		.querySelector("#barraBusqueda")
-		.value.toLowerCase();
-        if (isNaN(parseInt(usuarioBusqueda))) {
-            ProductoEncontradoArtista = wharehouse.filter((producto) => {
-                return producto.autor.includes(usuarioBusqueda);
+    e.preventDefault();
+    const usuarioBusqueda = document
+        .querySelector("#barraBusqueda")
+        .value.toLowerCase();
+    if (isNaN(parseInt(usuarioBusqueda))) {
+        fetch('./notas2.json')
+            .then(res => res.json())
+            .then(data => {
+                cargarAlArray(wharehouse, data)
+                console.log(wharehouse);
+                const traidoConFetch = wharehouse[0];
+                console.log(traidoConFetch);
+                ProductoEncontradoArtista = traidoConFetch.filter((producto) => {
+                    return producto.autor.includes(usuarioBusqueda);
+                })
+                console.log(ProductoEncontradoArtista);
+                ProductoEncontradoArtista.forEach((producto) => {
+                    mostrarResultadoArtista(producto.titulo, producto.imagen, producto.precio, producto.autor);
+                })
+
             });
-	} else {
-		ProductoEncontradoArtista = filtrarPorPrecio(almacen2, usuarioBusqueda);
-	}
-	console.log(ProductoEncontradoArtista);
-    ProductoEncontradoArtista.forEach((producto) => {
-        mostrarResultadoArtista(producto.titulo, producto.imagen);
-    })
+    } else {
+        ProductoEncontradoArtista = filtrarPorPrecio(almacen2, usuarioBusqueda);
+        console.log(ProductoEncontradoArtista);
+        ProductoEncontradoArtista.forEach((producto) => {
+            mostrarResultadoArtista(producto.titulo, producto.imagen, producto.precio, producto.autor);
+        })
+    }
+    // console.log(ProductoEncontradoArtista);
+    // ProductoEncontradoArtista.forEach((producto) => {
+    //     mostrarResultadoArtista(producto.titulo, producto.imagen);
+    // })
 })
 
 
 
-function mostrarResultadoArtista(titulo, imagen) {
-	const resultadoBusqueda = document.createElement("div");
-	resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
+function mostrarResultadoArtista(titulo, imagen, precio, autor) {
+    const resultadoBusqueda = document.createElement("div");
+    resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
         <div class="card mt-3 mb-2">
             <img class="card-img-top" src=${imagen} class="img-fluid">
             <div class="card-body">
@@ -834,12 +977,14 @@ function mostrarResultadoArtista(titulo, imagen) {
                 <p class="card-text">Some quick example text to build on the card title and make up the
                     bulk
                     of the card's content.</p>
+                    <p class="autorHocus">${autor}</p>
+                    <p>Valor: ${precio}</p>
                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
             </div>
         </div>
     </div>`;
 
-	contenedorResultado.appendChild(resultadoBusqueda);
+    contenedorResultado.appendChild(resultadoBusqueda);
 }
 
 
