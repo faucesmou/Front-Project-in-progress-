@@ -220,7 +220,7 @@ btnGhost.addEventListener('click', () => {
     const descripcionTarjeta = descripcionGhost.innerHTML;
     const precioGhost = document.querySelector(".precioGhost");
     const precioTarjeta = precioGhost.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenFantasma.jp";
+    const imagenTarjeta = "./imagenes/imagenFantasma.jpg";
     const productoSeleccionado = {
         titulo: tituloTarjeta,
         descripcion: descripcionTarjeta,
@@ -591,6 +591,46 @@ botonCarrito.addEventListener('click', () => {
 
 // FIN AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
 
+// BOTÓN VACIAR CARRITO------------------------------->
+
+const vaciarCarrito = document.getElementById("vaciar-carrito");
+vaciarCarrito.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Está seguro?',
+        text: "Está a punto de vaciar el carrito",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, vaciar',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito()
+            botonCerrar.click()
+            Toastify({
+                text: 'Se vació el carrito',
+                position: 'left',
+                gravity: 'bottom',
+                duration: 5000,
+                style: {
+                    background: "linear-gradient(to right, #f17b5d, #f02f2f)",
+                }
+            }).showToast()
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
 // INICIO LIBRERÍA CLEAVE.JS ---------------------------------------------------------------------------->
 
 var cleave = new Cleave('#fechaNumber', {
@@ -689,82 +729,40 @@ console.log(camposFormulario);
 
 //-----------------------------APIS Y FETCH ---------------------------------------------------------------------------------------->
 
-// const productosCompra = [
-//     { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
-//     { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
-//     { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
-//     { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
-//     { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
-//     { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
-// ]
+const productosCompra = [
+    { id: 1, tipo: "Marca Digital", nombre: "Softer", autor: "pablo fernández", precio: 9000, img: "imagenes/imagenVioleta.jpg" },
+    { id: 2, tipo: "Ilustración 3D", nombre: "Tomato Soup", autor: "andrew footit", precio: 3200, img: "imagenes/imagenTomato2.jpg" },
+    { id: 3, tipo: "Ilustración", nombre: "Ghost Pals", autor: "aleisha samek", precio: 2700, img: "imagenes/imagenFantasma.jpg" },
+    { id: 4, tipo: "Diseño", nombre: "Hocus Pocus", autor: "zach hannibal", precio: 3800, img: "imagenes/imagenSalem.jpg" },
+    { id: 5, tipo: "Marca", nombre: "Sensitive Tiger", autor: "sofia herrera", precio: 3200, img: "imagenes/imagenTigre.jpg" },
+    { id: 6, tipo: "Bordado digital", nombre: "Duck Duck Pal", autor: "emanuel pécora", precio: 3200, img: "imagenes/imagenPato.jpg" }
+]
 
-// console.log(productosCompra);
+console.log(productosCompra);
 
-// const wharehouse = [];
+const wharehouse = [];
+let arrayPrecio = [];
 // const contenedorCarrito = document.getElementById("contenedorCarrito")
 
-// function cargarAlCarrito(carrito, valor) {
-//     carrito.push(valor);
-//     console.log(carrito);
-// }
+function cargarAlArray(array, valor) {
+    array.push(valor);
+    console.log(array);
+}
+
+function agregarWarehouse() {
+    cargarAlCarrito(wharehouse, stock);
+    console.log(productoAgregado);
+}
 
 
-// function agregarWarehouse() {
-
-//     cargarAlCarrito(wharehouse, stock);
-//     console.log(productoAgregado);
-// }
-
-
-
-// fetch('./notas2.json')
-//     .then(res => res.json())
-//     .then(data => {
-//         stock = data
-//         cargarAlCarrito(wharehouse, stock);
-//         wharehouse.forEach((producto) => {
-//             console.log(producto);
-//             console.log(producto);
-//             //     const div = document.createElement('div')
-//             //     div.innerHTML = `
-//             // <h4>${producto.nombre}</h4>`
-//             //     contenedorCarrito.appendChild(div)
-//         })
-//     });
-
-// .catch(err => console.log(err))
-
-
-
-// fetch('./stock.json')
-// .then((resp) => resp.json())
-// .then((data) => {
-//     stock = data
-
-//     stock.forEach((producto) => {
-//         const div = document.createElement('div')
-//         div.classList.add('producto')
-
-//         div.innerHTML = `
-//                         <img src=${producto.img} alt="">
-//                         <h3>${producto.nombre}</h3>
-//                         <p>${producto.desc}</p>
-//                         <p>Talle: ${producto.talle}</p>
-//                         ${producto.freeshipping === true ? '<p><strong>Envío gratis</strong></p>' : ''}
-//                         <p class="precioProducto">Precio: $${producto.precio}</p>
-//                         <button onclick="agregarAlCarrito(${producto.id})" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
-//                     `
-
-//         productosContainer.append(div)
-//     })
-// })
-
-
-
-
-
-
-
+fetch('./notas2.json')
+    .then(res => res.json())
+    .then(data => {
+        stock = data
+        cargarAlArray(wharehouse, stock);
+        console.log(wharehouse);
+        })
+    
 
 //----------------------------- FIN APIS Y FETCH ---------------------------------------------------------------------------------------->
 
@@ -796,24 +794,6 @@ function cargarAlCarrito(carrito, valor) {
 }
 
 
-// function mostrarResultado() {
-//     const resultadoBusqueda = document.createElement('div');
-//     resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaGenerica">
-//         <div class="card mt-3 mb-2">
-//             <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
-//             <div class="card-body">
-//                 <h3 class="card-title">${titulo}Duck Duck Pal</h3>
-//                 <p class="card-text">Some quick example text to build on the card title and make up the
-//                     bulk
-//                     of the card's content.</p>
-//                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-//             </div>
-//         </div>
-//     </div>`
-//     contenedorResultado.appendChild(resultadoBusqueda);
-// }
-
-
 
 const botonBuscar = document.getElementById("botonBuscar")
 console.log(botonBuscar);
@@ -824,8 +804,8 @@ botonBuscar.addEventListener("submit", (e) => {
     const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
     ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
     console.log(ProductoEncontradoArtista);
-    ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
-    console.log(ProductoEncontradoPrecio);
+    //ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
+    //console.log(ProductoEncontradoPrecio);
     const titulo = ProductoEncontradoArtista.titulo;
     const imagen = ProductoEncontradoArtista.imagen;
     function mostrarResultadoArtista() {
@@ -845,15 +825,46 @@ botonBuscar.addEventListener("submit", (e) => {
 
         contenedorResultado.appendChild(resultadoBusqueda);
     }
-    const titulo2 = ProductoEncontradoPrecio.titulo;
-    const imagen2 = ProductoEncontradoPrecio.imagen;
+    // const titulo2 = ProductoEncontradoPrecio.titulo;
+    // const imagen2 = ProductoEncontradoPrecio.imagen;
+    // function mostrarResultadoPrecio() {
+    //     const resultadoBusqueda = document.createElement('div');
+    //     resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-8 col-xl-3" class="tarjetaGenerica">
+    //         <div class="card mt-3 mb-2">
+    //             <img class="card-img-top" src=${imagen2} class="img-fluid">
+    //             <div class="card-body">
+    //                 <h3 class="card-title">${titulo2}</h3>
+    //                 <p class="card-text">Some quick example text to build on the card title and make up the
+    //                     bulk
+    //                     of the card's content.</p>
+    //                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+    //             </div>
+    //         </div>
+    //     </div>`
+    //     contenedorResultado.appendChild(resultadoBusqueda);
+    // }
+    //cargarAlCarrito(carrito, ProductoEncontradoArtista);
+    //cargarAlCarrito(carrito, ProductoEncontradoPrecio);
+    mostrarResultadoArtista();
+    //mostrarResultadoPrecio();
+    e.preventDefault();
+})
+
+
+botonBuscar.addEventListener("submit", (e) => {
+    const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
+    ProductoEncontradoPrecio = filtrarPorPrecio(wharehouse, usuarioBusqueda);
+    console.log(ProductoEncontradoPrecio);
+    cargarAlArray(arrayPrecio,ProductoEncontradoPrecio)
+    const titulo = ProductoEncontradoPrecio.titulo;
+    const imagen = ProductoEncontradoPrecio.imagen;
     function mostrarResultadoPrecio() {
         const resultadoBusqueda = document.createElement('div');
-        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-8 col-xl-3" class="tarjetaGenerica">
+        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
             <div class="card mt-3 mb-2">
-                <img class="card-img-top" src=${imagen2} class="img-fluid">
+                <img class="card-img-top" src=${imagen} class="img-fluid">
                 <div class="card-body">
-                    <h3 class="card-title">${titulo2}</h3>
+                    <h3 class="card-title">${titulo}</h3>
                     <p class="card-text">Some quick example text to build on the card title and make up the
                         bulk
                         of the card's content.</p>
@@ -861,14 +872,33 @@ botonBuscar.addEventListener("submit", (e) => {
                 </div>
             </div>
         </div>`
+
         contenedorResultado.appendChild(resultadoBusqueda);
     }
-    //cargarAlCarrito(carrito, ProductoEncontradoArtista);
-    //cargarAlCarrito(carrito, ProductoEncontradoPrecio);
-    mostrarResultadoArtista();
-    //mostrarResultadoPrecio();
+    mostrarResultadoPrecio();
+   
     e.preventDefault();
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function notificaBusqueda() {
 //     //    var avisoMail = localStorage.getItem('mail del formulario');
