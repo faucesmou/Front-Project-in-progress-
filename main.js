@@ -761,9 +761,11 @@ fetch('./notas2.json')
         stock = data
         cargarAlArray(wharehouse, stock);
         console.log(wharehouse);
+        
         })
+    .catch(error=> console.log(error))    
     
-
+ 
 //----------------------------- FIN APIS Y FETCH ---------------------------------------------------------------------------------------->
 
 
@@ -783,7 +785,7 @@ function filtrarPorPrecio(arr, filtro) {
 }
 
 function EncontrarArtista(arr, filtro) {
-    const encontrado = arr.find((producto) => {
+    const encontrado = arr.filter((producto) => {
         return producto.autor.includes(filtro);
     })
     return encontrado;
@@ -800,102 +802,45 @@ console.log(botonBuscar);
 
 // if usuarioBusqueda = string > todo lo que hace productoArtista if not > todo lo que hace ProductoEncontradoPrecio.
 
-botonBuscar.addEventListener("submit", (e) => {
-    const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
-    ProductoEncontradoArtista = EncontrarArtista(almacen2, usuarioBusqueda);
-    console.log(ProductoEncontradoArtista);
-    //ProductoEncontradoPrecio = filtrarPorPrecio(almacen2, usuarioBusqueda);
-    //console.log(ProductoEncontradoPrecio);
-    const titulo = ProductoEncontradoArtista.titulo;
-    const imagen = ProductoEncontradoArtista.imagen;
-    function mostrarResultadoArtista() {
-        const resultadoBusqueda = document.createElement('div');
-        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
-            <div class="card mt-3 mb-2">
-                <img class="card-img-top" src=${imagen} class="img-fluid">
-                <div class="card-body">
-                    <h3 class="card-title">${titulo}</h3>
-                    <p class="card-text">Some quick example text to build on the card title and make up the
-                        bulk
-                        of the card's content.</p>
-                    <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-                </div>
-            </div>
-        </div>`
-
-        contenedorResultado.appendChild(resultadoBusqueda);
-    }
-    // const titulo2 = ProductoEncontradoPrecio.titulo;
-    // const imagen2 = ProductoEncontradoPrecio.imagen;
-    // function mostrarResultadoPrecio() {
-    //     const resultadoBusqueda = document.createElement('div');
-    //     resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-8 col-xl-3" class="tarjetaGenerica">
-    //         <div class="card mt-3 mb-2">
-    //             <img class="card-img-top" src=${imagen2} class="img-fluid">
-    //             <div class="card-body">
-    //                 <h3 class="card-title">${titulo2}</h3>
-    //                 <p class="card-text">Some quick example text to build on the card title and make up the
-    //                     bulk
-    //                     of the card's content.</p>
-    //                 <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-    //             </div>
-    //         </div>
-    //     </div>`
-    //     contenedorResultado.appendChild(resultadoBusqueda);
-    // }
-    //cargarAlCarrito(carrito, ProductoEncontradoArtista);
-    //cargarAlCarrito(carrito, ProductoEncontradoPrecio);
-    mostrarResultadoArtista();
-    //mostrarResultadoPrecio();
-    e.preventDefault();
-})
-
+// PRUEBA:
 
 botonBuscar.addEventListener("submit", (e) => {
-    const usuarioBusqueda = document.querySelector("#barraBusqueda").value.toLowerCase();
-    ProductoEncontradoPrecio = filtrarPorPrecio(wharehouse, usuarioBusqueda);
-    console.log(ProductoEncontradoPrecio);
-    cargarAlArray(arrayPrecio,ProductoEncontradoPrecio)
-    const titulo = ProductoEncontradoPrecio.titulo;
-    const imagen = ProductoEncontradoPrecio.imagen;
-    function mostrarResultadoPrecio() {
-        const resultadoBusqueda = document.createElement('div');
-        resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
-            <div class="card mt-3 mb-2">
-                <img class="card-img-top" src=${imagen} class="img-fluid">
-                <div class="card-body">
-                    <h3 class="card-title">${titulo}</h3>
-                    <p class="card-text">Some quick example text to build on the card title and make up the
-                        bulk
-                        of the card's content.</p>
-                    <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-                </div>
-            </div>
-        </div>`
-
-        contenedorResultado.appendChild(resultadoBusqueda);
-    }
-    mostrarResultadoPrecio();
-   
-    e.preventDefault();
+	e.preventDefault();
+	const usuarioBusqueda = document
+		.querySelector("#barraBusqueda")
+		.value.toLowerCase();
+        if (isNaN(parseInt(usuarioBusqueda))) {
+            ProductoEncontradoArtista = wharehouse.filter((producto) => {
+                return producto.autor.includes(usuarioBusqueda);
+            });
+	} else {
+		ProductoEncontradoArtista = filtrarPorPrecio(almacen2, usuarioBusqueda);
+	}
+	console.log(ProductoEncontradoArtista);
+    ProductoEncontradoArtista.forEach((producto) => {
+        mostrarResultadoArtista(producto.titulo, producto.imagen);
+    })
 })
 
 
 
+function mostrarResultadoArtista(titulo, imagen) {
+	const resultadoBusqueda = document.createElement("div");
+	resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
+        <div class="card mt-3 mb-2">
+            <img class="card-img-top" src=${imagen} class="img-fluid">
+            <div class="card-body">
+                <h3 class="card-title">${titulo}</h3>
+                <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
+            </div>
+        </div>
+    </div>`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	contenedorResultado.appendChild(resultadoBusqueda);
+}
 
 
 
