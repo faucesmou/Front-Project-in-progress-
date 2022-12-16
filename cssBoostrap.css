@@ -229,6 +229,12 @@ body {
   font-size: 1em;
 }
 
+#contenedorProductos{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 /*
 #wf-sect1 {
   width: 100%;

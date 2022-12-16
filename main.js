@@ -4,12 +4,14 @@
 
 // FUNCIÓN CONSTRUCTORA
 
-function Producto(tipo, titulo, autor, color, precio, imagen) {
+function Producto(id, tipo, titulo, autor, color, precio, cantidad, imagen) {
+    this.id = id;
     this.tipo = tipo;
     this.titulo = titulo;
     this.autor = autor;
     this.color = color;
     this.precio = precio;
+    this.cantidad = cantidad;
     this.imagen = imagen; // esto Cómo lo podría usar para hacer la tarjeta. 
     this.sumarIva = function () {
         return (this.precio = this.precio * 1.21);
@@ -33,23 +35,126 @@ function Producto(tipo, titulo, autor, color, precio, imagen) {
 
 }
 
-const producto1 = new Producto("Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000, "imagenes/imagenVioleta.jpg");
-const producto2 = new Producto("Ilustración 3D", "Tomato Soup", "pablo footit", "Naranja-Verde", 3200, "imagenes/imagenTomato2.jpg");
-const producto3 = new Producto("Ilustración", "Ghost Pals", "aleisha samek", "Marrón-Blanco", 2700, "imagenes/imagenFantasma.jpg");
-const producto4 = new Producto("Diseño", "Hocus Pocus", "zach hannibal", "Rosado-Gris", 3800, "imagenes/imagenSalem.jpg");
-const producto5 = new Producto("Marca", "Sensitive Tiger", "sofia herrera", "Naranja-Celeste", 4800, "imagenes/imagenTigre.jpg");
-const producto6 = new Producto("Bordado digital", "Duck Duck Pal", "emanuel pécora", "Verde-Amarillo", 2900, "imagenes/imagenPato.jpg");
-const producto7 = new Producto("Collage", "Astrology", "camila fernández", "Rosado-Verde", 6500, "imagenes/imagenAstrologia.jpg");
-const producto8 = new Producto("Clipping", "Best Clippings", "cami ferreira", "Rojo-Negro", 2500, "imagenes/imagenClipings.jpg");
-const producto9 = new Producto("Marca", "Hype!", "manu contreras", "Flúor-Verde", 7100, "imagenes/imagenHype.jpg");
-const producto10 = new Producto("Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400, "imagenes/imagenNave.jpg");
-const producto11 = new Producto("Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500, "imagenes/imagenDog.jpg");
-const producto12 = new Producto("Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400, "imagenes/imagenKB.jpg");
+const producto1 = new Producto(1, "Marca Digital", "Softer", "pablo fernández", "Violeta-Azul", 9000, 1, "./imagenes/imagenVioleta.jpg");
+const producto2 = new Producto(2, "Ilustración 3D", "Tomato Soup", "pablo footit", "Naranja-Verde", 3200, 1, "./imagenes/imagenTomato2.jpg");
+const producto3 = new Producto(3, "Ilustración", "Ghost Pals", "aleisha samek", "Marrón-Blanco", 2700, 1, "./imagenes/imagenFantasma.jpg");
+const producto4 = new Producto(4, "Diseño", "Hocus Pocus", "zach hannibal", "Rosado-Gris", 3800, 1, "./imagenes/imagenSalem.jpg");
+const producto5 = new Producto(5, "Marca", "Sensitive Tiger", "sofia herrera", "Naranja-Celeste", 4800, 1, "./imagenes/imagenTigre.jpg");
+const producto6 = new Producto(6, "Bordado digital", "Duck Duck Pal", "emanuel pécora", "Verde-Amarillo", 2900, 1, "./imagenes/imagenPato.jpg");
+const producto7 = new Producto(7, "Collage", "Astrology", "camila fernández", "Rosado-Verde", 6500, 1, "./imagenes/imagenAstrologia.jpg");
+const producto8 = new Producto(8, "Clipping", "Best Clippings", "cami ferreira", "Rojo-Negro", 2500, 1, "./imagenes/imagenClipings.jpg");
+const producto9 = new Producto(9, "Marca", "Hype!", "manu contreras", "Flúor-Verde", 7100, 1, "./imagenes/imagenHype.jpg");
+const producto10 = new Producto(10, "Ilustración", "Space Travel", "josé hidalgo", "Violeta-Negro", 9400, 1, "./imagenes/imagenNave.jpg");
+const producto11 = new Producto(11, "Marca", "Doberman Power", "ezequiel quinteros", "Negro-Marrón", 6500, 1, "./imagenes/imagenDog.jpg");
+const producto12 = new Producto(12, "Ilustración", "Kill Bill Sessions", "gonzalo morresi", "Rojo-Amarillo", 8400, 1, "./imagenes/imagenKB.jpg");
 
 
 const almacen2 = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12];
 
 const almacenCompra = [producto1, producto2, producto3]
+
+//Muestro los productos modificando el DOM.
+
+const contenedorProductos = document.getElementById('contenedorProductos');
+
+almacen2.forEach((producto) => {
+    const divProducto = document.createElement('div');
+    divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+    divProducto.innerHTML = `
+                          <div class="card mt-3 mb-2">
+                              <img src=${producto.imagen} class="card-img-top img-fluid py-3">
+                              <div class="card-body">
+                                  <h3 class="card-title"> ${producto.titulo} </h3>
+                                  <p class="card-text"> ${producto.precio} </p>
+                                  <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                              </div>
+                          </div>`;
+    contenedorProductos.appendChild(divProducto);
+    //Agregar un evento al boton de agregar al carrito:
+    const boton = document.getElementById(`boton${producto.id}`);
+    boton.addEventListener('click', () => {
+        agregarAlCarrito(producto.id);
+    });
+});
+
+
+//Versión que chequea las cantidades:
+
+const agregarAlCarrito = (id) => {
+    const producto = productos.find((producto) => producto.id === id);
+    const productoEnCarrito = carrito.find((producto) => producto.id === id);
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad++;
+    } else {
+        carrito.push(producto);
+    }
+    actualizarCarrito();
+};
+
+//Muestro el carrito de compras modificando el DOM.
+
+const contenedorCarrito = document.getElementById('contenedorCarrito2');
+const verCarrito = document.getElementById('verCarrito2');
+
+verCarrito.addEventListener('click', actualizarCarrito);
+
+function actualizarCarrito() {
+    let aux = '';
+    carrito.forEach((producto) => {
+        aux += `
+              <div class="card col-xl-3 col-md-6 col-sm-12">
+                  <img src="img/${producto.id}.jpg" class="card-img-top img-fluid py-3">
+                  <div class="card-body">
+                      <h3 class="card-title"> ${producto.nombre} </h3>
+                      <p class="card-text"> ${producto.precio} </p>
+                      <button onClick = "eliminarDelCarrito(${producto.id})" class="btn btn-primary"> Eliminar del Carrito </button>
+                  </div>
+              </div>
+              `;
+    });
+
+    contenedorCarrito.innerHTML = aux;
+    calcularTotalCompra();
+}
+
+//Agrego una función que elimine el producto del carrito:
+const eliminarDelCarrito = (id) => {
+    const producto = carrito.find((producto) => producto.id === id);
+    carrito.splice(carrito.indexOf(producto), 1);
+    actualizarCarrito();
+  };
+
+///Función para vaciar todo el carrito por completo:
+
+const vaciarCarrito = document.getElementById('vaciarCarrito2');
+vaciarCarrito.addEventListener('click', () => {
+  carrito.splice(0, carrito.length);
+  actualizarCarrito();
+});
+
+//Creo una función que me calcule el total del carrito:
+
+const totalCompra = document.getElementById('totalCompra');
+
+const calcularTotalCompra = () => {
+  let total = 0;
+  carrito.forEach((producto) => {
+    total += producto.precio * producto.cantidad;
+  });
+  totalCompra.innerHTML = total;
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //CREO ELEMENTOS DESDE JS--------------------------------------------------------------------------------------------------->
@@ -91,7 +196,7 @@ btnSofter.addEventListener('click', () => {
         style: {
             background: "linear-gradient(to right, red, yellow)",
         },
-        onClick: function () { } 
+        onClick: function () { }
     }).showToast();
     const tituloS = document.querySelector(".tituloS");
     const tituloTarjeta = tituloS.innerHTML;
