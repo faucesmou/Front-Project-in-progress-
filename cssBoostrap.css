@@ -229,7 +229,7 @@ body {
   font-size: 1em;
 }
 
-#contenedorProductos{
+#contenedorProductos, #contenedorCarrito2, #contenedorResultado{
   display: flex;
   flex-wrap: wrap;
 }

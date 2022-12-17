@@ -128,30 +128,56 @@ function cargarAlCarrito(carrito, valor) {
     console.log(carrito);
 }
 
-function mostrarResultadoArtista(titulo, imagen, precio, autor) {
-    const resultadoBusqueda = document.createElement("div");
-    resultadoBusqueda.innerHTML = `<div class="col-sm-12 col-md-4 col-xl-6" class="tarjetaGenerica">
-        <div class="card mt-3 mb-2">
-            <img class="card-img-top" src=${imagen} class="img-fluid">
-            <div class="card-body">
-                <h3 class="card-title">${titulo}</h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                    <p class="autorHocus">${autor}</p>
-                    <p>Valor: ${precio}</p>
-                <a id="btnComprar" class="btn btn-primary wf-btn-black">agregar al carrito</a>
-            </div>
-        </div>
-    </div>`;
+const contenedorResultado = document.getElementById('contenedorResultado');
 
+function mostrarResultadoArtista(titulo, imagen, precio, autor) {
+    const resultadoBusqueda = document.createElement('div');
+    resultadoBusqueda.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+    resultadoBusqueda.innerHTML = `
+                          <div>
+                              <img src=${imagen} class="card-img-top img-fluid py-3">
+                              <div class="card-body">
+                                  <h3 class="card-title"> ${titulo} </h3>
+                                  <p class="card-text"> ${precio} </p>
+                                  <button id="boton${autor}" class="btn btn-primary">Eliminar</button>
+                                  <button id="boton${titulo}" class="btn btn-primary">Agregar al Carrito </button>
+                              </div>
+                          </div>`;
+    // const resultadoBusqueda = document.createElement("div");
+    // resultadoBusqueda.innerHTML = 
+    // `<div class = " card col-xl-3 col-md-6 col-sm-12">
+    //         <img class="card-img-top" src=${imagen} class="card-img-top img-fluid py-3">
+    //         <div class="card-body">
+    //             <h3 class="card-title">${titulo}</h3>
+    //             <p class="card-text">Some quick example text to build on the card title and make up the
+    //                 bulk of the card's content.</p>
+    //                 <p class="autorHocus">${autor}</p>
+    //                 <p>Valor: ${precio}</p>
+    //             <button id="btnComprar" class="btn btn-primary wf-btn-black">agregar al carrito
+    //         </button>
+    //         </div>
+    // </div>`;
     contenedorResultado.appendChild(resultadoBusqueda);
-    let btnComprar = document.querySelectorAll('#btnComprar');
-    btnComprar.forEach(el => {
-        el.addEventListener('click', (e) => {
-            cargarAlCarro(ProductoEncontradoArtista, carrito)
-        })
-    })
+        //Agregar un evento al boton de agregar al carrito:
+        const boton = document.getElementById(`boton${titulo}`);
+        boton.addEventListener('click', () => {
+            Toastify({
+                text: "Agregado al carrito perro",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, red, yellow)",
+                },
+                onClick: function () { }
+            }).showToast();
+            agregarAlCarrito(carrito, ProductoEncontradoArtista);
+            console.log(carrito);
+        });
+
 }
 
 // no alcancé a desarrollar esta funcionalidad
@@ -332,3 +358,4 @@ var cleave = new Cleave('#cardNumber', {
         console.log(type);
     }
 });
+

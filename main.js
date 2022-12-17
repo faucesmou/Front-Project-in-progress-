@@ -1,4 +1,3 @@
-
 // -------------------------------------------------ESTRUCTURA FUNCIÓN CONSTRUCTORA, CARRITO Y ALMACENES---------------------------------------------->
 
 
@@ -53,7 +52,7 @@ const almacen2 = [producto1, producto2, producto3, producto4, producto5, product
 
 const almacenCompra = [producto1, producto2, producto3]
 
-//Muestro los productos modificando el DOM.
+
 
 const contenedorProductos = document.getElementById('contenedorProductos');
 
@@ -61,10 +60,14 @@ almacen2.forEach((producto) => {
     const divProducto = document.createElement('div');
     divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
     divProducto.innerHTML = `
-                          <div class="card mt-3 mb-2">
+                          <div>
                               <img src=${producto.imagen} class="card-img-top img-fluid py-3">
                               <div class="card-body">
                                   <h3 class="card-title"> ${producto.titulo} </h3>
+                                  <p class="autorS">${producto.autor}</p>
+                                  <p class="descripcionT">Some quick example text to build on the card title and make up the
+                                  bulk
+                                  of the card's content.</p>
                                   <p class="card-text"> ${producto.precio} </p>
                                   <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
                               </div>
@@ -73,15 +76,27 @@ almacen2.forEach((producto) => {
     //Agregar un evento al boton de agregar al carrito:
     const boton = document.getElementById(`boton${producto.id}`);
     boton.addEventListener('click', () => {
+        Toastify({
+            text: "Agregado al carrito",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, red, yellow)",
+            },
+            onClick: function () { }
+        }).showToast();
         agregarAlCarrito(producto.id);
     });
 });
 
 
-//Versión que chequea las cantidades:
 
 const agregarAlCarrito = (id) => {
-    const producto = productos.find((producto) => producto.id === id);
+    const producto = almacen2.find((producto) => producto.id === id);
     const productoEnCarrito = carrito.find((producto) => producto.id === id);
     if (productoEnCarrito) {
         productoEnCarrito.cantidad++;
@@ -93,7 +108,7 @@ const agregarAlCarrito = (id) => {
 
 //Muestro el carrito de compras modificando el DOM.
 
-const contenedorCarrito = document.getElementById('contenedorCarrito2');
+const contenedorCarrito2 = document.getElementById('contenedorCarrito2');
 const verCarrito = document.getElementById('verCarrito2');
 
 verCarrito.addEventListener('click', actualizarCarrito);
@@ -102,32 +117,38 @@ function actualizarCarrito() {
     let aux = '';
     carrito.forEach((producto) => {
         aux += `
-              <div class="card col-xl-3 col-md-6 col-sm-12">
-                  <img src="img/${producto.id}.jpg" class="card-img-top img-fluid py-3">
-                  <div class="card-body">
-                      <h3 class="card-title"> ${producto.nombre} </h3>
-                      <p class="card-text"> ${producto.precio} </p>
-                      <button onClick = "eliminarDelCarrito(${producto.id})" class="btn btn-primary"> Eliminar del Carrito </button>
-                  </div>
-              </div>
+        <div class="card col-xl-3 col-md-6 col-sm-12">
+        <img src=${producto.imagen} class="card-img-top img-fluid py-3">
+        <div class="card-body">
+            <h3 class="card-title"> ${producto.titulo} </h3>
+            <p class="autorS">${producto.autor}</p>
+            <p class="descripcionT">Some quick example text to build on the card title and make up the
+            bulk
+            of the card's content.</p>
+            <p class="card-text"> ${producto.precio} </p>
+            <button onClick = "eliminarDelCarrito(${producto.id})" class="btn btn-primary"> Eliminar del Carrito </button>
+        </div>
+    </div>
               `;
-    });
 
-    contenedorCarrito.innerHTML = aux;
+});
+    contenedorCarrito2.innerHTML = aux;
     calcularTotalCompra();
 }
 
-//Agrego una función que elimine el producto del carrito:
-const eliminarDelCarrito = (id) => {
+//Agrego una función que elimina el producto del carrito:
+
+  const eliminarDelCarrito = (id) => {
     const producto = carrito.find((producto) => producto.id === id);
     carrito.splice(carrito.indexOf(producto), 1);
     actualizarCarrito();
   };
 
+
 ///Función para vaciar todo el carrito por completo:
 
-const vaciarCarrito = document.getElementById('vaciarCarrito2');
-vaciarCarrito.addEventListener('click', () => {
+const vaciarCarrito2 = document.getElementById('vaciarCarrito2');
+vaciarCarrito2.addEventListener('click', () => {
   carrito.splice(0, carrito.length);
   actualizarCarrito();
 });
@@ -183,436 +204,452 @@ setTimeout(() => {
 //Botones de compra productos: NOTIFICACIÓN Librería TOASTIFY ----------------------------------------------->
 //AGREGAR AL CARRITO  GUARDANDO Y RECUPERANDO DESDE EL LOCAL STORAGE ------------------------------------------------------>
 
-const btnSofter = document.getElementById("btnSofter");
-btnSofter.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloS = document.querySelector(".tituloS");
-    const tituloTarjeta = tituloS.innerHTML;
-    const descripcionS = document.querySelector(".descripcionS");
-    const descripcionTarjeta = descripcionS.innerHTML;
-    const precioS = document.querySelector(".precioS");
-    const precioTarjeta = precioS.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenVioleta.jpg";
-    const autorS = document.querySelector(".autorS");
-    const autorTarjeta = autorS.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnSofter = document.getElementById("btnSofter");
+// btnSofter.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloS = document.querySelector(".tituloS");
+//     const tituloTarjeta = tituloS.innerHTML;
+//     const descripcionS = document.querySelector(".descripcionS");
+//     const descripcionTarjeta = descripcionS.innerHTML;
+//     const precioS = document.querySelector(".precioS");
+//     const precioTarjeta = precioS.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenVioleta.jpg";
+//     const autorS = document.querySelector(".autorS");
+//     const autorTarjeta = autorS.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnTomato = document.getElementById("btnTomato");
-btnTomato.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloTo = document.querySelector(".tituloTo");
-    const tituloTarjeta = tituloTo.innerHTML;
-    const descripcionTo = document.querySelector(".descripcionTo");
-    const descripcionTarjeta = descripcionTo.innerHTML;
-    const precioTo = document.querySelector(".precioTo");
-    const precioTarjeta = precioTo.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenTomato2.jpg";
-    const autorTo = document.querySelector(".autorTo");
-    const autorTarjeta = autorTo.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnTomato = document.getElementById("btnTomato");
+// btnTomato.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloTo = document.querySelector(".tituloTo");
+//     const tituloTarjeta = tituloTo.innerHTML;
+//     const descripcionTo = document.querySelector(".descripcionTo");
+//     const descripcionTarjeta = descripcionTo.innerHTML;
+//     const precioTo = document.querySelector(".precioTo");
+//     const precioTarjeta = precioTo.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenTomato2.jpg";
+//     const autorTo = document.querySelector(".autorTo");
+//     const autorTarjeta = autorTo.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnGhost = document.getElementById("btnGhost");
-btnGhost.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloGhost = document.querySelector(".tituloGhost");
-    const tituloTarjeta = tituloGhost.innerHTML;
-    const descripcionGhost = document.querySelector(".descripcionGhost");
-    const descripcionTarjeta = descripcionGhost.innerHTML;
-    const precioGhost = document.querySelector(".precioGhost");
-    const precioTarjeta = precioGhost.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenFantasma.jpg";
-    const autorGhost = document.querySelector(".autorGhost");
-    const autorTarjeta = autorGhost.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnGhost = document.getElementById("btnGhost");
+// btnGhost.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloGhost = document.querySelector(".tituloGhost");
+//     const tituloTarjeta = tituloGhost.innerHTML;
+//     const descripcionGhost = document.querySelector(".descripcionGhost");
+//     const descripcionTarjeta = descripcionGhost.innerHTML;
+//     const precioGhost = document.querySelector(".precioGhost");
+//     const precioTarjeta = precioGhost.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenFantasma.jpg";
+//     const autorGhost = document.querySelector(".autorGhost");
+//     const autorTarjeta = autorGhost.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnHocus = document.getElementById("btnHocus");
-btnHocus.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloHocus = document.querySelector(".tituloHocus");
-    const tituloTarjeta = tituloHocus.innerHTML;
-    const descripcionHocus = document.querySelector(".descripcionHocus");
-    const descripcionTarjeta = descripcionHocus.innerHTML;
-    const precioHocus = document.querySelector(".precioHocus");
-    const precioTarjeta = precioHocus.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenSalem.jpg";
-    const autorHocus = document.querySelector(".autorHocus");
-    const autorTarjeta = autorHocus.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnHocus = document.getElementById("btnHocus");
+// btnHocus.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloHocus = document.querySelector(".tituloHocus");
+//     const tituloTarjeta = tituloHocus.innerHTML;
+//     const descripcionHocus = document.querySelector(".descripcionHocus");
+//     const descripcionTarjeta = descripcionHocus.innerHTML;
+//     const precioHocus = document.querySelector(".precioHocus");
+//     const precioTarjeta = precioHocus.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenSalem.jpg";
+//     const autorHocus = document.querySelector(".autorHocus");
+//     const autorTarjeta = autorHocus.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnTigre = document.getElementById("btnTigre");
-btnTigre.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloT = document.querySelector(".tituloT");
-    const tituloTarjeta = tituloT.innerHTML;
-    const descripcionT = document.querySelector(".descripcionT");
-    const descripcionTarjeta = descripcionT.innerHTML;
-    const precioT = document.querySelector(".precioT");
-    const precioTarjeta = precioT.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenTigre.jpg";
-    const autorT = document.querySelector(".autorT");
-    const autorTarjeta = autorT.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnTigre = document.getElementById("btnTigre");
+// btnTigre.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloT = document.querySelector(".tituloT");
+//     const tituloTarjeta = tituloT.innerHTML;
+//     const descripcionT = document.querySelector(".descripcionT");
+//     const descripcionTarjeta = descripcionT.innerHTML;
+//     const precioT = document.querySelector(".precioT");
+//     const precioTarjeta = precioT.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenTigre.jpg";
+//     const autorT = document.querySelector(".autorT");
+//     const autorTarjeta = autorT.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnDuck = document.getElementById("btnDuck");
-btnDuck.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloD = document.querySelector(".tituloD");
-    const tituloTarjeta = tituloD.innerHTML;
-    const descripcionD = document.querySelector(".descripcionD");
-    const descripcionTarjeta = descripcionD.innerHTML;
-    const precioD = document.querySelector(".precioD");
-    const precioTarjeta = precioD.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenPato.jpg";
-    const autorD = document.querySelector(".autorD");
-    const autorTarjeta = autorD.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnDuck = document.getElementById("btnDuck");
+// btnDuck.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloD = document.querySelector(".tituloD");
+//     const tituloTarjeta = tituloD.innerHTML;
+//     const descripcionD = document.querySelector(".descripcionD");
+//     const descripcionTarjeta = descripcionD.innerHTML;
+//     const precioD = document.querySelector(".precioD");
+//     const precioTarjeta = precioD.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenPato.jpg";
+//     const autorD = document.querySelector(".autorD");
+//     const autorTarjeta = autorD.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnAstrology = document.getElementById("btnAstrology");
-btnAstrology.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloA = document.querySelector(".tituloA");
-    const tituloTarjeta = tituloA.innerHTML;
-    const descripcionA = document.querySelector(".descripcionA");
-    const descripcionTarjeta = descripcionA.innerHTML;
-    const precioA = document.querySelector(".precioA");
-    const precioTarjeta = precioA.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenAstrologia.jpg";
-    const autorA = document.querySelector(".autorA");
-    const autorTarjeta = autorA.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnAstrology = document.getElementById("btnAstrology");
+// btnAstrology.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloA = document.querySelector(".tituloA");
+//     const tituloTarjeta = tituloA.innerHTML;
+//     const descripcionA = document.querySelector(".descripcionA");
+//     const descripcionTarjeta = descripcionA.innerHTML;
+//     const precioA = document.querySelector(".precioA");
+//     const precioTarjeta = precioA.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenAstrologia.jpg";
+//     const autorA = document.querySelector(".autorA");
+//     const autorTarjeta = autorA.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnClippings = document.getElementById("btnClippings");
-btnClippings.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloBC = document.querySelector(".tituloBC");
-    const tituloTarjeta = tituloBC.innerHTML;
-    const descripcionBC = document.querySelector(".descripcionBC");
-    const descripcionTarjeta = descripcionBC.innerHTML;
-    const precioBC = document.querySelector(".precioBC");
-    const precioTarjeta = precioBC.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenClipings.jpg";
-    const autorBC = document.querySelector(".autorBC");
-    const autorTarjeta = autorBC.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnClippings = document.getElementById("btnClippings");
+// btnClippings.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloBC = document.querySelector(".tituloBC");
+//     const tituloTarjeta = tituloBC.innerHTML;
+//     const descripcionBC = document.querySelector(".descripcionBC");
+//     const descripcionTarjeta = descripcionBC.innerHTML;
+//     const precioBC = document.querySelector(".precioBC");
+//     const precioTarjeta = precioBC.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenClipings.jpg";
+//     const autorBC = document.querySelector(".autorBC");
+//     const autorTarjeta = autorBC.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnHype = document.getElementById("btnHype");
-btnHype.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloHP = document.querySelector(".tituloHP");
-    const tituloTarjeta = tituloHP.innerHTML;
-    const descripcionHP = document.querySelector(".descripcionHP");
-    const descripcionTarjeta = descripcionHP.innerHTML;
-    const precioHP = document.querySelector(".precioHP");
-    const precioTarjeta = precioHP.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenHype.jpg";
-    const autorHP = document.querySelector(".autorHP");
-    const autorTarjeta = autorHP.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnHype = document.getElementById("btnHype");
+// btnHype.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloHP = document.querySelector(".tituloHP");
+//     const tituloTarjeta = tituloHP.innerHTML;
+//     const descripcionHP = document.querySelector(".descripcionHP");
+//     const descripcionTarjeta = descripcionHP.innerHTML;
+//     const precioHP = document.querySelector(".precioHP");
+//     const precioTarjeta = precioHP.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenHype.jpg";
+//     const autorHP = document.querySelector(".autorHP");
+//     const autorTarjeta = autorHP.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnSpace = document.getElementById("btnSpace");
-btnSpace.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { }
-    }).showToast();
-    const tituloST = document.querySelector(".tituloST");
-    const tituloTarjeta = tituloST.innerHTML;
-    const descripcionST = document.querySelector(".descripcionST");
-    const descripcionTarjeta = descripcionST.innerHTML;
-    const precioST = document.querySelector(".precioST");
-    const precioTarjeta = precioST.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenNave.jpg";
-    const autorST = document.querySelector(".autorST");
-    const autorTarjeta = autorST.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnSpace = document.getElementById("btnSpace");
+// btnSpace.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { }
+//     }).showToast();
+//     const tituloST = document.querySelector(".tituloST");
+//     const tituloTarjeta = tituloST.innerHTML;
+//     const descripcionST = document.querySelector(".descripcionST");
+//     const descripcionTarjeta = descripcionST.innerHTML;
+//     const precioST = document.querySelector(".precioST");
+//     const precioTarjeta = precioST.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenNave.jpg";
+//     const autorST = document.querySelector(".autorST");
+//     const autorTarjeta = autorST.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnDog = document.getElementById("btnDog");
-btnDog.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { } // Callback after click
-    }).showToast();
-    const tituloDP = document.querySelector(".tituloDP");
-    const tituloTarjeta = tituloDP.innerHTML;
-    const descripcionDP = document.querySelector(".descripcionDP");
-    const descripcionTarjeta = descripcionDP.innerHTML;
-    const precioDog = document.querySelector(".precioDog");
-    const precioTarjeta = precioDog.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenDog.jpg";
-    const autorDog = document.querySelector(".autorDog");
-    const autorTarjeta = autorDog.innerHTML;
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+// const btnDog = document.getElementById("btnDog");
+// btnDog.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { } // Callback after click
+//     }).showToast();
+//     const tituloDP = document.querySelector(".tituloDP");
+//     const tituloTarjeta = tituloDP.innerHTML;
+//     const descripcionDP = document.querySelector(".descripcionDP");
+//     const descripcionTarjeta = descripcionDP.innerHTML;
+//     const precioDog = document.querySelector(".precioDog");
+//     const precioTarjeta = precioDog.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenDog.jpg";
+//     const autorDog = document.querySelector(".autorDog");
+//     const autorTarjeta = autorDog.innerHTML;
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
-const btnKill = document.getElementById("btnKill");
-btnKill.addEventListener('click', () => {
-    Toastify({
-        text: "Agregado al carrito",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, red, yellow)",
-        },
-        onClick: function () { } // Callback after click
-    }).showToast();
-    const tituloKB = document.querySelector(".tituloKB");
-    const tituloTarjeta = tituloKB.innerHTML;
-    const descripcionKB = document.querySelector(".descripcionKB");
-    const descripcionTarjeta = descripcionKB.innerHTML;
-    const precioKB = document.querySelector(".precioKB");
-    const precioTarjeta = precioKB.innerHTML;
-    const imagenTarjeta = "./imagenes/imagenKB.jpg";
-    const autorKB = document.querySelector(".autorKB");
-    const autorTarjeta = autorKB.innerHTML;
+// const btnKill = document.getElementById("btnKill");
+// btnKill.addEventListener('click', () => {
+//     Toastify({
+//         text: "Agregado al carrito",
+//         duration: 3000,
+//         newWindow: true,
+//         close: true,
+//         gravity: "top",
+//         position: "center",
+//         stopOnFocus: true,
+//         style: {
+//             background: "linear-gradient(to right, red, yellow)",
+//         },
+//         onClick: function () { } // Callback after click
+//     }).showToast();
+//     const tituloKB = document.querySelector(".tituloKB");
+//     const tituloTarjeta = tituloKB.innerHTML;
+//     const descripcionKB = document.querySelector(".descripcionKB");
+//     const descripcionTarjeta = descripcionKB.innerHTML;
+//     const precioKB = document.querySelector(".precioKB");
+//     const precioTarjeta = precioKB.innerHTML;
+//     const imagenTarjeta = "./imagenes/imagenKB.jpg";
+//     const autorKB = document.querySelector(".autorKB");
+//     const autorTarjeta = autorKB.innerHTML;
 
-    const productoSeleccionado = {
-        titulo: tituloTarjeta,
-        descripcion: descripcionTarjeta,
-        precio: precioTarjeta,
-        imagen: imagenTarjeta,
-        autor: autorTarjeta,
-    }
-    guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
-    agregarCarrito()
-    console.log(carrito);
-})
+//     const productoSeleccionado = {
+//         titulo: tituloTarjeta,
+//         descripcion: descripcionTarjeta,
+//         precio: precioTarjeta,
+//         imagen: imagenTarjeta,
+//         autor: autorTarjeta,
+//     }
+//     guardarLocal('ProductoAgregado', JSON.stringify(productoSeleccionado));
+//     agregarCarrito()
+//     console.log(carrito);
+// })
 
+// porta papeles temporal usar y luego borrar function mostrarResultadoArtista(titulo, imagen, precio, autor) {
+//     const resultadoBusqueda = document.createElement("div");
+//     resultadoBusqueda.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+//     resultadoBusqueda.innerHTML = `
+//     <div class="card mt-3 mb-2">
+//     <img src=${imagen} class="card-img-top img-fluid py-3">
+//     <div class="card-body">
+//         <h3 class="card-title"> ${titulo} </h3>
+//         <p class="card-text">Some quick example text to build on the card title and make up the
+//         bulk
+//         of the card's content.</p>
+//         <p class="autorHocus">${autor}</p>
+//         <p class="card-text"> ${precio} </p>
+//         <button id="boton${producto.id}" class="btn btn-primary wf-btn-black"> Agregar al Carrito </button>
+//     </div>
+// </div>`;
