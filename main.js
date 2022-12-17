@@ -52,7 +52,7 @@ const almacen2 = [producto1, producto2, producto3, producto4, producto5, product
 
 const almacenCompra = [producto1, producto2, producto3]
 
-
+const productosEncontrados = []
 
 const contenedorProductos = document.getElementById('contenedorProductos');
 
@@ -143,13 +143,40 @@ function actualizarCarrito() {
     carrito.splice(carrito.indexOf(producto), 1);
     actualizarCarrito();
   };
-
-
+//Agrego una función que elimina el producto de búsquedas: (TERMINAR ESTE PROCESO!! LO SACA DE BÚSQUEDAS PERO NO SE VISUALIZA!  )
+  const eliminarDelBusquedas = (id) => {
+    const producto = productosEncontrados.find((producto) => producto.id === id);
+    productosEncontrados.splice(carrito.indexOf(producto), 1);
+  };
 ///Función para vaciar todo el carrito por completo:
 
 const vaciarCarrito2 = document.getElementById('vaciarCarrito2');
 vaciarCarrito2.addEventListener('click', () => {
-  carrito.splice(0, carrito.length);
+    Swal.fire({
+        title: 'Está seguro?',
+        text: "Está a punto de vaciar el carrito",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, vaciar',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito.splice(0, carrito.length);
+            actualizarCarrito()
+            //botonCerrar.click()
+            Toastify({
+                text: 'Se vació el carrito',
+                position: 'left',
+                gravity: 'bottom',
+                duration: 5000,
+                style: {
+                    background: "linear-gradient(to right, #f17b5d, #f02f2f)",
+                }
+            }).showToast()
+        }
+    })
   actualizarCarrito();
 });
 

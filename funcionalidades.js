@@ -128,16 +128,29 @@ function cargarAlCarrito(carrito, valor) {
     console.log(carrito);
 }
 
+//pego esta función para agregar boton de eliminar de las búsquedas/ creo array de productos encontrados :
+const eliminarDeProductosEncontrados = (id) => {
+    const producto = productosEncontrados.find((producto) => producto.id === id);
+    productosEncontrados.splice(productosEncontrados.indexOf(producto), 1);
+    actualizarCarrito();
+  };
+
+  // tengo que crear función actualizarProductos encontrados
+
 const contenedorResultado = document.getElementById('contenedorResultado');
 
-function mostrarResultadoArtista(titulo, imagen, precio, autor) {
+
+
+
+
+function mostrarResultadoArtista(id, titulo, imagen, precio, autor) {
     const resultadoBusqueda = document.createElement('div');
     resultadoBusqueda.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
     resultadoBusqueda.innerHTML = `
                           <div>
                               <img src=${imagen} class="card-img-top img-fluid py-3">
                               <div class="card-body">
-                                  <h3 class="card-title"> ${titulo} </h3>
+                                  <h3 class="card-title">${id} ${titulo} </h3>
                                   <p class="card-text"> ${precio} </p>
                                   <button id="boton${autor}" class="btn btn-primary">Eliminar</button>
                                   <button id="boton${titulo}" class="btn btn-primary">Agregar al Carrito </button>
@@ -158,6 +171,7 @@ function mostrarResultadoArtista(titulo, imagen, precio, autor) {
     //         </div>
     // </div>`;
     contenedorResultado.appendChild(resultadoBusqueda);
+
         //Agregar un evento al boton de agregar al carrito:
         const boton = document.getElementById(`boton${titulo}`);
         boton.addEventListener('click', () => {
@@ -174,9 +188,33 @@ function mostrarResultadoArtista(titulo, imagen, precio, autor) {
                 },
                 onClick: function () { }
             }).showToast();
-            agregarAlCarrito(carrito, ProductoEncontradoArtista);
+            agregarAlCarrito(id);
             console.log(carrito);
+            console.log(productosEncontrados);
+
         });
+        const boton2 = document.getElementById(`boton${autor}`);
+        boton2.addEventListener('click', () => {
+            Toastify({
+                text: "Eliminado del búsquedas",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, red, yellow)",
+                },
+                onClick: function () { }
+            }).showToast();
+            eliminarDelBusquedas(id);
+            console.log(productosEncontrados);
+
+        });
+
+
+
 
 }
 
@@ -209,15 +247,16 @@ botonBuscar.addEventListener("submit", (e) => {
                     return producto.autor.includes(usuarioBusqueda);
                 })
                 ProductoEncontradoArtista.forEach((producto) => {
-                    mostrarResultadoArtista(producto.titulo, producto.imagen, producto.precio, producto.autor);
+                    mostrarResultadoArtista(producto.id, producto.titulo, producto.imagen, producto.precio, producto.autor);
                 })
-
             });
     } else {
         ProductoEncontradoArtista = filtrarPorPrecio(almacen2, usuarioBusqueda);
         console.log(ProductoEncontradoArtista);
         ProductoEncontradoArtista.forEach((producto) => {
-            mostrarResultadoArtista(producto.titulo, producto.imagen, producto.precio, producto.autor);
+            mostrarResultadoArtista(producto.id, producto.titulo, producto.imagen, producto.precio, producto.autor);
+            cargarAlArray(productosEncontrados,ProductoEncontradoArtista);
+            console.log(productosEncontrados);
         })
     }
 })
@@ -256,18 +295,18 @@ const tbody = document.querySelector(".tbody");
 
 //Evento para botón "VER CARRITO" tarjetas en carrito y mostrarlas ----->
 
-const botonCarrito = document.getElementById("botonCarrito");
-botonCarrito.addEventListener('click', () => {
-    carritoHTML()
-});
+// const botonCarrito = document.getElementById("botonCarrito");
+// botonCarrito.addEventListener('click', () => {
+//     carritoHTML()
+// });
 
 //funciones para vaciar resultados de búsqueda y vaciar carrito ----->
 
-function actualizarCarrito() {
-    let aux = ''
-    tbody.innerHTML = aux;
-    //calcularTotalCompra();
-}
+// function actualizarCarrito() {
+//     let aux = ''
+//     tbody.innerHTML = aux;
+//     //calcularTotalCompra();
+// }
 
 function vaciarBusquedas() {
     let aux = ''
@@ -276,7 +315,7 @@ function vaciarBusquedas() {
 
 // Eventos para vaciar resultados de búsqueda y vaciar carrito ----->
 
-const vaciarResultado1 = document.getElementById("vaciar-resultado");
+const vaciarResultado1 = document.getElementById("vaciarResultado");
 vaciarResultado1.addEventListener('click', () => {
     Swal.fire({
         title: 'Está seguro?',
@@ -290,8 +329,9 @@ vaciarResultado1.addEventListener('click', () => {
     }).then((result) => {
         if (result.isConfirmed) {
             console.log(carrito);
-            vaciarBusquedas()
-            carrito.splice(0, carrito.length);
+            vaciarBusquedas();
+            carrito.splice(0, productosEncontrados.length);
+            console.log(productosEncontrados);
             //botonCerrar.click()
             Toastify({
                 text: 'Se vaciaron los productos encontrados',
