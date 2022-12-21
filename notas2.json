@@ -53,7 +53,7 @@
        "titulo":"Astrology",
        "autor":"camila fernández",
        "precio":6500,
-       "imagen":"./imagenes/imagenAstrologia"
+       "imagen":"./imagenes/imagenAstrologia.jpg"
     },
     {
        "id":8,

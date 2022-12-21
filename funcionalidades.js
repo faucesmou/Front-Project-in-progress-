@@ -189,8 +189,8 @@ function mostrarResultadoArtista(id, titulo, imagen, precio, autor) {
                 onClick: function () { }
             }).showToast();
             agregarAlCarrito(id);
+
             console.log(carrito);
-            console.log(productosEncontrados);
 
         });
         const boton2 = document.getElementById(`boton${autor}`);
@@ -209,7 +209,7 @@ function mostrarResultadoArtista(id, titulo, imagen, precio, autor) {
                 onClick: function () { }
             }).showToast();
             eliminarDelBusquedas(id);
-            console.log(productosEncontrados);
+            console.log(carrito);
 
         });
 

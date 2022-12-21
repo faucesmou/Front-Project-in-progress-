@@ -192,17 +192,74 @@ const calcularTotalCompra = () => {
   totalCompra.innerHTML = total;
 };
 
+//Botón continuar -------------------------------------------->
+
+const continuar = document.getElementById('continuar');
+
+continuar.addEventListener('click', () => {
+    location.href = "#pagarBtn";
+
+    setTimeout(() => {
+    Swal.fire({
+        title: 'Desea completar la compra?',
+        text: "A continuación se le solicitarán sus datos",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continuar con el pago',
+        cancelButtonText: 'Quiero seguir viendo productos'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //botonCerrar.click()
+            Toastify({
+                text: 'Excelente!',
+                position: 'left',
+                gravity: 'bottom',
+                duration: 5000,
+                style: {
+                    background: "linear-gradient(to right, #5da2f1, #221fe4)",
+                }
+            }).showToast()
+        }
+    })
+    }, 1200)
+});
+
+//Botón pagar  -------------------------------------------->
+
+const pagarBtn = document.getElementById('pagarBtn');
 
 
 
 
-
-
-
-
-
-
-
+pagarBtn.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Listo!',
+        text: "La operación fue realizada con éxito",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log(carrito);
+            vaciarBusquedas();
+            carrito.splice(0, carrito.length);
+            console.log(carrito);
+            //botonCerrar.click()
+            Toastify({
+                text: 'Gracias por elegirnos!',
+                position: 'left',
+                gravity: 'bottom',
+                duration: 5000,
+                style: {
+                    background: "linear-gradient(to right, #5da2f1, #221fe4)",
+                }
+            }).showToast()
+        }
+    })
+})
 
 
 //CREO ELEMENTOS DESDE JS--------------------------------------------------------------------------------------------------->
