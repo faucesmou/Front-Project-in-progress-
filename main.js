@@ -192,6 +192,31 @@ const calcularTotalCompra = () => {
   totalCompra.innerHTML = total;
 };
 
+//función para mostrar el resultado a pagar del carrito:
+const mostrarTotalCompra = () => {
+    let total = 0;
+    carrito.forEach((producto) => {
+      total += producto.precio * producto.cantidad;
+    });
+    mostrarTotal = total;
+  };
+
+function eliminarTotalCompra ()  {
+    contenedorTarjeta.removeChild(contenedorTarjeta.lastElementChild);
+}
+
+
+  const contenedorTarjeta = document.getElementById("contenedorTarjeta");
+
+  
+  function notificaTotalCompra() {
+      const notificaTotal = document.createElement('p');
+      notificaTotal.innerHTML = ` El monto final es de ${mostrarTotal}`;
+      contenedorTarjeta.appendChild(notificaTotal);
+      
+  }
+
+
 //Botón continuar -------------------------------------------->
 
 const continuar = document.getElementById('continuar');
@@ -221,9 +246,15 @@ continuar.addEventListener('click', () => {
                     background: "linear-gradient(to right, #5da2f1, #221fe4)",
                 }
             }).showToast()
+            setTimeout(() => {
+                mostrarTotalCompra();
+                notificaTotalCompra();
+            }, 1500)
         }
     })
     }, 1200)
+
+
 });
 
 //Botón pagar  -------------------------------------------->
@@ -257,6 +288,7 @@ pagarBtn.addEventListener('click', () => {
                     background: "linear-gradient(to right, #5da2f1, #221fe4)",
                 }
             }).showToast()
+            eliminarTotalCompra()
         }
     })
 })

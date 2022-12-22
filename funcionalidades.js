@@ -218,15 +218,6 @@ function mostrarResultadoArtista(id, titulo, imagen, precio, autor) {
 
 }
 
-// no alcancé a desarrollar esta funcionalidad
-
-// function cargarAlCarro(ProductoEncontradoArtista, carrito) {
-//     console.log(ProductoEncontradoArtista);
-//     carrito.push(productoAgregado);
-//     console.log(carrito);
-// }
-
-
 
 // EVENTO PARA EL BUSCADOR DEL NAV BAR ------------------------------------>
 
