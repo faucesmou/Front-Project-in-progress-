@@ -48,6 +48,7 @@ botonSweet.addEventListener('click', () => {
     })
 })
 
+
 //fin Botón SWEETALERT---------------------------------------------->
 
 
@@ -369,24 +370,4 @@ vaciarCarrito1.addEventListener('click', () => {
 })
 
 
-// INICIO LIBRERÍA CLEAVE.JS PARA LA TARJETA DE CRÉDITO--------------------------------------------------------->
-
-var cleave = new Cleave('#fechaNumber', {
-    date: true,
-    datePattern: ['m', 'y']
-});
-
-var cleave = new Cleave("#cardNumber", {
-    numeral: true,
-    numeralThousandsGroupStyle: 'thousand'
-});
-
-const formNumber = document.getElementsByClassName(".formNumber");
-
-var cleave = new Cleave('#cardNumber', {
-    creditCard: true,
-    onCreditCardTypeChanged: function (type) {
-        console.log(type);
-    }
-});
 

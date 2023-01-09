@@ -96,11 +96,11 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Explorá trabajos de diseño</a></li>
                             <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Blogs</a></li>
+                            <li><a class="dropdown-item" id="verNotificacion" href="#">ver notificación</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Novedades semanales</a></li>
+                            <li><a class="dropdown-item" id="novedadesSemanales" href="#">Novedades semanales</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -212,240 +212,38 @@
         <div class="container-fluidTarjetas wf-containerTarjetas" name="RefProductos" Id="contenedorProductos">
         </div>
     </section>
-<br>
-<section>
-    <div class="my-3 text-center">
-        <h3>Productos encontrados:</h3>
-        <div class="container-fluidTarjetas wf-containerTarjetas"name="contenedorResultado" id="contenedorResultado"></div>
-            <button class="w-5 btn btn-primary btn-lg text-center" id="vaciarResultado" type="">Vaciar resultados</button>
-    </div>
-</section>
-<br>
-<br>
-<br>
+    <br>
+    <section>
+        <div class="my-3 text-center">
+            <h3>Productos encontrados:</h3>
+            <div class="container-fluidTarjetas wf-containerTarjetas" name="contenedorResultado"
+                id="contenedorResultado"></div>
+            <button class="w-5 btn btn-primary btn-lg text-center" id="vaciarResultado" type="">Vaciar
+                resultados</button>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
     <section>
         <div class="my-3 text-center" id="contenedorStock">
             <h2>Carrito de Compras</h2>
-            <div class="container-fluidTarjetas wf-containerTarjetas"name="RefProductos" id="contenedorCarrito2"></div>
+            <div class="container-fluidTarjetas wf-containerTarjetas" name="RefProductos" id="contenedorCarrito2"></div>
             <button class="w-25 btn btn-primary btn-lg" id="verCarrito2">Ver Carrito</button>
             <button class="w-25 btn btn-primary btn-lg" id="vaciarCarrito2">Vaciar Carrito</button>
             <button class="w-25 btn btn-primary btn-lg" id="totalCompra">Total compra</button>
             <br>
             <br>
-            <button class="w-25 btn btn-primary btn-lg" id="continuar" >Continuar</button>
+            <button class="w-25 btn btn-primary btn-lg" id="continuar">Continuar</button>
             <div class="my-3 text-center" id="contenedorTotalCompra"></div>
         </div>
     </section>
 
 
 
-    <!-- <div class="card col-xl-3 col-md-6 col-sm-12">
-        <img src=${producto.imagen} class="card-img-top img-fluid py-3">
-        <div class="card-body">
-            <h3 class="card-title"> ${producto.titulo} </h3>
-            <p class="card-text"> ${producto.precio} </p>
-            <button onClick = "eliminarDelCarrito(${producto.id})"; Toastify({
-                text: "Eliminado del carrito",
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                position: "center",
-                stopOnFocus: true,
-                style: {
-                    background: "linear-gradient(to right, red, yellow)",
-                },
-                onClick: function () { }
-            }).showToast(); class="btn btn-primary"> Eliminar del Carrito </button>
-        </div>
-    </div> -->
-
-
-
-    <!-- 
-    <section>
-        <div class="container-fluidTarjetas wf-containerTarjetas" name="RefProductos" id="RefProductos">
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenVioleta.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloS">Softer</h3>
-                            <p class="descripcionS">This is a multipurpose branding logo identity.Personalized and
-                                unique
-                                brands that will reveal who you are.</p>
-                            <p class="autorS">Autor: Pablo fernández</p>
-                            <p class="precioS">Price: $9000</p>
-                            <a id="btnSofter" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenTomato2.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloTo">Tomato Soup</h3>
-                            <p class="descripcionTo">My own rendition of the Campbell's Soup Can made famous by Any
-                                Warhol.
-                            </p>
-                            <p class="autorTo">Autor: Andrew Footit</p>
-                            <p class="precioTo">Price: $3200</p>
-                            <a id="btnTomato" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenFantasma.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloGhost">Ghost Pals</h3>
-                            <p class="descripcionGhost">Wandering ghosts that will blow your mind with their
-                                creativity.Don't
-                                let terror keep you from this play.
-                            </p>
-                            <p class="autorGhost">Autor: Aleisha Samek</p>
-                            <p class="precioGhost">Price: $2700</p>
-                            <a id="btnGhost" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenSalem.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloHocus">Hocus Pocus</h3>
-                            <p class="descripcionHocus">Halloween's favorite sisters! This Hocus Pocus was drawn up to
-                                be made
-                                a Halloween t-shirt.
-                            </p>
-                            <p class="autorHocus">Autor: Zach Hannibal</p>
-                            <p class="precioHocus">Price: $3800</p>
-
-                            <a id="btnHocus" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenTigre.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloT">Sensitive Tiger</h3>
-                            <p class="descripcionT">Some quick example text to build on the card title and make up the
-                                bulk
-                                of the card's content.</p>
-                            <p class="autorT">Autor: Sofia herrera</p>
-                            <p class="precioT">Price: $4800</p>
-                            <a id="btnTigre" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3" class="tarjetaPato">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenPato.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloD">Duck Duck Pal</h3>
-                            <p class="descripcionD">Some quick example text to build on the card title and make up the
-                                bulk
-                                of the card's content.</p>
-                            <p class="autorD">Autor: Emanuel Pécora</p>
-                            <p class="precioD">Price: $2900</p>
-                            <a id="btnDuck" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenAstrologia.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloA">Astrology</h3>
-                            <p class="descripcionA">Some quick example text to build on the card title and make up the
-                                bulk
-                                of the card's content.</p>
-                            <p class="autorA">Autor: Camila Fernández</p>
-                            <p class="precioA">Price: $6500</p>
-                            <a id="btnAstrology" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenClipings.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloBC">Best Clippings</h3>
-                            <p class="descripcionBC">Some quick example text to build on the card title and make up the
-                                bulk
-                                of the card's content.</p>
-                            <p class="autorBC">Autor: Cami Ferreira</p>
-                            <p class="precioBC">Price: $2500</p>
-                            <a id="btnClippings" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenHype.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloHP">Hype!</h3>
-                            <p class="descripcionHP">Pop style street fashion, you're going to want to see what this is
-                                all
-                                about.</p>
-                            <p class="autorHP">Autor: Manu Contreras</p>
-                            <p class="precioHP">Price: $7100</p>
-
-                            <a id="btnHype" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenNave.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloST">Space Travel</h3>
-                            <p class="descripcionST">Elon Musk will be envying these prototypes. I'll be waiting for you
-                                in
-                                the next galaxy.</p>
-                            <p class="autorST">Autor: José Hidalgo</p>
-                            <p class="precioST">Price: $9400</p>
-                            <a id="btnSpace" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" src="imagenes/imagenDog.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloDP">Doberman Power</h3>
-                            <p class="descripcionDP">Canine energy for all your environments. Remember to take him out
-                                for a
-                                walk.</p>
-                            <p class="autorDog">Autor: Ezequiel Quinteros</p>
-                            <p class="precioDog">Price: $6500</p>
-                            <a id="btnDog" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-xl-3">
-                    <div class="card mt-3 mb-2">
-                        <img class="card-img-top" class="imagenKB" src="imagenes/imagenKB.jpg" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="tituloKB">Kill Bill Sessions</h3>
-                            <p class="descripcionKB">This is your last chapter my old friend. This fight will finish
-                                you.
-                                See you in the afterlife.</p>
-                            <p class="autorKB">Autor: Gonzalo Morresi</p>
-                            <p class="precioKB">Price: $8400</p>
-                            <a id="btnKill" class="btn btn-primary wf-btn-black">comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script> 
+        crossorigin="anonymous"></script>
 
     <!--PRUEBA DE FORMULARIO ----------------------------------------------------------------------------------------------->
 
@@ -556,89 +354,53 @@
         </div>
     </div>
 
-    <!-- <section>
-        <div class="my-3 text-center" id="contenedorStock">
-            <h2>Carrito de Compras</h2>
-            <div class="container-fluidTarjetas wf-containerTarjetas"name="RefProductos" id="contenedorCarrito2"></div>
-            <button class="w-25 btn btn-primary btn-lg" id="verCarrito2">Ver Carrito</button>
-            <button class="w-25 btn btn-primary btn-lg" id="vaciarCarrito2">Vaciar Carrito</button>
-            <button class="w-25 btn btn-primary btn-lg" id="totalCompra">Total compra</button>
-            <div class="my-3 text-center" id="contenedorTotalCompra"></div>
-        </div>
-    </section> -->
 
-    <!-- <section>
-        <div class="my-3 text-center">
-            <h3>Productos encontrados:</h3>
-            <div class="container-fluidTarjetas wf-containerTarjetas"name="contenedorResultado" id="contenedorResultado"></div>
-                <button class="w-5 btn btn-primary btn-lg text-center" id="vaciar-resultado" type="">Vaciar resultados</button>
-        </div>
-    </section> -->
-
-
-    <!-- <div class="my-3 text-center" id="contenedorCarrito">
-        <div class="my-3 text-center" id="contenedorBtnFormulario">
-            <button class="w-25 btn btn-primary btn-lg" id="botonCarrito" type="">
-                ver carrito
-            </button>
-            <table id="lista-carrito" class=u-full-width>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class="tbody"></tbody>
-            </table>
-            <button class="w-5 btn btn-primary btn-lg" id="vaciar-carrito" type="">
-                Vaciar Carrito
-            </button>
-        </div> -->
-
-        <div class="my-3 text-center" id="contenedorTarjeta">
-            <form action="">
-                <div class="formControl">
-                    <label for="card-Number" id="pagar">Número de tarjeta</label>
-                    <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" id="cardNumber" />
-                </div>
-                <br>
-                <div class="formNumber">
-                    <label for="card-Number">Fecha Vencimiento</label>
-                    <input type="text" id="fechaNumber" />
-                </div>
-                <div class="my-3 text-center" id="">
-                    <button class="w-10 btn btn-primary btn-lg" id="pagarBtn" type="">
-                        Pagar
-                    </button>
-                </div>
-
-            </form>
-        </div>
-        <br>
-        <footer>
-            <div class="container-fluid">
-                <ul class="nav justify-content-evenly p-3 mb-3">
-                    <li class="nav-item"><button type="button" class="btn btn-primary p-3"
-                            href="https://www.facebook.com/wefindresources"> facebook </button></li>
-                    <li class="nav-item"><button type="button"
-                            class="btn btn-success p-3 wf-btn-instagram" id="instagram">instagram</button></li>
-                    <li class="nav-item"><button type="button" class="btn btn-primary p-3"> twitter</button></li>
-                </ul>
+    <div class="my-3 text-center" id="contenedorTarjeta">
+        <form action="">
+            <div class="formControl">
+                <label for="card-Number" id="pagar">Número de tarjeta</label>
+                <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" id="cardNumber" />
             </div>
-        </footer>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-        <script src=https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"
+            <br>
+            <div class="formNumber">
+                <label for="card-Number">Fecha Vencimiento</label>
+                <input type="text" id="fechaNumber" />
+            </div>
+            <div class="my-3 text-center" id="">
+                <button class="w-10 btn btn-primary btn-lg" id="pagarBtn" type="">
+                    Pagar
+                </button>
+            </div>
+            <div class="my-3 text-center">
+                <button class="w-10 btn btn-primary btn-lg" id="notificaciones">
+                    <h8>Recibir notificaciones de novedades</h8>
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <br>
+    <footer>
+        <div class="container-fluid">
+            <ul class="nav justify-content-evenly p-3 mb-3">
+                <li class="nav-item"><button type="button" class="btn btn-primary p-3"
+                        href="https://www.facebook.com/wefindresources"> facebook </button></li>
+                <li class="nav-item"><button type="button" class="btn btn-success p-3 wf-btn-instagram"
+                        id="instagram">instagram</button></li>
+                <li class="nav-item"><button type="button" class="btn btn-primary p-3"> twitter</button></li>
+            </ul>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src=https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"
         integrity="sha256-EyD7akNMqhJB13TabqvIVtego8LX1P5+qkBXgqtPAIE=" crossorigin="anonymous"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
-        <script src="./main.js"></script>
-        <script src="./funcionalidades.js"></script>
-        <script src="./js/segundo.js"></script>
-        <script src="./js/tercero.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="./funcionalidades.js"></script>
+    <script src="./js/segundo.js"></script>
+    <script src="./js/tercero.js"></script>
 
 </body>
 
